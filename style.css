@@ -125,8 +125,9 @@ hr.solid {
     align-items: center;
     background-color: #FFFFFF;
     border-radius: 10px;
-    overflow: hidden; /* Hide overflow caused by padding */
+    overflow: hidden; 
     margin: 20px 20px;
+    /*Using CSS box shadow generator*/
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
   
@@ -149,7 +150,7 @@ hr.solid {
   .expiryAndQuant {
     display: flex;
     background-color: #FFFDF5;
-    flex: 0 0 auto; /* Prevent flex items from growing */
+    flex: 0 0 auto; 
     padding: 20px 0px;
     outline-style: solid;
     outline-width: 2px;
@@ -159,14 +160,11 @@ hr.solid {
   .expiry,
   .quantity {
     margin: 0px 20px;
-    flex: 1; /* Distribute available space equally */
-    padding: 20px 0; /* Adjust padding to match desired height */
+    flex: 1; 
+    padding: 20px 0; 
   }
   
   
   
   
-
-
-
 /*Write name and css*/
