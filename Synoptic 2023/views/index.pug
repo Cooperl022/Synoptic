@@ -1,0 +1,25 @@
+head
+  link(rel='stylesheet' href='stylesheets/style.css')
+#container
+  #topnav
+    nav
+      ul
+        li.active
+          a(href='/') Home
+        li
+          a(href='/food') Food
+        li
+          a(href='/donate') Donate
+        if loggedIn
+          li
+            a(href='/mybusiness') My Business
+  #LoginSection
+    if ! loggedIn 
+      form(action='/login' method='post')
+        input#Username(type='text' name='username' placeholder='Username' required='')
+        br
+        input#Password(type='password' name = 'password' placeholder='Password' required='')
+        input#login(type='submit' value='Login')
+        br
+    if loggedIn
+      a(href='/logout') Logout

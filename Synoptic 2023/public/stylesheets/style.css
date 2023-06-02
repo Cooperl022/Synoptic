@@ -1,0 +1,170 @@
+/* Louis CSS */
+
+/*Margin bottom takes priority*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight:400;
+}
+body {
+  background-color: #FFFAE7;
+}
+
+#LoginSection {
+  height: auto;
+  font-size: 20px;
+  align-self: center;
+  position: absolute;
+  right: 30px;
+  background-color: #FCF1C8;
+}
+#LoginSection input{
+  font-size: 15px;
+  padding: 4px;
+  margin: 2px;
+}
+#LoginSection button{
+  padding: 3px;
+}
+a {
+  color: rgb(184, 184, 184);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+#topnav {
+  overflow: hidden;
+  display: flex;
+  visibility: visible;
+  font-size: 20px;
+  padding: 5px 10px;
+  align-self: center;
+  background-color: #FCF1C8;
+  
+}
+  #topnav *{
+      background-color: #FCF1C8;
+  }
+  #topnav li{
+      display: inline-block;
+      margin-top: 5px;
+      padding: 0px 10px;
+  }
+
+      #topnav li a {
+          list-style: none;
+          text-decoration: none;
+          color: #000000;
+          /*background-color: rgba(0,0,0, 0.2);*/
+          padding: 5px 10px;
+          border-radius: 10px;
+      }
+
+  #topnav a:hover {
+      color: black;
+      transition: all 0.3s ease 0s;
+  }
+
+.active {
+  text-decoration: underline;
+}
+#container {
+  background-color: #FCF1C8;
+  margin: 10px 10px 40px 10px;
+  border-radius: 10px;
+  display: flex;
+  padding: 20px 0px;
+  outline-style: solid;
+  outline-width: 2px;
+  /*Using CSS box shadow generator*/
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+#Main{
+  margin: 0px 10px;
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+}
+select{
+  padding: 10px;
+  width: 40%;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+.Dropdown{
+  margin-bottom: 20px;
+}
+hr.solid {
+  border-top: 3px solid #000000;
+  width: 50%;
+  margin: 40px auto;
+}
+#Title{
+  font-size: 40px;
+  font-weight: 600;
+}
+#Information {
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
+#stock {
+  background-color: #FFFDF5;
+  margin: 0px 40px 10px 40px;
+  border-radius: 10px;
+  padding: 10px 0px;
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  overflow: hidden; 
+  margin: 20px 20px;
+  /*Using CSS box shadow generator*/
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.itemName {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.nameAndDesc {
+  margin-left: 40px;
+  flex-grow: 1;
+  text-align: left;
+  background-color: #FFFFFF;
+}
+
+.itemDescription {
+  margin-top: 10px;
+}
+
+.expiryAndQuant {
+  display: flex;
+  background-color: #FFFDF5;
+  flex: 0 0 auto; 
+  padding: 20px 0px;
+  outline-style: solid;
+  outline-width: 2px;
+
+}
+
+.expiry,
+.quantity {
+  margin: 0px 20px;
+  flex: 1; 
+  padding: 20px 0; 
+}
+
+
+
+
+/*Write name and css*/
