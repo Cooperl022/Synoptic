@@ -18,7 +18,7 @@ body {
     align-self: center;
     position: absolute;
     right: 30px;
-    background-color: #FCF1C8;
+
 }
 #LoginSection input{
     font-size: 15px;
@@ -27,6 +27,9 @@ body {
   }
   #LoginSection button{
     padding: 3px;
+    font-size: 15px;
+    background-color: #FCF1C8;
+    margin-bottom: 0;
   }
 a {
     color: rgb(184, 184, 184);
@@ -41,12 +44,8 @@ a {
     font-size: 20px;
     padding: 5px 10px;
     align-self: center;
-    background-color: #FCF1C8;
     
 }
-    #topnav *{
-        background-color: #FCF1C8;
-    }
     #topnav li{
         display: inline-block;
         margin-top: 5px;
@@ -96,6 +95,9 @@ select{
 }
 .Dropdown{
     margin-bottom: 20px;
+    background-color:rgba(0, 0, 0, 0.0);
+    padding: 5px;
+    border: none;
 }
 hr.solid {
     border-top: 3px solid #000000;
@@ -113,11 +115,12 @@ hr.solid {
 
 #stock {
     background-color: #FFFDF5;
-    margin: 0px 40px 10px 40px;
+    margin: 00px 40px 40px 40px;
     border-radius: 10px;
     padding: 10px 0px;
     outline-style: solid;
     outline-width: 2px;
+    
   }
   
   .row {
@@ -163,8 +166,46 @@ hr.solid {
     flex: 1; 
     padding: 20px 0; 
   }
+
+  form {
+    text-align: center;
+    width: 80%;
+    margin: 0 auto; 
+  }
+  
+  .form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    
+  }
+  
+  .form-group label {
+    flex-shrink: 0;
+    text-align: right;
+    margin-right: 10px;
+    
+  }
+  
+  .form-group input, textarea {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 20px;
+  }
+  textarea{
+    resize: vertical;
+  }
+
+  button{
+    font-size: 20px;
+    background-color: #FCF1C8;
+    padding: 5px 10px;
+    margin-bottom: 40px;
+  }
+
+
   
   
-  
-  
+
 /*Write name and css*/

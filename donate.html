@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id ="container">
+    <div id="topnav"> 
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="foodbanks.html">FoodBanks</a></li>
+                <li class="active"><a href="donate.html">Donate</a></li>
+                <!-- To add, only when logged in...
+                <li><a href="mybusiness.html">My Business</a></li-->
+            </ul>
+        </nav>
+    </div>
+    <div id ="LoginSection"> 
+        <input id="Username" type="text" placeholder="Username"> <br />
+        <input id="Password" type="password" placeholder="Password"> <button id="login">Login</button> <br /> 
+</div>
+</div>
+
+<div id ="Main">
+   
+        <select name="FoodBanks" id="dropdown">
+            <option value="PlaceA">PlaceA</option>
+            <option value="PlaceB">PlaceB</option>
+            <option value="PlaceC">PlaceC</option>
+            <option value="PlaceD">PlaceD</option>
+          </select>
+          <br />
+    
+Map <button class="Dropdown"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+<div id ="map">
+    
+    <!--Using logic of
+    
+    <BUTTON ID="Show" VALUE="Click to show" ONCLICK=" document.getElementById('Show').style.display='none'; document.getElementById('Hide').style.display='block'; document.getElementById('SectionName').style.display='block'">
+
+    <BUTTON ID="Hide" VALUE="Click to hide" ONCLICK=" document.getElementById('Show').style.display='block'; document.getElementById('Hide').style.display='none'; document.getElementById('SectionName').style.display='none'">
+
+    <DIV ID="'SectionName'" STYLE="display:none">Text to be shown and hidden</DIV>
+    
+    -->
+    
+    <img src ="includes/images/map.png" style = "height:auto;width:50%">
+
+</div>
+
+<div style="opacity: 0.1;">
+    <hr class="solid">
+    </div>
+
+
+Donate <button class="Dropdown"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+<br />
+
+<div id = "Donate">
+    <form>
+    <div class="form-group">
+        <label for="ItemName">Item Name:</label>
+        <input id="ItemName" type="text" placeholder="Name" minlength="2" maxlength="20" size="20" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="ItemDesc">Item Description:</label>
+        <textarea id="ItemDesc" type="text" placeholder="Description" size="50" maxlength="200" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="ExpiryDate">Expiry Date:</label>
+        <input id="ExpiryDate" type="date" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="Quantity">Quantity:</label>
+        <input id="Quantity" type="number" min="0" placeholder="0" max="999" required>
+      </div>
+    </form>
+    <button id ="Add"> Add </button>
+    </div>
+
+<div id ="stock">
+    
+    <!-- copy and paste from here -->
+    <div class = "row">
+        <div class="nameAndDesc">
+        <div class="itemName">Hamburger</div>
+        <div class = "itemDescription">It's a hamburger from me</div>
+        </div>
+        <div class = "expiryAndQuant">
+        <div class = "expiry">20/03/23</div>
+        <div class = "quantity">2</div>
+        </div>
+    </div>
+    <!-- to here for unlimited rows -->
+    
+    <div class = "row">
+        <div class="nameAndDesc">
+        <div class="itemName">Hamburger</div>
+        <div class = "itemDescription">It's a hamburger from me</div>
+        </div>
+        <div class = "expiryAndQuant">
+        <div class = "expiry">20/03/23</div>
+        <div class = "quantity">2</div>
+        </div>
+    </div>
+    
+    
+
+</div>
+<button id ="Submit"> Submit </button>
+</div>
+</body>
+</html>
