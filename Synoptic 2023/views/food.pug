@@ -11,9 +11,12 @@ head
           a(href='/food') Food
         li
           a(href='/donate') Donate
-        if loggedIn
+        if loggedIn && accountType == 'business'
           li
             a(href='/mybusiness') My Business
+        if loggedIn && accountType == 'admin'
+          li
+            a(href='/admin') Admin
   #LoginSection
     if ! loggedIn 
       form(action='/login' method='post')

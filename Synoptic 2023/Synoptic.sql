@@ -13,7 +13,7 @@ PRIMARY KEY(username)
 );
 
 select * from users;
-INSERT INTO users (username, userpassword, account_type) VALUES("admin", "12345", "admin");
+INSERT INTO users (username, userpassword, account_type) VALUES("admin3", "827ccb0eea8a706c4c34a16891f84e7b", "admin");
 
 
 create table stock (

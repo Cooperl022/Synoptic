@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
   sql = 'select * from stock'
   userModel.query(sql, function (error, stockResult) {
     if (error) throw error;
-    res.render('food', { foodPlaces: placesResult, stock: stockResult, loggedIn: req.session.loggedIn });
+    res.render('food', { foodPlaces: placesResult, stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType });
   });
   });
 });

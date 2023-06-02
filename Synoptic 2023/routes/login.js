@@ -16,7 +16,7 @@ router.post('/', function (req, res, next) {
     if (result.length > 0) {
       req.session.loggedIn = true;
       req.session.username = username;
-      console.log(req.session.username, username);
+      req.session.accountType = result[0].account_type;
       res.redirect('back');
     } 
     else {

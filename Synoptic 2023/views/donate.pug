@@ -10,11 +10,14 @@ head
           a(href='/food') Food
         li.active
           a(href='/donate') Donate
-        if loggedIn
+        if loggedIn && accountType == 'business'
           li
             a(href='/mybusiness') My Business
+        if loggedIn && accountType == 'admin'
+          li
+            a(href='/admin') Admin
   #LoginSection
-    if ! loggedIn 
+    if ! loggedIn
       form(action='/login' method='post')
         input#Username(type='text' name='username' placeholder='Username' required='')
         br
