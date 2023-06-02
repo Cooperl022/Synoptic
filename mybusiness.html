@@ -9,11 +9,10 @@
     <div id="topnav"> 
         <nav>
             <ul>
-                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="foodbanks.html">FoodBanks</a></li>
                 <li><a href="donate.html">Donate</a></li>
-                <!-- To add, only when logged in...
-                <li><a href="mybusiness.html">My Business</a></li-->
+                <li class="active"><a href="mybusiness.html">My Business</a></li-->
             </ul>
         </nav>
     </div>
@@ -24,9 +23,80 @@
 </div>
 
 <div id ="Main">
-   My Business
-        
+
+
+    
+<div id="Title">
+    PlaceA
+</div><br />
+<div id ="Information">
+    InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+    InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+    InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+    InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+</div>
+
+
+Add Stock <button class="Dropdown"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+<br />
+
+
+
+
+<div id ="stock">
+
+<!-- copy and paste from here -->
+<div class = "row">
+    <div class="nameAndDesc">
+    <div class="itemName">Hamburger</div>
+    <div class = "itemDescription">It's a hamburger from me</div>
+    </div>
+    <div class = "expiryAndQuant">
+    <div class = "expiry">20/03/23</div>
+    <div class = "quantity">2</div>
+    </div>
+</div>
+<!-- to here for unlimited rows -->
+
+<div class = "row">
+    <div class="nameAndDesc">
+    <div class="itemName">Hamburger</div>
+    <div class = "itemDescription">It's a hamburger from me</div>
+    </div>
+    <div class = "expiryAndQuant">
+    <div class = "expiry">20/03/23</div>
+    <div class = "quantity">2</div>
+    </div>
+</div>
+
+
 
 </div>
+</div>
+
+<form>
+    <div class="form-group">
+        <label for="ItemName">Item Name:</label>
+        <input id="ItemName" type="text" placeholder="Name" minlength="2" maxlength="20" size="20" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="ItemDesc">Item Description:</label>
+        <textarea id="ItemDesc" type="text" placeholder="Description" size="50" maxlength="200" required></textarea>
+      </div>
+      
+      <div class="form-group">
+        <label for="ExpiryDate">Expiry Date:</label>
+        <input id="ExpiryDate" type="date" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="Quantity">Quantity:</label>
+        <input id="Quantity" type="number" min="0" placeholder="0" max="999" required>
+      </div>
+      <button id ="Add"> Add </button>
+    </form>
+    
+    
 </body>
 </html>
