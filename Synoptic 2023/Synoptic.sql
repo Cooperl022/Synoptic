@@ -32,12 +32,13 @@ create table foodPlaces (
 place_name VARCHAR(100) NOT NULL,
 place_owner VARCHAR(100),
 place_address VARCHAR(500),
+place_description VARCHAR(1000),
 PRIMARY KEY(place_name)
 );
 
-INSERT INTO foodPlaces VALUES("Some random cafe", "owner name", "business address");
-INSERT INTO foodPlaces VALUES("A food bank", "owner name", "business address");
-INSERT INTO foodPlaces VALUES("Another cafe", "owner name", "business address");
+INSERT INTO foodPlaces VALUES("Some random cafe", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
+INSERT INTO foodPlaces VALUES("A food bank", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
+INSERT INTO foodPlaces VALUES("Another cafe", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
 
 select * from organisations;
 

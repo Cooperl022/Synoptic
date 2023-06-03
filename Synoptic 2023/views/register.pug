@@ -1,40 +1,28 @@
-Head
-  title Register
+head
   link(rel='stylesheet' href='stylesheets/style.css')
-header
-  nav
-    ul
-      li
-        a(href='/') Home
-      li
-        a(href='/food') Food
-      li
-        a.active(href='/register') Register
-main
-  .headerBox
-    h2 Register
-
-  br
-
-  form(action='#' method='post')
-    fieldset.formStyle
-      label(for='fName') First Name
-      input#fName.formInput(type='text' name='fName' placeholder='First Name' required='')
-      br
-      label(for='lName') Last Name
-      input#lName.formInput(type='text' name='lName' placeholder='Last Name' required='')
-      br
-      label(for='username') Username
-      input#lname.formInput(type='text' name='username' placeholder='Username' required='')
-      br
-      label(for='password') Password
-      input#password.formInput(type='password' name='password' placeholder='Password' required='')
-      br
-      label(for='confirmPassword') Confirm Password
-      input#confirmPassword.formInput(type='password' name='confirmPassword' placeholder='Confirm Password' required='')
-      br
-      label(for='email') Email
-      input#email.formInput(type='email' name='email' placeholder='Email' required='')
-      br
-      p #{status}
-      input.formSubmit(type='submit' value='Register')
+#container
+  #topnav
+    nav
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/food') Food
+        li
+          a(href='/donate') Donate
+        if loggedIn && accountType == 'business'
+          li
+            a(href='/mybusiness') My Business
+        if loggedIn && accountType == 'admin'
+          li
+            a(href='/admin') Admin
+  #LoginSection
+    if ! loggedIn 
+      form(action='/login' method='post')
+        input#Username(type='text' name='username' placeholder='Username' required='')
+        br
+        input#Password(type='password' name = 'password' placeholder='Password' required='')
+        button#login(type='submit') Login
+        br
+    if loggedIn
+      a(href='/logout') Logout

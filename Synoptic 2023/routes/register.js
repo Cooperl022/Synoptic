@@ -1,4 +1,4 @@
-const userModel = require('../models/synoptic');
+const synopticModel = require('../models/synoptic');
 var express = require('express');
 var router = express.Router();
 
@@ -21,7 +21,7 @@ router.post('/', function (req, res, next) {
     const hash = crypto.createHash('md5').update(password).digest('hex');
     
     var sql = 'select * from users where username = ?';
-    userModel.query(sql, [username], function (error, result) {
+    synopticModel.query(sql, [username], function (error, result) {
       if (error) throw error;
       if (result.length > 0) {
         //Username taken
@@ -33,7 +33,7 @@ router.post('/', function (req, res, next) {
       else {    
         //Username not taken
         sql = 'insert into users (first_name, last_name, username, userpassword, email) VALUES (?, ?, ?, ?, ?)';
-        userModel.query(sql, [fName, lName, username, hash, email]);    
+        synopticModel.query(sql, [fName, lName, username, hash, email]);    
         res.render('register', { status: "Account Created" }); 
         }
     }); 

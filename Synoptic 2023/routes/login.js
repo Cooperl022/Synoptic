@@ -1,4 +1,4 @@
-const userModel = require('../models/synoptic');
+const synopticModel = require('../models/synoptic');
 var express = require('express');
 var router = express.Router();
 
@@ -11,7 +11,7 @@ router.post('/', function (req, res, next) {
 
   const hash = crypto.createHash('md5').update(password).digest('hex');
   var sql = 'select * from users where username = ? and userpassword = ?';
-  userModel.query(sql, [username, hash], function (error, result) {
+  synopticModel.query(sql, [username, hash], function (error, result) {
     if (error) throw error;
     if (result.length > 0) {
       req.session.loggedIn = true;

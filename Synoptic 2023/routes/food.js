@@ -1,4 +1,4 @@
-const userModel = require('../models/synoptic');
+const synopticModel = require('../models/synoptic');
 var express = require('express');
 var router = express.Router();
 
@@ -6,11 +6,11 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
 
   var sql = 'select * from foodPlaces'
-  userModel.query(sql, function (error, placesResult) {
+  synopticModel.query(sql, function (error, placesResult) {
     if (error) throw error;
 
   sql = 'select * from stock'
-  userModel.query(sql, function (error, stockResult) {
+  synopticModel.query(sql, function (error, stockResult) {
     if (error) throw error;
     res.render('food', { foodPlaces: placesResult, stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType });
   });

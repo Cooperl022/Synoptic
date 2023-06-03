@@ -1,5 +1,6 @@
 head
   link(rel='stylesheet' href='stylesheets/style.css')
+  script(src='javascripts/donate.js' defer)
 #container
   #topnav
     nav
@@ -17,12 +18,53 @@ head
           li
             a(href='/admin') Admin
   #LoginSection
-    if ! loggedIn
+    if ! loggedIn 
       form(action='/login' method='post')
         input#Username(type='text' name='username' placeholder='Username' required='')
         br
         input#Password(type='password' name = 'password' placeholder='Password' required='')
-        input#login(type='submit' value='Login')
+        button#login(type='submit') Login
         br
     if loggedIn
       a(href='/logout') Logout
+#Main
+  select#foodDropDown(name='FoodBanks')
+    option(value="null") -
+    for foodPlace in foodPlaces
+      option(value=foodPlace.place_name) #{foodPlace.place_name}
+
+  br
+  | Map 
+  button.Dropdown
+    img(src='images/BlackTriangle.png' style='width:9px')
+  #map
+    //
+      Using logic of
+      <BUTTON ID="Show" VALUE="Click to show" ONCLICK=" document.getElementById('Show').style.display='none'; document.getElementById('Hide').style.display='block'; document.getElementById('SectionName').style.display='block'">
+      <BUTTON ID="Hide" VALUE="Click to hide" ONCLICK=" document.getElementById('Show').style.display='block'; document.getElementById('Hide').style.display='none'; document.getElementById('SectionName').style.display='none'">
+      <DIV ID="'SectionName'" STYLE="display:none">Text to be shown and hidden</DIV>
+    img(src='images/map.png' style='height:auto;width:50%')
+  div(style='opacity: 0.1;')
+    hr.solid
+  | Donate 
+  button.Dropdown
+    img(src='images/BlackTriangle.png' style='width:9px')
+  br
+  
+  form#DonateForm
+    .form-group
+        label(for='ItemName') Item Name:
+        input#ItemName(type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
+    .form-group
+        label(for='ItemDesc') Item Description:
+        textarea#ItemDesc(type='text' placeholder='Description' size='50' maxlength='200' required='')
+    .form-group
+        label(for='ExpiryDate') Expiry Date:
+        input#ExpiryDate(type='date' required='')
+    .form-group
+        label(for='Quantity') Quantity:
+        input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
+    button#Add(type='submit') Add
+
+  #stock
+  button#Submit  Submit 
