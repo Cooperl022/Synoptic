@@ -14,7 +14,7 @@ PRIMARY KEY(username)
 
 select * from users;
 INSERT INTO users (username, userpassword, account_type) VALUES("admin3", "827ccb0eea8a706c4c34a16891f84e7b", "admin");
-INSERT INTO users (username, userpassword, account_type)VALUES("business123", 
+	INSERT INTO users (username, userpassword, email, account_type) VALUES("business123", "827ccb0eea8a706c4c34a16891f84e7b", "business@business.com", "business");
 
 create table stock (
 id INT NOT NULL	AUTO_INCREMENT,
@@ -36,7 +36,7 @@ place_description VARCHAR(1000),
 PRIMARY KEY(place_name)
 );
 
-INSERT INTO foodPlaces VALUES("Some random cafe", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
+INSERT INTO foodPlaces VALUES("Some random cafe", "business123", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
 INSERT INTO foodPlaces VALUES("A food bank", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
 INSERT INTO foodPlaces VALUES("Another cafe", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
 

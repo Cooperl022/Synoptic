@@ -1,5 +1,10 @@
+doctype html
 head
   link(rel='stylesheet' href='stylesheets/style.css')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  script(src='javascripts/menu.js')
+button#burger(onclick='toggleMenu()')
+  img(src='images/BurgerMenuIcon.png' style='width:30px')
 #container
   #topnav
     nav
@@ -26,40 +31,51 @@ head
         br
     if loggedIn
       a(href='/logout') Logout
+  button#settingsCog(onclick='toggleSettings()')
+    img(src='images/SettingCogImage.png' style='width:40px')
+#containerTwo
+  #settings
+    ul
+      li
+        | Dyslexic view 
+        label.switch
+          input(type='checkbox')
+          span.slider.round
+      li
+        | High contrast view 
+        label.switch
+          input(type='checkbox')
+          span.slider.round
+      li
+        | Language 
+        select#dropdown
+          option(value='PlaceA') Eng
+          option(value='PlaceB') Fre
+          option(value='PlaceC') Jam
+          option(value='PlaceD') Spa
 #Main
   // TODO get value from below.. https://stackoverflow.com/questions/3593626/get-the-text-content-from-a-contenteditable-div-through-javascript
   #placeName.title(contenteditable='true')
-    | PlaceA [Edit]
+    | #{placeInfo.place_name} [Edit]
   br
   .Information(contenteditable='true')
-    | InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
-    | InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
-    | InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
-    | InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+    | #{placeInfo.place_description}
     | [Edit]
   | Add Stock 
   button.Dropdown
     img(src='images/BlackTriangle.png' style='width:9px')
   br
   #stock
-    // copy and paste from here
-    .row
-      .nameAndDesc
-        .itemName Hamburger
-        .itemDescription It&apos;s a hamburger from me
-      .expiryAndQuant
-        .expiry 20/03/23
-        .quantity 2
-      button.Remove ✕
-    // to here for unlimited rows
-    .row
-      .nameAndDesc
-        .itemName Hamburger
-        .itemDescription It&apos;s a hamburger from me
-      .expiryAndQuant
-        .expiry 20/03/23
-        .quantity 2
-      button.Remove ✕
+    for item in stock
+      .row
+        .nameAndDesc
+          .itemName  #{item.meal_name}
+          .itemDescription #{item.meal_description}
+        .expiryAndQuant
+          .expiry #{item.expiry}
+          .quantity #{item.quantity}
+        button.Remove ✕
+
   form
     .form-group
       label(for='ItemName') Item Name:

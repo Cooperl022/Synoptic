@@ -1,5 +1,10 @@
+doctype html
 head
   link(rel='stylesheet' href='stylesheets/style.css')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  script(src='javascripts/menu.js')
+button#burger(onclick='toggleMenu()')
+  img(src='images/BurgerMenuIcon.png' style='width:30px')
 #container
   #topnav
     nav
@@ -26,3 +31,25 @@ head
         br
     if loggedIn
       a(href='/logout') Logout
+  button#settingsCog(onclick='toggleSettings()')
+    img(src='images/SettingCogImage.png' style='width:40px')
+#containerTwo
+  #settings
+    ul
+      li
+        | Dyslexic view 
+        label.switch
+          input(type='checkbox')
+          span.slider.round
+      li
+        | High contrast view 
+        label.switch
+          input(type='checkbox')
+          span.slider.round
+      li
+        | Language 
+        select#dropdown
+          option(value='PlaceA') Eng
+          option(value='PlaceB') Fre
+          option(value='PlaceC') Jam
+          option(value='PlaceD') Spa
