@@ -11,19 +11,33 @@
 body {
     background-color: #FFFAE7;
 }
-
+#burger{
+  display: none;
+}
+#settingsCog{
+    display:flex;
+    height: auto;
+    align-self: center;
+    position: absolute;
+    width: 10%;
+    justify-content: center;
+    top: 24px;
+    right:0px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.0);
+}
 #LoginSection {
+    display:flex;
     height: auto;
     font-size: 20px;
     align-self: center;
     position: absolute;
-    right: 30px;
-
+    right: 10%;
 }
 #LoginSection input{
     font-size: 15px;
     padding: 4px;
-    margin: 2px;
+    margin-right: 10px;
   }
   #LoginSection button{
     padding: 3px;
@@ -37,20 +51,30 @@ a {
     text-decoration: none;
   }
   
-#topnav {
+#topnav, #settings {
     overflow: hidden;
     display: flex;
     visibility: visible;
     font-size: 20px;
     padding: 5px 10px;
     align-self: center;
+    justify-content: center;
     
 }
+
     #topnav li{
         display: inline-block;
         margin-top: 5px;
         padding: 0px 10px;
     }
+    #settings li {
+      width: auto;
+      vertical-align:auto;
+      display: inline-block;
+      margin-right: 50px;
+      margin-bottom: -30px;
+    }
+    
 
         #topnav li a {
             list-style: none;
@@ -69,10 +93,72 @@ a {
 .active {
     text-decoration: underline;
 }
+
+
+/* -- Used https://www.w3schools.com/howto/howto_css_switch.asp -- */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 27px;
+  margin-left: 5px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 19px;
+  width: 19px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #ffda56;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #ffda56;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(22px);
+  -ms-transform: translateX(22px);
+  transform: translateX(22px);
+}
+.slider.round {
+  border-radius: 5px;
+}
+
+.slider.round:before {
+  border-radius: 5px;
+}
+
+/* ------End of w3Schools------ */
+
+
+
 #container {
     background-color: #FCF1C8;
-    margin: 10px 10px 40px 10px;
+    margin: 10px 10px 0px 10px;
     border-radius: 10px;
+    width: 90%;
     display: flex;
     padding: 20px 0px;
     outline-style: solid;
@@ -80,18 +166,39 @@ a {
     /*Using CSS box shadow generator*/
     box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+#containerTwo {
+  background-color: #FCF1C8;
+  margin: 10px 10px 40px 10px;
+  border-radius: 10px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+  outline-style: solid;
+  outline-width: 2px;
+  /*Using CSS box shadow generator*/
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
 #Main{
     margin: 0px 10px;
     font-size: 20px;
     width: 100%;
     text-align: center;
 }
-select{
+#Main select{
     padding: 10px;
     width: 40%;
     font-size: 20px;
     text-align: center;
     margin-bottom: 40px;
+    margin-top: 40px;
+}
+#containerTwo select{
+  margin: auto;
+  height:27px;
+  width: 70px;
+  font-size: 16px;
+  text-align: center;
 }
 .Dropdown{
     margin-bottom: 20px;
@@ -107,6 +214,7 @@ hr.solid {
 #Title{
     font-size: 40px;
     font-weight: 600;
+    margin-top: 40px;
 }
 #Information {
     font-size: 25px;
@@ -115,7 +223,7 @@ hr.solid {
 
 #stock {
     background-color: #FFFDF5;
-    margin: 00px 40px 40px 40px;
+    margin: 00px 10px 40px 10px;
     border-radius: 10px;
     padding: 10px 0px;
     outline-style: solid;
@@ -129,7 +237,7 @@ hr.solid {
     background-color: #FFFFFF;
     border-radius: 10px;
     overflow: hidden; 
-    margin: 20px 20px;
+    margin: 10px 10px;
     /*Using CSS box shadow generator*/
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
@@ -208,7 +316,109 @@ hr.solid {
   }
 
 
+/*Phone CSS*/
+
+@media (max-width:920px){
+  #Main{
+    margin-top: 30px;
+    font-size: 17px;
+  }
+  #Title{
+    font-size: 30px;
+  }
+  #Information{
+    font-size: 20px;
+  }
+  /* TODO Add a header to say the page you're on so not just empty top*/
+  #container {
+    width: 50%;
+    align-items: left;
+    margin: -30px 10px;
+    position: fixed;
+    display: none;
+    height: 500px;
+    right: 0px;
+  }
+  #containerTwo {
+    width: 50%;
+    align-items: left;
+    margin: -30px 10px;
+    position: fixed;
+    display: none;
+    height: 500px;
+    right: 0px;
+  }
+  #settings li{
+    padding: 50px;
+    /* TODO Get the sliders to go under if needed on screensize*/
+  }
+  #settingsCog{
+    display:block;
+    height: auto;
+    right: auto;
+    top:0px;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+
+  #topnav {
+    font-size: 20px;
+    margin: 10px auto 30px auto;
+    justify-content: center;
+  }
+
+  #topnav li {
+    display: block;
+    padding: 10px 10px;
+    margin: 5px auto;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  #LoginSection {
+    font-size: 10px;
+    margin: 10px auto;
+    display: block;
+    right:auto;
+    left: auto;
+    position: relative;
+
+  }
+
+  #LoginSection input {
+    font-size: 15px;
+    display: block;
+    padding: 10px;
+    margin: 0px auto;
+    text-align: center;
+    max-width: 200px;
+  }
+
+  #LoginSection button {
+    font-size: 15px;
+    display: block;
+    padding: 5px;
+    margin: 5px auto;
+    text-align: center;
+  }
+    
   
+  #burger {
+    display:block;
+    position: fixed;
+    z-index: 3;
+    margin: 10px;
+    top: 0px;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    font-size: 30px;
+    border:none;
+    background-color: rgba(0, 0, 0, 0.0);
+    cursor: pointer;
+  }
+
+}
   
 
 /*Write name and css*/
