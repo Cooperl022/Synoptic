@@ -55,7 +55,7 @@ button#burger(onclick='toggleMenu()')
           option(value='PlaceD') Spa
 #Main
   // TODO get value from below.. https://stackoverflow.com/questions/3593626/get-the-text-content-from-a-contenteditable-div-through-javascript
-  #placeName.title(contenteditable='true')
+  #placeName.Title(contenteditable='true')
     | #{placeInfo.place_name} [Edit]
   br
   .Information(contenteditable='true')
@@ -69,24 +69,24 @@ button#burger(onclick='toggleMenu()')
     for item in stock
       .row
         .nameAndDesc
-          .itemName  #{item.meal_name}
-          .itemDescription #{item.meal_description}
+          .itemName  #{item.item_name}
+          .itemDescription #{item.item_description}
         .expiryAndQuant
           .expiry #{item.expiry}
           .quantity #{item.quantity}
         button.Remove ✕
 
-  form
+  form(action='#' method='post')
     .form-group
       label(for='ItemName') Item Name:
-      input#ItemName(type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
+      input#ItemName(name='ItemName' type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
     .form-group
       label(for='ItemDesc') Item Description:
-      textarea#ItemDesc(type='text' placeholder='Description' size='50' maxlength='200' required='')
+      textarea#ItemDesc(name='ItemDesc' type='text' placeholder='Description' size='50' maxlength='200' required='')
     .form-group
       label(for='ExpiryDate') Expiry Date:
-      input#ExpiryDate(type='date' required='')
+      input#ExpiryDate(name='ExpiryDate' type='date' required='')
     .form-group
       label(for='Quantity') Quantity:
-      input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
-  button#Add Add 
+      input#Quantity(name='Quantity' type='number' min='0' placeholder='0' max='999' required='')
+    button#Add(type='submit') Add 

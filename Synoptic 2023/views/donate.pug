@@ -62,7 +62,7 @@ button#burger(onclick='toggleMenu()')
 
   br
   | Map 
-  button.Dropdown
+  button.Dropdown(onclick='toggleMap()')
     img(src='images/BlackTriangle.png' style='width:9px')
   #map
     //
@@ -74,24 +74,24 @@ button#burger(onclick='toggleMenu()')
   div(style='opacity: 0.1;')
     hr.solid
   | Donate 
-  button.Dropdown
+  button.Dropdown(onclick='toggleDonate()')
     img(src='images/BlackTriangle.png' style='width:9px')
   br
-  
-  form#DonateForm
-    .form-group
-        label(for='ItemName') Item Name:
-        input#ItemName(type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
-    .form-group
-        label(for='ItemDesc') Item Description:
-        textarea#ItemDesc(type='text' placeholder='Description' size='50' maxlength='200' required='')
-    .form-group
-        label(for='ExpiryDate') Expiry Date:
-        input#ExpiryDate(type='date' required='')
-    .form-group
-        label(for='Quantity') Quantity:
-        input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
-    button#Add(type='submit') Add
+  #donate(style='display:block')
+    form#DonateForm
+      .form-group
+          label(for='ItemName') Item Name:
+          input#ItemName(type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
+      .form-group
+          label(for='ItemDesc') Item Description:
+          textarea#ItemDesc(type='text' placeholder='Description' size='50' maxlength='200' required='')
+      .form-group
+          label(for='ExpiryDate') Expiry Date:
+          input#ExpiryDate(type='date' required='')
+      .form-group
+          label(for='Quantity') Quantity:
+          input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
+      button#Add(type='submit') Add
 
   #stock
   button#Submit  Submit 

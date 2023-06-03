@@ -62,7 +62,7 @@ button#burger(onclick='toggleMenu()')
 
   br
   | Map 
-  button.Dropdown
+  button.Dropdown(onclick='toggleMap()')
     img(src='images/BlackTriangle.png' style='width:9px')
   #map
     img(src='images/map.png' style='height:auto;width:50%')
@@ -73,7 +73,7 @@ button#burger(onclick='toggleMenu()')
   #placeDescription.Information
     //Load description of selected place
   | Stock 
-  button.Dropdown
+  button.Dropdown(onclick='toggleStock()')
     img(src='images/BlackTriangle.png' style='width:9px')
   #stock
     //table loads in all stock by default, but is set not to display
@@ -82,8 +82,8 @@ button#burger(onclick='toggleMenu()')
       .row(id=item.place_name style='display: none')
         //^ used to tell what stock belongs to what place - never displayed
         .nameAndDesc
-          .itemName  #{item.meal_name}
-          .itemDescription #{item.meal_description}
+          .itemName  #{item.item_name}
+          .itemDescription #{item.item_description}
         .expiryAndQuant
           .expiry #{item.expiry}
           .quantity #{item.quantity}
