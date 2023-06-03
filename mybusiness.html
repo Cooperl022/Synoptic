@@ -3,9 +3,40 @@
 
 <head>
 <link rel="stylesheet" href="style.css">
+<meta name ="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+    function toggleMenu(){
+if (document.getElementById("container").style.display === "none") {
+  document.getElementById("container").style.display = "block";
+
+} else {
+  document.getElementById("container").style.display = "none";
+}
+    }
+    function toggleSettings(){
+if (document.getElementById("containerTwo").style.display === "none") {
+  document.getElementById("containerTwo").style.display = "flex";
+  document.getElementById("container").style.margin = "10px 10px 0px 10px";
+
+} else {
+  document.getElementById("containerTwo").style.display = "none";
+  document.getElementById("container").style.margin = "10px 10px 40px 10px";
+}
+    }
+
+</script>
+
 </head>
 <body>
-    <div id ="container">
+    
+    <button class="burger" onclick="toggleMenu()">
+        <img src ="includes/images/BurgerMenuIcon.png" style="width:20px">
+      </button>
+      
+      <div id ="container">
+        
+        
+    
     <div id="topnav"> 
         <nav>
             <ul>
@@ -18,8 +49,31 @@
     </div>
     <div id ="LoginSection"> 
         <input id="Username" type="text" placeholder="Username"> <br />
-        <input id="Password" type="password" placeholder="Password"> <button id="login">Login</button> <br /> 
+        <input id="Password" type="password" placeholder="Password"> <br />
+        <button id="login">Login</button> <br /> 
 </div>
+</div>
+
+<div id ="containerTwo">
+    <div id="settings"> 
+        <ul>
+            <li>Dyslexic view <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label></li>
+            <li>High contrast view <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label></li>
+            <li>Language <select name="FoodBanks" id="dropdown">
+                <option value="PlaceA">Eng</option>
+                <option value="PlaceB">Fre</option>
+                <option value="PlaceC">Jam</option>
+                <option value="PlaceD">Spa</option>
+              </select>
+            </li>
+        </ul>
+    </div>
 </div>
 
 <div id ="Main">
@@ -40,7 +94,7 @@
 </div>
 
 
-Add Stock <button class="Dropdown"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+Add Stock <button class="Dropdown" onclick="toggleSettings()"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
 <br />
 
 
