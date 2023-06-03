@@ -1,0 +1,76 @@
+head
+  link(rel='stylesheet' href='stylesheets/style.css')
+#container
+  #topnav
+    nav
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/food') Food
+        li
+          a(href='/donate') Donate
+        if loggedIn && accountType == 'business'
+          li.active
+            a(href='/mybusiness') My Business
+        if loggedIn && accountType == 'admin'
+          li
+            a(href='/admin') Admin
+  #LoginSection
+    if ! loggedIn 
+      form(action='/login' method='post')
+        input#Username(type='text' name='username' placeholder='Username' required='')
+        br
+        input#Password(type='password' name = 'password' placeholder='Password' required='')
+        button#login(type='submit') Login
+        br
+    if loggedIn
+      a(href='/logout') Logout
+#Main
+  // TODO get value from below.. https://stackoverflow.com/questions/3593626/get-the-text-content-from-a-contenteditable-div-through-javascript
+  #placeName.title(contenteditable='true')
+    | PlaceA [Edit]
+  br
+  .Information(contenteditable='true')
+    | InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+    | InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+    | InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+    | InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+    | [Edit]
+  | Add Stock 
+  button.Dropdown
+    img(src='images/BlackTriangle.png' style='width:9px')
+  br
+  #stock
+    // copy and paste from here
+    .row
+      .nameAndDesc
+        .itemName Hamburger
+        .itemDescription It&apos;s a hamburger from me
+      .expiryAndQuant
+        .expiry 20/03/23
+        .quantity 2
+      button.Remove ✕
+    // to here for unlimited rows
+    .row
+      .nameAndDesc
+        .itemName Hamburger
+        .itemDescription It&apos;s a hamburger from me
+      .expiryAndQuant
+        .expiry 20/03/23
+        .quantity 2
+      button.Remove ✕
+  form
+    .form-group
+      label(for='ItemName') Item Name:
+      input#ItemName(type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
+    .form-group
+      label(for='ItemDesc') Item Description:
+      textarea#ItemDesc(type='text' placeholder='Description' size='50' maxlength='200' required='')
+    .form-group
+      label(for='ExpiryDate') Expiry Date:
+      input#ExpiryDate(type='date' required='')
+    .form-group
+      label(for='Quantity') Quantity:
+      input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
+  button#Add Add 

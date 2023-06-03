@@ -11,6 +11,8 @@ var logout = require('./routes/logout');
 var register = require('./routes/register');
 var food = require('./routes/food');
 var donate = require('./routes/donate');
+var business = require('./routes/myBusiness');
+
 
 var app = express();
 
@@ -39,6 +41,7 @@ app.use('/logout', logout);
 app.use('/register', register);
 app.use('/food', food);
 app.use('/donate', donate);
+app.use('/myBusiness', business);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

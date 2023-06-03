@@ -167,6 +167,13 @@ hr.solid {
     padding: 20px 0; 
   }
 
+  .Remove {
+    background-color:rgba(0, 0, 0, 0.0);
+    padding: 5px;
+    border: none;
+    margin:auto 5px auto 10px;
+  }
+
   #DonateForm {
     text-align: center;
     width: 80%;

@@ -43,8 +43,19 @@ DonateForm.addEventListener('submit', (e) => {
     expiryAndQuant.appendChild(expiry)
     expiryAndQuant.appendChild(quant)
 
+    const removeButton = document.createElement('button')
+    removeButton.className = 'Remove'
+    removeButton.innerHTML = '✕'
+    removeButton.addEventListener('click', removeRow)
 
     row.appendChild(nameAndDesc)
     row.appendChild(expiryAndQuant)
+    row.append(removeButton)
     table.appendChild(row)
 });
+
+function removeRow(e) {
+   const row = e.target.parentNode
+   const table = row.parentNode
+   table.removeChild(row)
+}

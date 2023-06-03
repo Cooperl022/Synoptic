@@ -14,7 +14,7 @@ PRIMARY KEY(username)
 
 select * from users;
 INSERT INTO users (username, userpassword, account_type) VALUES("admin3", "827ccb0eea8a706c4c34a16891f84e7b", "admin");
-
+INSERT INTO users (username, userpassword, account_type)VALUES("business123", 
 
 create table stock (
 id INT NOT NULL	AUTO_INCREMENT,
