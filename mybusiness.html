@@ -4,33 +4,14 @@
 <head>
 <link rel="stylesheet" href="style.css">
 <meta name ="viewport" content="width=device-width, initial-scale=1.0">
-<script>
-    function toggleMenu(){
-if (document.getElementById("container").style.display === "none") {
-  document.getElementById("container").style.display = "block";
-
-} else {
-  document.getElementById("container").style.display = "none";
-}
-    }
-    function toggleSettings(){
-if (document.getElementById("containerTwo").style.display === "none") {
-  document.getElementById("containerTwo").style.display = "flex";
-  document.getElementById("container").style.margin = "10px 10px 0px 10px";
-
-} else {
-  document.getElementById("containerTwo").style.display = "none";
-  document.getElementById("container").style.margin = "10px 10px 40px 10px";
-}
-    }
-
+<script script src="script.js">
 </script>
 
 </head>
 <body>
     
-    <button class="burger" onclick="toggleMenu()">
-        <img src ="includes/images/BurgerMenuIcon.png" style="width:20px">
+    <button id="burger" onclick="toggleMenu()">
+        <img src ="includes/images/BurgerMenuIcon.png" style="width:30px">
       </button>
       
       <div id ="container">
@@ -46,13 +27,19 @@ if (document.getElementById("containerTwo").style.display === "none") {
                 <li class="active"><a href="mybusiness.html">My Business</a></li-->
             </ul>
         </nav>
+        
     </div>
+    
     <div id ="LoginSection"> 
         <input id="Username" type="text" placeholder="Username"> <br />
         <input id="Password" type="password" placeholder="Password"> <br />
         <button id="login">Login</button> <br /> 
 </div>
+<button id="settingsCog" onclick="toggleSettings()">
+    <img src ="includes/images/SettingCogImage.png" style="width:40px">
+  </button>
 </div>
+
 
 <div id ="containerTwo">
     <div id="settings"> 
@@ -94,7 +81,7 @@ if (document.getElementById("containerTwo").style.display === "none") {
 </div>
 
 
-Add Stock <button class="Dropdown" onclick="toggleSettings()"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+Add Stock <button class="Dropdown"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
 <br />
 
 

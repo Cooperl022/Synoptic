@@ -11,8 +11,20 @@
 body {
     background-color: #FFFAE7;
 }
-.burger{
+#burger{
   display: none;
+}
+#settingsCog{
+    display:flex;
+    height: auto;
+    align-self: center;
+    position: absolute;
+    width: 10%;
+    justify-content: center;
+    top: 24px;
+    right:0px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.0);
 }
 #LoginSection {
     display:flex;
@@ -20,7 +32,7 @@ body {
     font-size: 20px;
     align-self: center;
     position: absolute;
-    right: 30px;
+    right: 10%;
 }
 #LoginSection input{
     font-size: 15px;
@@ -146,6 +158,7 @@ input:checked + .slider:before {
     background-color: #FCF1C8;
     margin: 10px 10px 0px 10px;
     border-radius: 10px;
+    width: 90%;
     display: flex;
     padding: 20px 0px;
     outline-style: solid;
@@ -155,9 +168,9 @@ input:checked + .slider:before {
 }
 #containerTwo {
   background-color: #FCF1C8;
-  margin: 5px 10px 40px 10px;
+  margin: 10px 10px 40px 10px;
   border-radius: 10px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   padding: 10px 0px;
@@ -178,6 +191,7 @@ input:checked + .slider:before {
     font-size: 20px;
     text-align: center;
     margin-bottom: 40px;
+    margin-top: 40px;
 }
 #containerTwo select{
   margin: auto;
@@ -200,6 +214,7 @@ hr.solid {
 #Title{
     font-size: 40px;
     font-weight: 600;
+    margin-top: 40px;
 }
 #Information {
     font-size: 25px;
@@ -208,7 +223,7 @@ hr.solid {
 
 #stock {
     background-color: #FFFDF5;
-    margin: 00px 40px 40px 40px;
+    margin: 00px 10px 40px 10px;
     border-radius: 10px;
     padding: 10px 0px;
     outline-style: solid;
@@ -222,7 +237,7 @@ hr.solid {
     background-color: #FFFFFF;
     border-radius: 10px;
     overflow: hidden; 
-    margin: 20px 20px;
+    margin: 10px 10px;
     /*Using CSS box shadow generator*/
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
@@ -306,15 +321,45 @@ hr.solid {
 @media (max-width:920px){
   #Main{
     margin-top: 30px;
+    font-size: 17px;
   }
+  #Title{
+    font-size: 30px;
+  }
+  #Information{
+    font-size: 20px;
+  }
+  /* TODO Add a header to say the page you're on so not just empty top*/
   #container {
     width: 50%;
-    right: 10px;
-    margin: -20px auto;
+    align-items: left;
+    margin: -30px 10px;
     position: fixed;
-    display: block;
+    display: none;
     height: 500px;
+    right: 0px;
   }
+  #containerTwo {
+    width: 50%;
+    align-items: left;
+    margin: -30px 10px;
+    position: fixed;
+    display: none;
+    height: 500px;
+    right: 0px;
+  }
+  #settings li{
+    padding: 50px;
+    /* TODO Get the sliders to go under if needed on screensize*/
+  }
+  #settingsCog{
+    display:block;
+    height: auto;
+    right: auto;
+    top:0px;
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
 
   #topnav {
     font-size: 20px;
@@ -358,12 +403,12 @@ hr.solid {
   }
     
   
-  .burger {
+  #burger {
     display:block;
     position: fixed;
     z-index: 3;
     margin: 10px;
-    top: 0;
+    top: 0px;
     right: 0;
     width: 50px;
     height: 50px;
