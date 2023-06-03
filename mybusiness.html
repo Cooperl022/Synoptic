@@ -25,15 +25,18 @@
 <div id ="Main">
 
 
+<!--TODO get value from below.. https://stackoverflow.com/questions/3593626/get-the-text-content-from-a-contenteditable-div-through-javascript-->
+<div id="Title" contenteditable="true">
     
-<div id="Title">
-    PlaceA
+    PlaceA [Edit]
+    
 </div><br />
-<div id ="Information">
+<div id ="Information" contenteditable="true">
     InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
     InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
     InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
     InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
+    [Edit]
 </div>
 
 
@@ -55,6 +58,7 @@ Add Stock <button class="Dropdown"><img src="includes/images/BlackTriangle.png" 
     <div class = "expiry">20/03/23</div>
     <div class = "quantity">2</div>
     </div>
+    <button class="Remove">&#10005</button>
 </div>
 <!-- to here for unlimited rows -->
 
@@ -67,12 +71,13 @@ Add Stock <button class="Dropdown"><img src="includes/images/BlackTriangle.png" 
     <div class = "expiry">20/03/23</div>
     <div class = "quantity">2</div>
     </div>
+    <button class="Remove">&#10005</button>
 </div>
 
 
 
 </div>
-</div>
+
 
 <form>
     <div class="form-group">
@@ -94,9 +99,10 @@ Add Stock <button class="Dropdown"><img src="includes/images/BlackTriangle.png" 
         <label for="Quantity">Quantity:</label>
         <input id="Quantity" type="number" min="0" placeholder="0" max="999" required>
       </div>
-      <button id ="Add"> Add </button>
     </form>
+    <button id ="Add"> Add </button>
     
+    </div>
     
 </body>
 </html>

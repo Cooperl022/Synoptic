@@ -157,7 +157,6 @@ hr.solid {
     padding: 20px 0px;
     outline-style: solid;
     outline-width: 2px;
-
   }
   
   .expiry,
@@ -167,35 +166,39 @@ hr.solid {
     padding: 20px 0; 
   }
 
-  form {
-    text-align: center;
-    width: 80%;
-    margin: 0 auto; 
+  .Remove {
+    background-color:rgba(0, 0, 0, 0.0);
+    padding: 5px;
+    border: none;
+    margin:auto 5px auto 10px;
   }
-  
+
   .form-group {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .form-group label {
     flex-shrink: 0;
     text-align: right;
     margin-right: 10px;
-    
+    width: 150px; /* Adjust the width as needed */
   }
   
-  .form-group input, textarea {
+  .form-group input,
+  .form-group textarea {
     flex-grow: 1;
     padding: 10px;
     font-size: 20px;
+    width: 100%; /* Set the width to 100% */
+    max-width: 50%; /* Adjust the maximum width as needed */
   }
-  textarea{
-    resize: vertical;
-  }
+  
+  
 
   button{
     font-size: 20px;
