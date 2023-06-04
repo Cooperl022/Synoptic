@@ -3,6 +3,7 @@ head
   link(rel='stylesheet' href='stylesheets/style.css')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
+  script(src='javascripts/business.js')
 button#burger(onclick='toggleMenu()')
   img(src='images/BurgerMenuIcon.png' style='width:30px')
 #container
@@ -67,14 +68,14 @@ button#burger(onclick='toggleMenu()')
   br
   #stock
     for item in stock
-      .row
+      .row(id=item.id)
         .nameAndDesc
           .itemName  #{item.item_name}
           .itemDescription #{item.item_description}
         .expiryAndQuant
           .expiry #{item.expiry}
           .quantity #{item.quantity}
-        button.Remove ✕
+        button.Remove(onclick='removeStock(this.parentNode.id)') ✕
 
   form(action='#' method='post')
     .form-group

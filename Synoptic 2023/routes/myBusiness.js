@@ -44,4 +44,17 @@ router.post('/', function (req, res, next) {
     });
   });
 
+/* Delete stock */
+router.post('/deleteStock', function (req, res, next) {
+  const rowID = req.body.rowID
+  console.log("POST ROW")
+  console.log(rowID)
+
+  var sql = 'delete from stock where id = ?';
+  synopticModel.query(sql, [rowID], function (error, result) {
+    if (error) throw error;
+    res.redirect('/myBusiness')
+  }); 
+});
+
 module.exports = router;
