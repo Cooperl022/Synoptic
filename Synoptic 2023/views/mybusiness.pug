@@ -33,7 +33,9 @@ button#burger(onclick='toggleMenu()')
     if loggedIn
       a(href='/logout') Logout
   button#settingsCog(onclick='toggleSettings()')
-    img(src='images/SettingCogImage.png' style='width:40px')
+    img(src='images/SettingCogImage.png' style='width:37px')
+#containerThree
+  | My Business
 #containerTwo
   #settings
     ul
@@ -64,9 +66,14 @@ button#burger(onclick='toggleMenu()')
     | [Edit]
   | Add Stock 
   button.Dropdown
-    img(src='images/BlackTriangle.png' style='width:9px')
+    img(src='images/BlackTriangle.png' onclick='toggleStock()'  style='width:9px')
   br
   #stock
+    #rowHeads
+      .itemNameHead Item
+      .expiryHead Expiry date
+      .quantityHead Qty
+      .removeHead Delete
     for item in stock
       .row(id=item.id)
         .nameAndDesc
@@ -77,7 +84,7 @@ button#burger(onclick='toggleMenu()')
           .quantity #{item.quantity}
         button.Remove(onclick='removeStock(this.parentNode.id)') ✕
 
-  form(action='#' method='post')
+  form#AddStock(action='#' method='post')
     .form-group
       label(for='ItemName') Item Name:
       input#ItemName(name='ItemName' type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')

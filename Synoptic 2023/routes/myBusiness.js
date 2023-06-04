@@ -36,12 +36,18 @@ router.post('/', function (req, res, next) {
     const expiry = req.body.ExpiryDate
     const quantity = req.body.Quantity
 
+    if (item_name > 10) {
+      res.alert('test')
+    }
+
+    else {
     var sql = 'insert into stock (place_name, item_name, item_description, expiry, quantity) VALUES (?, ?, ?, ?, ?)';
     synopticModel.query(sql, [place_name, item_name, item_description, expiry, quantity], function (error, result) {
       if (error) throw error;
       res.redirect('back')
     }); 
     });
+  }
   });
 
 /* Delete stock */

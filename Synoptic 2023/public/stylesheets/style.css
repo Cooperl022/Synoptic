@@ -9,7 +9,7 @@
   font-weight:400;
 }
 body {
-  background-color: #FFFAE7;
+  background-color: #fffcf4;
 }
 #burger{
 display: none;
@@ -42,8 +42,9 @@ display: none;
 #LoginSection button{
   padding: 3px;
   font-size: 15px;
-  background-color: #FCF1C8;
+  background-color: #f4ece3;
   margin-bottom: 0;
+  border-radius: 7px;
 }
 a {
   color: rgb(184, 184, 184);
@@ -132,10 +133,11 @@ background-color: white;
 transition: .4s;
 }
 input:checked + .slider {
-background-color: #ffda56;
+background-color: #2196F3;
 }
+
 input:focus + .slider {
-box-shadow: 0 0 1px #ffda56;
+box-shadow: 0 0 1px #2196F3;
 }
 input:checked + .slider:before {
 -webkit-transform: translateX(22px);
@@ -155,7 +157,7 @@ border-radius: 5px;
 
 
 #container {
-  background-color: #FCF1C8;
+  background-color: #fcf1c8;
   margin: 10px 10px 0px 10px;
   border-radius: 10px;
   width: 90%;
@@ -179,8 +181,10 @@ outline-width: 2px;
 /*Using CSS box shadow generator*/
 box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
+#containerThree{
+display: none;
+}
 #Main{
-  margin: 0px 10px;
   font-size: 20px;
   width: 100%;
   text-align: center;
@@ -210,11 +214,12 @@ hr.solid {
   border-top: 3px solid #000000;
   width: 50%;
   margin: 40px auto;
+  z-index: 1;
 }
 .Title{
   font-size: 40px;
   font-weight: 600;
-  margin-top: 40px;
+  padding-top: 40px;
 }
 .Information {
   font-size: 25px;
@@ -222,7 +227,7 @@ hr.solid {
 }
 
 #stock {
-  background-color: #FFFDF5;
+  background-color: #fef8e5;
   margin: 00px 10px 40px 10px;
   border-radius: 10px;
   padding: 10px 0px;
@@ -247,11 +252,17 @@ hr.solid {
   font-weight: 600;
 }
 
-.nameAndDesc {
+.nameAndDesc{
   margin-left: 40px;
   flex-grow: 1;
   text-align: left;
   background-color: #FFFFFF;
+}
+
+.itemNameHead {
+  margin-left: 40px;
+  flex-grow: 1;
+  text-align: left;
 }
 
 .itemDescription {
@@ -260,18 +271,25 @@ hr.solid {
 
 .expiryAndQuant {
   display: flex;
-  background-color: #FFFDF5;
-  flex: 0 0 auto; 
-  padding: 20px 0px;
+  background-color: #fef8e5;
+  flex: 0 0 auto;
   outline-style: solid;
   outline-width: 2px;
 }
 
+.expiryHead, .quantityHead {
+  display: flex;
+  flex: 0 0 auto;
+  margin-left: 13px;
+}
+
 .expiry,
 .quantity {
-  margin: 0px 20px;
   flex: 1; 
-  padding: 20px 0; 
+  padding: 40px 15px; 
+}
+.expiry{
+  border-right: 2px solid #000000;
 }
 
 .Remove {
@@ -279,6 +297,21 @@ hr.solid {
   padding: 5px;
   border: none;
   margin:auto 5px auto 10px;
+}
+.removeHead {
+  margin:auto 7px auto 4px;
+}
+
+#rowHeads{
+  display: flex;
+align-items: flex-end; 
+overflow: hidden; 
+margin-bottom: 5px;
+  /*Using CSS box shadow generator*/
+}
+
+#AddStock{
+  margin-top: 40px;
 }
 
 .form-group {
@@ -310,7 +343,7 @@ hr.solid {
 
 button{
   font-size: 20px;
-  background-color: #FCF1C8;
+  background-color: #f4ece3;
   padding: 5px 10px;
   margin-bottom: 40px;
 }
@@ -320,33 +353,56 @@ button{
 
 @media (max-width:920px){
 #Main{
-  margin-top: 30px;
   font-size: 17px;
+  margin: 0px 0px;
 }
 .Title{
   font-size: 30px;
+  padding-top: 90px;
+  margin: 0px 5px;
 }
-#Information{
+.Information{
   font-size: 20px;
 }
 /* TODO Add a header to say the page you're on so not just empty top*/
 #container {
   width: 50%;
   align-items: left;
-  margin: -30px 10px;
+  margin: 0px 0px;
+  border-radius: 0px 0px 0px 10px;
   position: fixed;
   display: none;
   height: 500px;
   right: 0px;
+  z-index: 2;
 }
 #containerTwo {
   width: 50%;
+  z-index: 2;
   align-items: left;
-  margin: -30px 10px;
+  margin: 0px 0px;
+  border-radius: 0px 0px 0px 0px;
   position: fixed;
   display: none;
   height: 500px;
   right: 0px;
+  z-index: 2;
+}
+#containerThree{
+  width:100%;
+  display: block;
+  position: fixed;
+  text-align: center;
+  background-color: #fcf1c8;
+  border-radius: 0px;
+  font-size: 20px;
+  padding: 20px 0px;
+  outline-style: solid;
+  outline-width: 2px;
+  z-index: 1;
+  /*Using CSS box shadow generator*/
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
 }
 #settings li{
   padding: 50px;
@@ -356,14 +412,17 @@ button{
   display:block;
   height: auto;
   right: auto;
-  top:0px;
+  top:8px;
   background-color: rgba(0, 0, 0, 0.0);
 }
 
+#Main select{
+margin-top: 100px;
+}
 
 #topnav {
   font-size: 20px;
-  margin: 10px auto 30px auto;
+  margin: 30px auto 30px auto;
   justify-content: center;
 }
 
@@ -416,6 +475,83 @@ button{
   border:none;
   background-color: rgba(0, 0, 0, 0.0);
   cursor: pointer;
+}
+
+#stock {
+  margin: 00px 0px 40px 0px;
+  padding: 5px 0px 0px 0px;
+  border-radius: 0px;
+}
+
+.row {
+  margin: 0px 0px 5px 0px;
+  border-radius: 0px;
+}
+
+.itemName {
+  font-size: 20px;
+}
+
+.nameAndDesc {
+  margin-left: 20px;
+}
+
+.itemDescription {
+  margin-top: 10px;
+}
+
+.Remove {
+  padding:0px 20px 0px 20px;
+}
+
+.form-group {
+ font-size: 15px;
+}
+
+.expiry,
+.quantity {
+  flex: 1; 
+  padding: 30px 10px; 
+}
+
+.form-group label {
+  flex-shrink: 0;
+  text-align: right;
+  margin-right: 10px;
+  width: 120px; /* Adjust the width as needed */
+}
+
+.form-group input,
+.form-group textarea {
+  flex-grow: 1;
+  padding: 10px 5px;
+  font-size: 15px;
+  width:100%; /* Set the width to 100% */
+  max-width: 40%; /* Adjust the maximum width as needed */
+}
+
+.removeHead {
+  margin:auto 15px auto 15px;
+}
+
+#rowHeads{
+  display: flex;
+align-items: flex-end; 
+border-radius: 10px;
+overflow: hidden; 
+margin-bottom: 5px;
+}
+
+.expiryHead, .quantityHead {
+  display: flex;
+  flex: 0 0 auto;
+  margin-left: 10px;
+}
+
+.itemNameHead {
+  margin-left: 20px;
+  flex-grow: 1;
+  text-align: left;
 }
 
 }

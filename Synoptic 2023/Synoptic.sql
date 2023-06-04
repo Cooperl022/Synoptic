@@ -19,13 +19,14 @@ INSERT INTO users (username, userpassword, account_type) VALUES("admin3", "827cc
 create table stock (
 id INT NOT NULL	AUTO_INCREMENT,
 place_name VARCHAR (100),
-meal_name VARCHAR(90),
-meal_description VARCHAR(1000),
+item_name VARCHAR(90),
+item_description VARCHAR(1000),
 quantity INT,
 expiry VARCHAR(50),
 PRIMARY KEY(id)
 );
 
+select * from stock;
 INSERT INTO stock VALUES(1, "Some random cafe", "Apple", "apple fruit", 100, "30/05/2023");
 
 create table foodPlaces (
@@ -34,6 +35,23 @@ place_owner VARCHAR(100),
 place_address VARCHAR(500),
 place_description VARCHAR(1000),
 PRIMARY KEY(place_name)
+);
+
+create table donations (
+id INT NOT NULL	AUTO_INCREMENT,
+donor_username VARCHAR(45),
+place_name VARCHAR (100),
+PRIMARY KEY(id)
+);
+
+create table donation_items (
+id INT NOT NULL	AUTO_INCREMENT,
+donation_id INT NOT NULL,
+item_name VARCHAR(90),
+item_description VARCHAR(1000),
+quantity INT,
+expiry VARCHAR(50),
+PRIMARY KEY(id)
 );
 
 INSERT INTO foodPlaces VALUES("Some random cafe", "business123", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");

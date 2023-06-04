@@ -33,7 +33,9 @@ button#burger(onclick='toggleMenu()')
     if loggedIn
       a(href='/logout') Logout
   button#settingsCog(onclick='toggleSettings()')
-    img(src='images/SettingCogImage.png' style='width:40px')
+    img(src='images/SettingCogImage.png' style='width:37px')
+#containerThree
+  | Food
 #containerTwo
   #settings
     ul
@@ -76,6 +78,11 @@ button#burger(onclick='toggleMenu()')
   button.Dropdown(onclick='toggleStock()')
     img(src='images/BlackTriangle.png' style='width:9px')
   #stock
+    #rowHeads
+      .itemNameHead Item
+      .expiryHead Expiry date
+      .quantityHead Qty
+      .removeHead Delete
     //table loads in all stock by default, but is set not to display
     //display is turned on when user selects a food place//
     for item in stock
