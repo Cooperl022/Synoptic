@@ -45,8 +45,10 @@ function toggleMenu(){
       function toggleStock(){
         if(document.getElementById("stock").style.display==="block"){
           document.getElementById("stock").style.display="none"
+          document.getElementById("AddStock").style.display="none"
         }
         else {
           document.getElementById("stock").style.display="block"
+          document.getElementById("AddStock").style.display="block"
         }
       }

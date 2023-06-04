@@ -27,9 +27,13 @@
         <input id="Password" type="password" placeholder="Password"> <button id="login">Login</button> <br /> 
 </div>
 <button id="settingsCog" onclick="toggleSettings()">
-    <img src ="includes/images/SettingCogImage.png" style="width:40px">
+    <img src ="includes/images/SettingCogImage.png" style="width:37px">
   </button>
 </div>
+
+<div id ="containerThree">
+    FoodBanks
+    </div>
 
 <div id ="containerTwo">
     <div id="settings"> 
@@ -85,6 +89,14 @@ Map <button class="Dropdown" onclick="toggleMap()"><img src="includes/images/Bla
 </div>
 Stock <button class="Dropdown" onclick="toggleStock()"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
 <div id ="stock">
+    <div id="rowHeads">
+        <div class="itemNameHead">Item</div>
+        
+        <div class="expiryHead">Expiry date</div>
+        <div class="quantityHead">Qty</div>
+        <div class="removeHead">Delete</div>
+        
+        </div>
     
     <!-- copy and paste from here -->
     <div class = "row">
