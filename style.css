@@ -9,7 +9,7 @@
     font-weight:400;
 }
 body {
-    background-color: #FFFAE7;
+    background-color: #fffcf4;
 }
 #burger{
   display: none;
@@ -42,8 +42,9 @@ body {
   #LoginSection button{
     padding: 3px;
     font-size: 15px;
-    background-color: #FCF1C8;
+    background-color: #f4ece3;
     margin-bottom: 0;
+    border-radius: 7px;
   }
 a {
     color: rgb(184, 184, 184);
@@ -132,10 +133,11 @@ a {
   transition: .4s;
 }
 input:checked + .slider {
-  background-color: #ffda56;
+  background-color: #2196F3;
 }
+
 input:focus + .slider {
-  box-shadow: 0 0 1px #ffda56;
+  box-shadow: 0 0 1px #2196F3;
 }
 input:checked + .slider:before {
   -webkit-transform: translateX(22px);
@@ -155,7 +157,7 @@ input:checked + .slider:before {
 
 
 #container {
-    background-color: #FCF1C8;
+    background-color: #fcf1c8;
     margin: 10px 10px 0px 10px;
     border-radius: 10px;
     width: 90%;
@@ -225,7 +227,7 @@ hr.solid {
 }
 
 #stock {
-    background-color: #FFFDF5;
+    background-color: #fef8e5;
     margin: 00px 10px 40px 10px;
     border-radius: 10px;
     padding: 10px 0px;
@@ -269,7 +271,7 @@ hr.solid {
   
   .expiryAndQuant {
     display: flex;
-    background-color: #FFFDF5;
+    background-color: #fef8e5;
     flex: 0 0 auto;
     outline-style: solid;
     outline-width: 2px;
@@ -341,7 +343,7 @@ hr.solid {
 
   button{
     font-size: 20px;
-    background-color: #FCF1C8;
+    background-color: #f4ece3;
     padding: 5px 10px;
     margin-bottom: 40px;
   }
@@ -391,7 +393,7 @@ hr.solid {
     display: block;
     position: fixed;
     text-align: center;
-    background-color: #FCF1C8;
+    background-color: #fcf1c8;
     border-radius: 0px;
     font-size: 20px;
     padding: 20px 0px;
