@@ -9,37 +9,33 @@
 
 </head>
 <body>
-    
-    <button id="burger" onclick="toggleMenu()">
-        <img src ="includes/images/BurgerMenuIcon.png" style="width:30px">
-      </button>
-      
-      <div id ="container">
-        
-        
-    
-    <div id="topnav"> 
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="foodbanks.html">FoodBanks</a></li>
-                <li><a href="donate.html">Donate</a></li>
-                <li class="active"><a href="mybusiness.html">My Business</a></li-->
-            </ul>
-        </nav>
-        
-    </div>
-    
-    <div id ="LoginSection"> 
-        <input id="Username" type="text" placeholder="Username"> <br />
-        <input id="Password" type="password" placeholder="Password"> <br />
-        <button id="login">Login</button> <br /> 
+  <button id="burger" onclick="toggleMenu()">
+      <img src ="includes/images/BurgerMenuIcon.png" style="width:30px">
+    </button>
+  <div id ="container">
+  <div id="topnav"> 
+      <nav>
+          <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="foodbanks.html">FoodBanks</a></li>
+              <li><a href="donate.html">Donate</a></li>
+              <li class="active"><a href="mybusiness.html">My Business</a></li>
+          </ul>
+      </nav>
+  </div>
+  <div id ="LoginSection"> 
+      <input id="Username" type="text" placeholder="Username"> <br />
+      <input id="Password" type="password" placeholder="Password"> <br />
+      <button id="login">Login</button> <br /> 
 </div>
 <button id="settingsCog" onclick="toggleSettings()">
-    <img src ="includes/images/SettingCogImage.png" style="width:40px">
-  </button>
+  <img src ="includes/images/SettingCogImage.png" style="width:37px">
+</button>
 </div>
 
+<div id ="containerThree">
+MyBusiness
+</div>
 
 <div id ="containerTwo">
     <div id="settings"> 
@@ -81,14 +77,21 @@
 </div>
 
 
-Add Stock <button class="Dropdown"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+Add Stock <button class="Dropdown" onclick="toggleStock()"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
 <br />
 
 
 
 
 <div id ="stock">
+  <div id="rowHeads">
+<div class="itemNameHead">Item</div>
 
+<div class="expiryHead">Expiry date</div>
+<div class="quantityHead">Qty</div>
+<div class="removeHead">Delete</div>
+
+</div>
 <!-- copy and paste from here -->
 <div class = "row">
     <div class="nameAndDesc">
@@ -116,11 +119,11 @@ Add Stock <button class="Dropdown"><img src="includes/images/BlackTriangle.png" 
 </div>
 
 
-
 </div>
 
 
-<form>
+
+<form id="AddStock">
     <div class="form-group">
         <label for="ItemName">Item Name:</label>
         <input id="ItemName" type="text" placeholder="Name" minlength="2" maxlength="20" size="20" required>
@@ -140,8 +143,9 @@ Add Stock <button class="Dropdown"><img src="includes/images/BlackTriangle.png" 
         <label for="Quantity">Quantity:</label>
         <input id="Quantity" type="number" min="0" placeholder="0" max="999" required>
       </div>
+      <button id ="Add"> Add </button>
     </form>
-    <button id ="Add"> Add </button>
+    
     
     </div>
     
