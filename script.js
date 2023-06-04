@@ -1,54 +1,108 @@
-function toggleMenu(){
-    if (document.getElementById("container").style.display === "block" ||
-    document.getElementById("containerTwo").style.display === "flex") {
-        document.getElementById("container").style.display = "none";
-        document.getElementById("containerTwo").style.boxShadow = "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px";
-        document.getElementById("containerTwo").style.display = "none";
-    } else {
-        document.getElementById("container").style.display = "block"
-        document.getElementById("container").style.boxShadow = "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px";
-        document.getElementById("containerTwo").style.boxShadow = "none";
 
-    }
-        }
-        function toggleSettings(){
-    if (document.getElementById("containerTwo").style.display === "flex") {
-      document.getElementById("containerTwo").style.display = "none";
-      document.getElementById("container").style.boxShadow = "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px";
-      document.getElementById("containerTwo").style.boxShadow = "none";
+
+function toggleMenu() {
+  var container = document.getElementById("container");
+  var container2 = document.getElementById("containerTwo");
+  var containerIsOpen = container.style.display === "block";
+  var container2IsOpen = container2.style.display === "flex";
+
+  if (containerIsOpen || container2IsOpen) {
+    container.style.animationName = "slide-right";
+    container2.style.animationName = "slide-right";
     
-    } else {
-      document.getElementById("containerTwo").style.display = "flex"
-      document.getElementById("containerTwo").style.boxShadow = "rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px";
-      document.getElementById("container").style.boxShadow = "none"; 
+    setTimeout(function() {
+      container.style.display = "none";
+      container2.style.display = "none";
+    }, 600); 
+  } else {
+    container.style.display = "block";
+    container.style.animationName = "slide-left";
+  }
+}
+
+function toggleSettings() {
+  var container = document.getElementById("container");
+  var container2 = document.getElementById("containerTwo");
+  var container2IsOpen = window.getComputedStyle(container2).display === "flex";
+
+  if (container2IsOpen) {
+    container2.style.animationName = "slide-right";
+    setTimeout(function() {
+      container2.style.display = "none";
+    }, 600);
+  } else {
+    container2.style.animationName = "fade-in";
+    container2.style.display = "flex";
+  }
+}
+
+  function toggleMap(){
+    var map = document.getElementById("map");
+    var mapIsOpen = window.getComputedStyle(map).display === "block";
+
+    if(mapIsOpen){
+      map.style.animationName = "slide-up";
+      setTimeout(function() {
+        map.style.display="none"
+      }, 600);
+      
     }
-        }
+    else {
+      map.style.animationName = "slide-down";
+      map.style.display="block"
+    }
+  }
 
 
-      function toggleMap(){
-        if(document.getElementById("map").style.display==="block"){
-          document.getElementById("map").style.display="none"
-        }
-        else {
-          document.getElementById("map").style.display="block"
-        }
-      }
       function toggleDonate(){
-        if(document.getElementById("donate").style.display==="block"){
-          document.getElementById("donate").style.display="none"
-        }
-        else {
-          document.getElementById("donate").style.display="block"
-        }
-      }
+        var donate = document.getElementById("donate");
+        var donateIsOpen = window.getComputedStyle(donate).display === "block";
 
-      function toggleStock(){
-        if(document.getElementById("stock").style.display==="block"){
-          document.getElementById("stock").style.display="none"
-          document.getElementById("AddStock").style.display="none"
+        if(donateIsOpen){
+          donate.style.animationName = "slide-up";
+          
+          setTimeout(function() {
+            donate.style.display="none"
+          }, 600);
         }
         else {
-          document.getElementById("stock").style.display="block"
-          document.getElementById("AddStock").style.display="block"
+          donate.style.animationName = "slide-down";
+          donate.style.display="block"       
         }
       }
+      
+
+
+
+      function toggleAddStock() {
+        var stock = document.getElementById("AddStockContainer");
+        var stockIsOpen = window.getComputedStyle(stock).display === "block";
+      
+        if (stockIsOpen) {
+          stock.style.animationName = "slide-up";
+        
+          setTimeout(function() {
+            stock.style.display = "none";
+          }, 600);
+        } else {
+          stock.style.animationName = "slide-down";
+          stock.style.display = "block";
+        }
+      }
+      
+      function toggleStock() {
+        var stock = document.getElementById("stock");
+        var stockIsOpen = window.getComputedStyle(stock).display === "block";
+      
+        if (stockIsOpen) {
+          stock.style.animationName = "slide-up";
+        
+          setTimeout(function() {
+            stock.style.display = "none";
+          }, 600);
+        } else {
+          stock.style.animationName = "slide-down";
+          stock.style.display = "block";
+        }
+      }
+      
