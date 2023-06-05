@@ -111,6 +111,9 @@ body {
     margin: 0;
     background-color: rgba(0, 0, 0, 0.0);
 }
+#settingsCog img{
+  cursor: pointer;
+}
 #LoginSection {
     display:flex;
     height: auto;
@@ -130,6 +133,7 @@ body {
     background-color: #f4ece3;
     margin-bottom: 0;
     border-radius: 7px;
+    cursor: pointer;
     margin: 0;
   }
 a {
@@ -292,6 +296,7 @@ input:checked + .slider:before {
     text-align: center;
     margin-bottom: 40px;
     margin-top: 40px;
+    cursor: pointer;
 }
 #containerTwo select{
   margin: auto;
@@ -299,6 +304,7 @@ input:checked + .slider:before {
   width: 70px;
   font-size: 16px;
   text-align: center;
+  cursor: pointer;
 }
 
 .Dropdown{
@@ -306,6 +312,7 @@ input:checked + .slider:before {
     background-color:rgba(0, 0, 0, 0.0);
     padding: 5px;
     border: none;
+    cursor: pointer;
 }
 #map{
   animation-duration: 0.6s;
@@ -403,6 +410,7 @@ hr.solid {
     padding: 5px;
     border: none;
     margin:auto 5px auto 10px;
+    cursor: pointer;
   }
   .removeHead {
     margin:auto 7px auto 4px;
@@ -460,7 +468,7 @@ hr.solid {
     padding: 5px 10px;
     margin-top: 20px;
     border-radius: 7px;
-    
+    cursor: pointer;
   }
 
   #Add {
@@ -541,7 +549,8 @@ hr.solid {
     text-align: center;
   }
   #settings li{
-    padding: 50px;
+    padding: 30px;
+    text-align: center;
   }
   #settingsCog{
     display:block;
@@ -662,7 +671,7 @@ hr.solid {
   }
   
   .nameAndDesc {
-    margin-left: 20px;
+    margin-left: 10px;
   }
   
   .itemDescription {
@@ -680,7 +689,7 @@ hr.solid {
   .expiry,
   .quantity {
     flex: 1; 
-    padding: 30px 10px; 
+    padding: 70px 10px; 
   }
   
   .form-group label {

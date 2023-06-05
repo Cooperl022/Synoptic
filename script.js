@@ -25,7 +25,7 @@ function toggleSettings() {
   var container2IsOpen = window.getComputedStyle(container2).display === "flex";
   var x = window.matchMedia("(min-width: 920px)")
   
-
+  //Work out whether phone or pc version for animation in
   if(x.matches){
     console.log("PC Version")
     if (container2IsOpen) {
@@ -51,78 +51,75 @@ function toggleSettings() {
   }
 }
 
-  function toggleMap(){
-    var map = document.getElementById("map");
-    var mapIsOpen = window.getComputedStyle(map).display === "block";
-
-    if(mapIsOpen){
-      map.style.animationName = "slide-up";
-      setTimeout(function() {
-        map.style.display="none"
-      }, 550);
-      
-    }
-    else {
-      map.style.animationName = "slide-down";
-      map.style.display="block"
-    }
+function toggleMap(){
+  var map = document.getElementById("map");
+  var mapIsOpen = window.getComputedStyle(map).display === "block";
+  if(mapIsOpen){
+    map.style.animationName = "slide-up";
+    setTimeout(function() {
+      map.style.display="none"
+    }, 550);
+    
   }
+  else {
+    map.style.animationName = "slide-down";
+    map.style.display="block"
+  }
+}
 
 
-      function toggleDonate(){
-        var donate = document.getElementById("donate");
-        var donateIsOpen = window.getComputedStyle(donate).display === "block";
-
-        if(donateIsOpen){
-          donate.style.animationName = "slide-up";
-          
-          setTimeout(function() {
-            donate.style.display="none"
-          }, 550);
-        }
-        else {
-          donate.style.animationName = "slide-down";
-          donate.style.display="block"       
-        }
-      }
+function toggleDonate(){
+  var donate = document.getElementById("donate");
+  var donateIsOpen = window.getComputedStyle(donate).display === "block";
+  if(donateIsOpen){
+    donate.style.animationName = "slide-up";
+    
+    setTimeout(function() {
+      donate.style.display="none"
+    }, 550);
+  }
+  else {
+    donate.style.animationName = "slide-down";
+    donate.style.display="block"       
+  }
+}
       
       
 
 
-      function toggleAddStock() {
-        var stock = document.getElementById("AddStockContainer");
-        var stockIsOpen = window.getComputedStyle(stock).display === "block";
+function toggleAddStock() {
+  var stock = document.getElementById("AddStockContainer");
+  var stockIsOpen = window.getComputedStyle(stock).display === "block";
+
+  if (stockIsOpen) {
+    stock.style.animationName = "slide-up";
+  
+    setTimeout(function() {
+      stock.style.display = "none";
+    }, 550);
+  } else {
+    stock.style.animationName = "slide-down";
+    stock.style.display = "block";
+  }
+}
       
-        if (stockIsOpen) {
-          stock.style.animationName = "slide-up";
-        
-          setTimeout(function() {
-            stock.style.display = "none";
-          }, 550);
-        } else {
-          stock.style.animationName = "slide-down";
-          stock.style.display = "block";
-        }
-      }
-      
-      function toggleStock() {
-        var stock = document.getElementById("stock");
-        var stockIsOpen = window.getComputedStyle(stock).display === "block";
-      
-        if (stockIsOpen) {
-          stock.style.animationName = "slide-up";
-        
-          setTimeout(function() {
-            stock.style.display = "none";
-          }, 550);
-        } else {
-          stock.style.animationName = "slide-down";
-          stock.style.display = "block";
-        }
-      }
+function toggleStock() {
+  var stock = document.getElementById("stock");
+  var stockIsOpen = window.getComputedStyle(stock).display === "block";
+
+  if (stockIsOpen) {
+    stock.style.animationName = "slide-up";
+  
+    setTimeout(function() {
+      stock.style.display = "none";
+    }, 550);
+  } else {
+    stock.style.animationName = "slide-down";
+    stock.style.display = "block";
+  }
+}
 
 
-      
 
 
       //Checkboxes in settings
@@ -132,8 +129,7 @@ function toggleSettings() {
         const highContrastCheckbox = document.getElementById('highContrastView');
         var lightD = "#FCFFC9";
         var darkD = "#FBFFB6";
-        
-
+      
   
         dyslexicCheckbox.addEventListener('change', function() {
           if (this.checked) {
@@ -221,19 +217,19 @@ function toggleSettings() {
             });
 
             //#Main select
-            var formGroupInputs = document.querySelectorAll("#Main select");
-            formGroupInputs.forEach(function(input) {
+            var mainSelect = document.querySelectorAll("#Main select");
+            mainSelect.forEach(function(input) {
                 input.style.backgroundColor = lightD;
             });
 
             //.remove button
-            var formGroupInputs = document.querySelectorAll(".row button");
-            formGroupInputs.forEach(function(input) {
+            var removeButton = document.querySelectorAll(".row button");
+            removeButton.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
 
-            var formGroupInputs = document.querySelectorAll("#burger");
-            formGroupInputs.forEach(function(input) {
+            var burger = document.querySelectorAll("#burger");
+            burger.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
 
@@ -320,20 +316,20 @@ function toggleSettings() {
             });
 
             //#Main select
-            var formGroupInputs = document.querySelectorAll("#Main select");
-            formGroupInputs.forEach(function(input) {
+            var mainSelect = document.querySelectorAll("#Main select");
+            mainSelect.forEach(function(input) {
                 input.style.backgroundColor = "#FFFFFF";
             });
 
             //.remove button
-            var formGroupInputs = document.querySelectorAll(".row button");
-            formGroupInputs.forEach(function(input) {
+            var removeButton = document.querySelectorAll(".row button");
+            removeButton.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
 
             //#burger
-            var formGroupInputs = document.querySelectorAll("#burger");
-            formGroupInputs.forEach(function(input) {
+            var burger = document.querySelectorAll("#burger");
+            burger.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
           }
@@ -430,20 +426,20 @@ function toggleSettings() {
             });
 
             //#Main select
-            var formGroupInputs = document.querySelectorAll("#Main select");
-            formGroupInputs.forEach(function(input) {
+            var mainSelect = document.querySelectorAll("#Main select");
+            mainSelect.forEach(function(input) {
                 input.style.backgroundColor = lightD;
             });
 
             //.remove button
-            var formGroupInputs = document.querySelectorAll(".row button");
-            formGroupInputs.forEach(function(input) {
+            var removeButton = document.querySelectorAll(".row button");
+            removeButton.forEach(function(input) {
                 input.style.backgroundColor = "rgba(250,0,0,0)";
             });
 
             //#burger
-            var formGroupInputs = document.querySelectorAll("#burger");
-            formGroupInputs.forEach(function(input) {
+            var burger = document.querySelectorAll("#burger");
+            burger.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
 
@@ -530,20 +526,20 @@ function toggleSettings() {
             });
 
             //#Main select
-            var formGroupInputs = document.querySelectorAll("#Main select");
-            formGroupInputs.forEach(function(input) {
+            var mainSelect = document.querySelectorAll("#Main select");
+            mainSelect.forEach(function(input) {
                 input.style.backgroundColor = "#FFFFFF";
             });
 
             //.remove button
-            var formGroupInputs = document.querySelectorAll(".row button");
-            formGroupInputs.forEach(function(input) {
+            var rowButton = document.querySelectorAll(".row button");
+            rowButton.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
 
             //#burger
-            var formGroupInputs = document.querySelectorAll("#burger");
-            formGroupInputs.forEach(function(input) {
+            var burger = document.querySelectorAll("#burger");
+            burger.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
           }
