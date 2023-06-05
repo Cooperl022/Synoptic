@@ -1,5 +1,6 @@
 doctype html
 head
+  title My Business
   link(rel='stylesheet' href='stylesheets/style.css')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
@@ -26,7 +27,6 @@ button#burger(onclick='toggleMenu()')
     if ! loggedIn 
       form(action='/login' method='post')
         input#Username(type='text' name='username' placeholder='Username' required='')
-        br
         input#Password(type='password' name = 'password' placeholder='Password' required='')
         button#login(type='submit') Login
         br
@@ -58,43 +58,49 @@ button#burger(onclick='toggleMenu()')
           option(value='PlaceD') Spa
 #Main
   // TODO get value from below.. https://stackoverflow.com/questions/3593626/get-the-text-content-from-a-contenteditable-div-through-javascript
-  #placeName.Title(contenteditable='true')
-    | #{placeInfo.place_name} [Edit]
+  #placeName.Title
+    p#placeNameText.Title #{placeInfo.place_name}
+    button#cancelName(style='display:none')  Cancel
+    button#saveName(style='display:none')  Save Change
+    button#editName(onclick='enableEdit("placeNameText", "cancelName", "saveName", this.id)') Edit
   br
-  .Information(contenteditable='true')
-    | #{placeInfo.place_description}
-    | [Edit]
+  .Information
+    p#placeDescText.Information #{placeInfo.place_description}
+    button#cancelDesc(style='display:none') Cancel
+    button#saveDesc(style='display:none')  Save Change
+    button#editDesc(onclick='enableEdit("placeDescText", "cancelDesc", "saveDesc", this.id)') Edit
   | Add Stock 
   button.Dropdown
-    img(src='images/BlackTriangle.png' onclick='toggleStock()'  style='width:9px')
+    img(src='images/BlackTriangle.png' onclick='toggleAddStock()'  style='width:9px')
   br
-  #stock
-    #rowHeads
-      .itemNameHead Item
-      .expiryHead Expiry date
-      .quantityHead Qty
-      .removeHead Delete
-    for item in stock
-      .row(id=item.id)
-        .nameAndDesc
-          .itemName  #{item.item_name}
-          .itemDescription #{item.item_description}
-        .expiryAndQuant
-          .expiry #{item.expiry}
-          .quantity #{item.quantity}
-        button.Remove(onclick='removeStock(this.parentNode.id)') ✕
+  #AddStockContainer
+    #stock
+      #rowHeads
+        .itemNameHead Item
+        .expiryHead Expiry date
+        .quantityHead Qty
+        .removeHead Delete
+      for item in stock
+        .row(id=item.id)
+          .nameAndDesc
+            .itemName  #{item.item_name}
+            .itemDescription #{item.item_description}
+          .expiryAndQuant
+            .expiry #{item.expiry}
+            .quantity #{item.quantity}
+          button.Remove(onclick='removeStock(this.parentNode.id)') ✕
 
-  form#AddStock(action='#' method='post')
-    .form-group
-      label(for='ItemName') Item Name:
-      input#ItemName(name='ItemName' type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
-    .form-group
-      label(for='ItemDesc') Item Description:
-      textarea#ItemDesc(name='ItemDesc' type='text' placeholder='Description' size='50' maxlength='200' required='')
-    .form-group
-      label(for='ExpiryDate') Expiry Date:
-      input#ExpiryDate(name='ExpiryDate' type='date' required='')
-    .form-group
-      label(for='Quantity') Quantity:
-      input#Quantity(name='Quantity' type='number' min='0' placeholder='0' max='999' required='')
-    button#Add(type='submit') Add 
+    form#AddStock(action='#' method='post')
+      .form-group
+        label(for='ItemName') Item Name:
+        input#ItemName(name='ItemName' type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
+      .form-group
+        label(for='ItemDesc') Item Description:
+        textarea#ItemDesc(name='ItemDesc' type='text' placeholder='Description' size='50' maxlength='200' required='')
+      .form-group
+        label(for='ExpiryDate') Expiry Date:
+        input#ExpiryDate(name='ExpiryDate' type='date' required='')
+      .form-group
+        label(for='Quantity') Quantity:
+        input#Quantity(name='Quantity' type='number' min='0' placeholder='0' max='999' required='')
+      button#Add(type='submit') Add 

@@ -1,5 +1,6 @@
 doctype html
 head
+  title Donate
   link(rel='stylesheet' href='stylesheets/style.css')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
@@ -26,7 +27,6 @@ button#burger(onclick='toggleMenu()')
     if ! loggedIn 
       form(action='/login' method='post')
         input#Username(type='text' name='username' placeholder='Username' required='')
-        br
         input#Password(type='password' name = 'password' placeholder='Password' required='')
         button#login(type='submit') Login
         br
@@ -72,7 +72,7 @@ button#burger(onclick='toggleMenu()')
       <BUTTON ID="Show" VALUE="Click to show" ONCLICK=" document.getElementById('Show').style.display='none'; document.getElementById('Hide').style.display='block'; document.getElementById('SectionName').style.display='block'">
       <BUTTON ID="Hide" VALUE="Click to hide" ONCLICK=" document.getElementById('Show').style.display='block'; document.getElementById('Hide').style.display='none'; document.getElementById('SectionName').style.display='none'">
       <DIV ID="'SectionName'" STYLE="display:none">Text to be shown and hidden</DIV>
-    img(src='images/map.png' style='height:auto;width:50%')
+    img(src='images/map.png')
   div(style='opacity: 0.1;')
     hr.solid
   | Donate 

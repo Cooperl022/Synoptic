@@ -1,5 +1,6 @@
 doctype html
 head
+  title Register
   link(rel='stylesheet' href='stylesheets/style.css')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
@@ -25,7 +26,6 @@ button#burger(onclick='toggleMenu()')
     if ! loggedIn 
       form(action='/login' method='post')
         input#Username(type='text' name='username' placeholder='Username' required='')
-        br
         input#Password(type='password' name = 'password' placeholder='Password' required='')
         button#login(type='submit') Login
         br
@@ -33,6 +33,8 @@ button#burger(onclick='toggleMenu()')
       a(href='/logout') Logout
   button#settingsCog(onclick='toggleSettings()')
     img(src='images/SettingCogImage.png' style='width:40px')
+#containerThree
+  | Register
 #containerTwo
   #settings
     ul

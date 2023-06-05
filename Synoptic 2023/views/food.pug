@@ -1,5 +1,6 @@
 doctype html
 head
+  title Food
   link(rel='stylesheet' href='stylesheets/style.css')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
@@ -26,7 +27,6 @@ button#burger(onclick='toggleMenu()')
     if ! loggedIn 
       form(action='/login' method='post')
         input#Username(type='text' name='username' placeholder='Username' required='')
-        br
         input#Password(type='password' name = 'password' placeholder='Password' required='')
         button#login(type='submit') Login
         br
@@ -60,7 +60,7 @@ button#burger(onclick='toggleMenu()')
   select#foodDropDown(name='FoodBanks' OnChange='updateStockTable()')
     option(value="") -
     for foodPlace in foodPlaces
-      option(value=foodPlace.place_name) #{foodPlace.place_name}
+      option(value=foodPlace.place_id) #{foodPlace.place_name}
 
   br
   | Map 
@@ -86,7 +86,7 @@ button#burger(onclick='toggleMenu()')
     //table loads in all stock by default, but is set not to display
     //display is turned on when user selects a food place//
     for item in stock
-      .row(id=item.place_name style='display: none')
+      .row(id=item.place_id style='display: none')
         //^ used to tell what stock belongs to what place - never displayed
         .nameAndDesc
           .itemName  #{item.item_name}
