@@ -113,6 +113,10 @@ body {
 }
 #settingsCog img{
   cursor: pointer;
+  width:37px
+}
+.divider{
+  opacity: 0.1;
 }
 #LoginSection {
     display:flex;
@@ -285,7 +289,7 @@ input:checked + .slider:before {
   margin-bottom: 20px;
 }
 #Main{
-    font-size: 20px;
+    font-size: 25px;
     width: 100%;
     text-align: center;
 }
@@ -313,6 +317,9 @@ input:checked + .slider:before {
     padding: 5px;
     border: none;
     cursor: pointer;
+}
+.Dropdown img{
+  width:16px;
 }
 #map{
   animation-duration: 0.6s;
@@ -481,7 +488,7 @@ hr.solid {
 
 @media (max-width:920px){
   #Main{
-    font-size: 17px;
+    font-size: 20px;
     margin: 0px 0px;
   }
   #myBusinessTitle{
@@ -494,11 +501,13 @@ hr.solid {
     margin: 0px 5px;
     padding-top:30px;
   }
-  #Information{
+  #Information {
     font-size: 20px;
-    margin: 0px 10px;
-    margin-bottom: 40px;
-  }
+    padding: 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
   #container {
     width: 50%;
     align-items: left;
@@ -652,6 +661,9 @@ hr.solid {
     background-color: rgba(0, 0, 0, 0.0);
     cursor: pointer;
   }
+  #burger img{
+    width: 30px;
+  }
 
   #stock {
     display:block;
@@ -689,7 +701,7 @@ hr.solid {
   .expiry,
   .quantity {
     flex: 1; 
-    padding: 70px 10px; 
+    padding: 80px 10px; 
   }
   
   .form-group label {
@@ -709,7 +721,7 @@ hr.solid {
   }
 
   .removeHead {
-    margin:auto 15px auto 15px;
+    margin:auto 10px auto 10px;
   }
 
   #rowHeads{
@@ -723,13 +735,18 @@ hr.solid {
   .expiryHead, .quantityHead {
     display: flex;
     flex: 0 0 auto;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 
   .itemNameHead {
     margin-left: 20px;
     flex-grow: 1;
     text-align: left;
+  }
+
+  .Dropdown img{
+    width:17px;
   }
 
 }

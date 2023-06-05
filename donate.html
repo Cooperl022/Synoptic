@@ -8,7 +8,7 @@
 </head>
 <body>
     <button id="burger" onclick="toggleMenu()">
-        <img src ="includes/images/BurgerMenuIcon.png" style="width:30px">
+        <img src ="includes/images/BurgerMenuIcon.png">
       </button>
     <div id ="container">
     <div id="topnav"> 
@@ -27,7 +27,7 @@
         <input id="Password" type="password" placeholder="Password"> <button id="login">Login</button> <br /> 
 </div>
 <button id="settingsCog" onclick="toggleSettings()">
-    <img src ="includes/images/SettingCogImage.png" style="width:37px">
+    <img src ="includes/images/SettingCogImage.png">
   </button>
 </div>
 
@@ -72,32 +72,22 @@
           </select>
           <br />
     
-Map <button class="Dropdown" onclick = "toggleMap()"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+Map <button class="Dropdown" onclick = "toggleMap()"><img src="includes/images/BlackTriangle.png"></button>
 <div id ="map" style="display:block">
-    
-    <!--Using logic of
-    
-    <BUTTON ID="Show" VALUE="Click to show" ONCLICK=" document.getElementById('Show').style.display='none'; document.getElementById('Hide').style.display='block'; document.getElementById('SectionName').style.display='block'">
-
-    <BUTTON ID="Hide" VALUE="Click to hide" ONCLICK=" document.getElementById('Show').style.display='block'; document.getElementById('Hide').style.display='none'; document.getElementById('SectionName').style.display='none'">
-
-    <DIV ID="'SectionName'" STYLE="display:none">Text to be shown and hidden</DIV>
-    
-    -->
-    
+        
     <img src ="includes/images/map.png">
 
 </div>
 
-<div style="opacity: 0.1;">
+<div class="divider">
     <hr class="solid">
     </div>
 
 
-Donate <button class="Dropdown" onclick = "toggleDonate()"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+Donate <button class="Dropdown" onclick = "toggleDonate()"><img src="includes/images/BlackTriangle.png"></button>
 <br />
 
-<div id ="donate" style = "display:block">
+<div id ="donate">
     <form>
     <div class="form-group">
         <label for="ItemName">Item Name:</label>

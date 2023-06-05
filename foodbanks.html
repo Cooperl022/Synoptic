@@ -8,7 +8,7 @@
 </head>
 <body>
     <button id="burger" onclick="toggleMenu()">
-        <img src ="includes/images/BurgerMenuIcon.png" style="width:30px">
+        <img src ="includes/images/BurgerMenuIcon.png">
       </button>
     <div id ="container">
     <div id="topnav"> 
@@ -27,7 +27,7 @@
         <input id="Password" type="password" placeholder="Password"> <button id="login">Login</button> <br /> 
 </div>
 <button id="settingsCog" onclick="toggleSettings()">
-    <img src ="includes/images/SettingCogImage.png" style="width:37px">
+    <img src ="includes/images/SettingCogImage.png">
   </button>
 </div>
 
@@ -72,33 +72,39 @@
           </select>
           <br />
     
-Map <button class="Dropdown" onclick="toggleMap()"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+Map <button class="Dropdown" onclick="toggleMap()"><img src="includes/images/BlackTriangle.png"></button>
 <div id ="map">
     
     <img src ="includes/images/map.png" style = "height:auto;width:50%">
 
 </div>
 
-<div style="opacity: 0.1;">
+<div class="divider">
     <hr class="solid">
     </div>
 
-<div id="Title">
-    PlaceA
-</div><br />
-<div id ="Information">
-    InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
-    InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
-    InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
-    InfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfoInfo
-</div>
-Stock <button class="Dropdown" onclick="toggleStock()"><img src="includes/images/BlackTriangle.png" style="width:9px"></button>
+    <div id="Title">
+    
+      PlaceA 
+      
+  </div><br />
+  <div id ="Information">
+    Info Info Info Info Info Info Info 
+    Info Info Info Info Info Info Info 
+    Info Info Info Info Info Info Info 
+    Info Info Info InfoInfoInfoInfo 
+    Info Info Info Info Info Info Info  
+      
+  </div>
+
+  
+Stock <button class="Dropdown" onclick="toggleStock()"><img src="includes/images/BlackTriangle.png"></button>
 <div id ="stock">
     <div id="rowHeads">
         <div class="itemNameHead">Item</div>
         
         <div class="expiryHead">Expiry date</div>
-        <div class="quantityHead" style="margin-right:20px">Qty</div>
+        <div class="quantityHead">Qty</div>
         
         
         </div>
