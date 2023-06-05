@@ -223,7 +223,7 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #f4ece3;
+  box-shadow: 0 0 1px #ffc686;
 }
 input:checked + .slider:before {
   -webkit-transform: translateX(22px);
@@ -300,6 +300,7 @@ input:checked + .slider:before {
   font-size: 16px;
   text-align: center;
 }
+
 .Dropdown{
     margin-bottom: 20px;
     background-color:rgba(0, 0, 0, 0.0);
@@ -362,7 +363,6 @@ hr.solid {
     margin-left: 40px;
     flex-grow: 1;
     text-align: left;
-    background-color: #FFFFFF;
   }
 
   .itemNameHead {
@@ -532,6 +532,13 @@ hr.solid {
     /*Using CSS box shadow generator*/
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
+  }
+  #containerTwo select{
+    margin-top: 10px;
+    height:40px;
+    width: 70px;
+    font-size: 16px;
+    text-align: center;
   }
   #settings li{
     padding: 50px;
