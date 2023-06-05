@@ -13,7 +13,7 @@ function toggleMenu() {
     setTimeout(function() {
       container.style.display = "none";
       container2.style.display = "none";
-    }, 600); 
+    }, 550); 
   } else {
     container.style.display = "block";
     container.style.animationName = "slide-left";
@@ -21,19 +21,38 @@ function toggleMenu() {
 }
 
 function toggleSettings() {
-  var container = document.getElementById("container");
   var container2 = document.getElementById("containerTwo");
   var container2IsOpen = window.getComputedStyle(container2).display === "flex";
+  var x = window.matchMedia("(min-width: 920px)")
+  
 
-  if (container2IsOpen) {
-    container2.style.animationName = "slide-right";
-    setTimeout(function() {
-      container2.style.display = "none";
-    }, 600);
-  } else {
-    container2.style.animationName = "fade-in";
-    container2.style.display = "flex";
+  if(x.matches){
+    console.log("PC Version")
+    if (container2IsOpen) {
+      container2.style.animationName = "slide-up-out";
+      setTimeout(function() {
+        container2.style.display = "none";
+      }, 550);
+    } else {
+      container2.style.animationName = "slide-down";
+      container2.style.display = "flex";
+    }
+  } else{
+    console.log("Phone")
+    if (container2IsOpen) {
+      container2.style.animationName = "slide-right";
+      setTimeout(function() {
+        container2.style.display = "none";
+      }, 550);
+    } else {
+      container2.style.animationName = "fade-in";
+      container2.style.display = "flex";
+    }
+
+    
   }
+
+  
 }
 
   function toggleMap(){
@@ -44,7 +63,7 @@ function toggleSettings() {
       map.style.animationName = "slide-up";
       setTimeout(function() {
         map.style.display="none"
-      }, 600);
+      }, 550);
       
     }
     else {
@@ -63,7 +82,7 @@ function toggleSettings() {
           
           setTimeout(function() {
             donate.style.display="none"
-          }, 600);
+          }, 550);
         }
         else {
           donate.style.animationName = "slide-down";
@@ -83,7 +102,7 @@ function toggleSettings() {
         
           setTimeout(function() {
             stock.style.display = "none";
-          }, 600);
+          }, 550);
         } else {
           stock.style.animationName = "slide-down";
           stock.style.display = "block";
@@ -99,7 +118,7 @@ function toggleSettings() {
         
           setTimeout(function() {
             stock.style.display = "none";
-          }, 600);
+          }, 550);
         } else {
           stock.style.animationName = "slide-down";
           stock.style.display = "block";
