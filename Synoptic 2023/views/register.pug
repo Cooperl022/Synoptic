@@ -39,18 +39,18 @@ button#burger(onclick='toggleMenu()')
   #settings
     ul
       li
-        | Dyslexic view 
+        | Dyslexic view
         label.switch
-          input(type='checkbox')
+          input#dyslexicView(type='checkbox')
           span.slider.round
       li
-        | High contrast view 
+        | High contrast view
         label.switch
-          input(type='checkbox')
+          input#highContrastView(type='checkbox')
           span.slider.round
       li
         | Language 
-        select#dropdown
+        select#dropdown(name='FoodBanks')
           option(value='PlaceA') Eng
           option(value='PlaceB') Fre
           option(value='PlaceC') Jam

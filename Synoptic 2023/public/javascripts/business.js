@@ -69,6 +69,8 @@ function saveEdit(e) {
     const saveButton = e.currentTarget.save
     const editButton = e.currentTarget.edit
 
+
+    
     editToSave.contentEditable = false
     editToSave.style.backgroundColor = "initial"
 

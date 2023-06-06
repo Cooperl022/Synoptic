@@ -40,18 +40,18 @@ button#burger(onclick='toggleMenu()')
   #settings
     ul
       li
-        | Dyslexic view 
+        | Dyslexic view
         label.switch
-          input(type='checkbox')
+          input#dyslexicView(type='checkbox')
           span.slider.round
       li
-        | High contrast view 
+        | High contrast view
         label.switch
-          input(type='checkbox')
+          input#highContrastView(type='checkbox')
           span.slider.round
       li
         | Language 
-        select#dropdown
+        select#dropdown(name='FoodBanks')
           option(value='PlaceA') Eng
           option(value='PlaceB') Fre
           option(value='PlaceC') Jam
@@ -65,33 +65,33 @@ button#burger(onclick='toggleMenu()')
   br
   | Map 
   button.Dropdown(onclick='toggleMap()')
-    img(src='images/BlackTriangle.png' style='width:9px')
+    img(src='images/BlackTriangle.png')
   #map
     img(src='images/map.png' style='height:auto;width:50%')
-  hr.solid
-  #placeName.Title
-
+  .divider
+    hr.solid
+  #Title
+    | PlaceA
   br
-  #placeDescription.Information
-    //Load description of selected place
+  #Information
+    //TO DO - Load description of selected place
+  
   | Stock 
   button.Dropdown(onclick='toggleStock()')
-    img(src='images/BlackTriangle.png' style='width:9px')
+    img(src='images/BlackTriangle.png')
   #stock
     #rowHeads
       .itemNameHead Item
       .expiryHead Expiry date
       .quantityHead Qty
-      .removeHead Delete
     //table loads in all stock by default, but is set not to display
-    //display is turned on when user selects a food place//
+    //display is turned on when user selects a food place
     for item in stock
       .row(id=item.place_id style='display: none')
         //^ used to tell what stock belongs to what place - never displayed
         .nameAndDesc
-          .itemName  #{item.item_name}
+          .itemName #{item.item_name}
           .itemDescription #{item.item_description}
         .expiryAndQuant
           .expiry #{item.expiry}
           .quantity #{item.quantity}
-

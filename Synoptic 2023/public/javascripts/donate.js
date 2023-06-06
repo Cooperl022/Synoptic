@@ -2,7 +2,7 @@ const DonateForm = document.getElementById('DonateForm');
 
 DonateForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
+    
     const table = document.getElementById('stock')
 
 	const itemName = document.getElementById('ItemName').value
@@ -52,10 +52,52 @@ DonateForm.addEventListener('submit', (e) => {
     row.appendChild(expiryAndQuant)
     row.append(removeButton)
     table.appendChild(row)
+    DonateForm.reset()
 });
 
 function removeRow(e) {
    const row = e.target.parentNode
    const table = row.parentNode
    table.removeChild(row)
+}
+
+function submitDonation(e) {
+    const place_name = document.getElementById('foodDropDown')
+    const rows = document.getElementsByClassName('row')
+    if (place_name.selectedIndex == "") {
+        alert("You must select a place to donate to")
+    }
+    else if (rows.length == 0) {
+        alert("You must add items")
+    }
+    else {
+        const itemNames = []
+        const descriptions  = []
+        const expiryDates = []
+        const quants = []
+        for (i = 0; i < rows.length; i++) {
+            itemNames.push(rows[i].getElementsByClassName('nameAndDesc')[0].getElementsByClassName('itemName')[0].textContent)
+            descriptions.push(rows[i].getElementsByClassName('nameAndDesc')[0].getElementsByClassName('itemDescription')[0].textContent)
+            expiryDates.push(rows[i].getElementsByClassName('expiryAndQuant')[0].getElementsByClassName('expiry')[0].textContent)
+            quants.push(rows[i].getElementsByClassName('expiryAndQuant')[0].getElementsByClassName('quantity')[0].textContent)
+        }
+
+        let message = { place_name: place_name.value,  itemNames: itemNames, descriptions: descriptions, expiryDates: expiryDates, quants: quants }
+        const serializedMessage = JSON.stringify(message)
+
+        fetch('/donate/addDonation', {method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body:serializedMessage
+                    })
+                .then(alert("Donation Submitted"))
+            .then(resetDonationTable(rows))
+    }
+}
+
+function resetDonationTable(rows) {
+    for (i = 0; i < rows.length; i++) {
+        rows[i].remove()
+    }
 }

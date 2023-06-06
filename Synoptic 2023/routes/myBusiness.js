@@ -60,11 +60,11 @@ router.post('/updateInfo', function (req, res, next) {
   const newText = req.body.newText
   const toUpdate = req.body.toUpdate
 
-  if (toUpdate == "placeNameText") {
+  if (toUpdate == "myBusinessTitle") {
     //update place name with new text
     var sql = 'update foodPlaces set place_name = ? where place_username = ?';
   } 
-  else if (toUpdate == "placeDescText") {
+  else if (toUpdate == "Information") {
     //Update desc with new text
     var sql = 'update foodPlaces set place_description = ? where place_username  = ?';
   }
