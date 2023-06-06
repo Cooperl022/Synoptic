@@ -7,11 +7,11 @@
 <script script src="script.js"></script>
 </head>
 <body>
-    <button id="burger" onclick="toggleMenu()">
-        <img src ="includes/images/BurgerMenuIcon.png">
+    <button id="burger" onclick="toggleMenu()" role ="Reveal menu">
+        <img src ="includes/images/BurgerMenuIcon.png" alt ="3 individual lines alignd vertically">
       </button>
     <div id ="container">
-    <div id="topnav"> 
+    <div id="topnav" role = "navigation"> 
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -22,21 +22,21 @@
             </ul>
         </nav>
     </div>
-    <div id ="LoginSection"> 
+    <div id ="LoginSection" role ="login"> 
         <input id="Username" type="text" placeholder="Username"> <br />
         <input id="Password" type="password" placeholder="Password"> <button id="login">Login</button> <br /> 
 </div>
-<button id="settingsCog" onclick="toggleSettings()">
-    <img src ="includes/images/SettingCogImage.png">
+<button id="settingsCog" onclick="toggleSettings()" role ="reveal Settings">
+    <img src ="includes/images/SettingCogImage.png" alt ="mechanical cog">
   </button>
 </div>
 
-<div id ="containerThree">
+<div id ="containerThree" role ="Title of Page">
   Donate
   </div>
 
 <div id ="containerTwo">
-  <div id="settings">
+  <div id="settings" role = "settings">
     <ul>
       <li>Dyslexic view
         <label class="switch">
@@ -64,7 +64,7 @@
 
 <div id ="Main">
    
-        <select name="FoodBanks" id="dropdown">
+        <select name="FoodBanks" id="dropdown" role="Choose foodbank">
             <option value="PlaceA">PlaceA</option>
             <option value="PlaceB">PlaceB</option>
             <option value="PlaceC">PlaceC</option>
@@ -72,7 +72,7 @@
           </select>
           <br />
     
-Map <button class="Dropdown" onclick = "toggleMap()"><img src="includes/images/BlackTriangle.png"></button>
+Map <button class="Dropdown" onclick = "toggleMap()" role ="Reveal map"><img src="includes/images/BlackTriangle.png" alt ="upside down black triangle"></button>
 <div id ="map" style="display:block">
         
     <img src ="includes/images/map.png">
@@ -84,10 +84,10 @@ Map <button class="Dropdown" onclick = "toggleMap()"><img src="includes/images/B
     </div>
 
 
-Donate <button class="Dropdown" onclick = "toggleDonate()"><img src="includes/images/BlackTriangle.png"></button>
+Donate <button class="Dropdown" onclick = "toggleDonate()" role ="reveal Donate"><img src="includes/images/BlackTriangle.png" alt ="upside down black triangle"></button>
 <br />
 
-<div id ="donate">
+<div id ="donate" role ="donate items">
     <form>
     <div class="form-group">
         <label for="ItemName">Item Name:</label>
@@ -112,7 +112,7 @@ Donate <button class="Dropdown" onclick = "toggleDonate()"><img src="includes/im
     <button id ="Add"> Add </button>
 
 
-<div id ="stock">
+<div id ="stock" role ="stock being donated">
   <div id="rowHeads">
     <div class="itemNameHead">Item</div>
     
@@ -151,7 +151,7 @@ Donate <button class="Dropdown" onclick = "toggleDonate()"><img src="includes/im
     
 
 </div>
-<button id ="Submit"> Submit </button>
+<button id ="Submit" role="submit stock to donate"> Submit </button>
 </div>
 </div>
 </body>

@@ -9,11 +9,11 @@
 
 </head>
 <body>
-  <button id="burger" onclick="toggleMenu()">
-      <img src ="includes/images/BurgerMenuIcon.png">
+  <button id="burger" onclick="toggleMenu()" role ="reveal menu">
+      <img src ="includes/images/BurgerMenuIcon.png" alt="3 individual lines aligned vertically">
     </button>
   <div id ="container">
-  <div id="topnav"> 
+  <div id="topnav" role ="navigation"> 
       <nav>
           <ul>
               <li><a href="index.html">Home</a></li>
@@ -23,22 +23,22 @@
           </ul>
       </nav>
   </div>
-  <div id ="LoginSection"> 
+  <div id ="LoginSection" role="login"> 
       <input id="Username" type="text" placeholder="Username"> <br />
       <input id="Password" type="password" placeholder="Password"> <br />
       <button id="login">Login</button> <br /> 
 </div>
-<button id="settingsCog" onclick="toggleSettings()">
-  <img src ="includes/images/SettingCogImage.png">
+<button id="settingsCog" onclick="toggleSettings()" role="reveal settings">
+  <img src ="includes/images/SettingCogImage.png" alt ="mechanical cog">
 </button>
 </div>
 
-<div id ="containerThree">
+<div id ="containerThree" role ="Title of Page">
 MyBusiness
 </div>
 
 <div id ="containerTwo">
-  <div id="settings">
+  <div id="settings" role ="settings">
     <ul>
       <li>Dyslexic view
         <label class="switch">
@@ -68,12 +68,12 @@ MyBusiness
 
 
 <!--TODO get value from below.. https://stackoverflow.com/questions/3593626/get-the-text-content-from-a-contenteditable-div-through-javascript-->
-<div id="myBusinessTitle" contenteditable="true">
+<div id="myBusinessTitle" contenteditable="true" role ="Edit business title">
     
     PlaceA [Edit]
     
 </div><br />
-<div id ="Information" contenteditable="true">
+<div id ="Information" contenteditable="true" role ="Edit business info">
   Info Info Info Info Info Info Info 
   Info Info Info Info Info Info Info 
   Info Info Info Info Info Info Info 
@@ -83,13 +83,13 @@ MyBusiness
 </div>
 
 
-Add Stock <button class="Dropdown" onclick="toggleAddStock()"><img src="includes/images/BlackTriangle.png"></button>
+Add Stock <button class="Dropdown" onclick="toggleAddStock()" role ="reveal stock"><img src="includes/images/BlackTriangle.png" alt ="upside down black triangle"></button>
 <br />
 
 
 <div id="AddStockContainer">
 
-<div id ="stock">
+<div id ="stock" role="shows stock available">
   <div id="rowHeads">
 <div class="itemNameHead">Item</div>
 
@@ -129,7 +129,7 @@ Add Stock <button class="Dropdown" onclick="toggleAddStock()"><img src="includes
 
 
 
-<form id="AddStock">
+<form id="AddStock" role="add stock to business">
     <div class="form-group">
         <label for="ItemName">Item Name:</label>
         <input id="ItemName" type="text" placeholder="Name" minlength="2" maxlength="20" size="20" required>
@@ -149,7 +149,7 @@ Add Stock <button class="Dropdown" onclick="toggleAddStock()"><img src="includes
         <label for="Quantity">Quantity:</label>
         <input id="Quantity" type="number" min="0" placeholder="0" max="999" required>
       </div>
-      <button id ="Add"> Add </button>
+      <button id ="Add" role ="add item to stock"> Add </button>
     </form>
     
     
