@@ -50,7 +50,7 @@ button#burger(onclick='toggleMenu()')
           input#highContrastView(type='checkbox')
           span.slider.round
       li
-        | Language
+        | Language 
         select#dropdown(name='FoodBanks')
           option(value='PlaceA') Eng
           option(value='PlaceB') Fre
@@ -59,15 +59,15 @@ button#burger(onclick='toggleMenu()')
 #Main
   div
     p#myBusinessTitle #{placeInfo.place_name}
-    button#cancelName(style='display:none')  Cancel
-    button#saveName(style='display:none')  Save Change
-    button#editName(onclick='enableEdit("myBusinessTitle", "cancelName", "saveName", this.id)') Edit
+    button#cancelName(style='display:none; margin:15px; margin-bottom:25px')  Cancel
+    button#saveName(style='display:none; margin:15px; margin-bottom:25px')  Save Change
+    button#editName(style='margin:15px; margin-bottom:25px' onclick='enableEdit("myBusinessTitle", "cancelName", "saveName", this.id)') Edit
   br
   div
-    p#Information #{placeInfo.place_description}
-    button#cancelDesc(style='display:none') Cancel
-    button#saveDesc(style='display:none')  Save Change
-    button#editDesc(onclick='enableEdit("Information", "cancelDesc", "saveDesc", this.id)') Edit
+    p#Information(style='margin:0px') #{placeInfo.place_description}
+    button#cancelDesc(style='display:none; margin:15px; margin-bottom:50px') Cancel 
+    button#saveDesc(style='display:none; margin:15px; margin-bottom:50px')  Save Change
+    button#editDesc(style='margin:15px; margin-bottom:50px' onclick='enableEdit("Information", "cancelDesc", "saveDesc", this.id)') Edit
   | Add Stock 
   button.Dropdown(onclick='toggleAddStock()')
     img(src='images/BlackTriangle.png')

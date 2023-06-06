@@ -50,7 +50,7 @@ button#burger(onclick='toggleMenu()')
           input#highContrastView(type='checkbox')
           span.slider.round
       li
-        | Language
+        | Language 
         select#dropdown(name='FoodBanks')
           option(value='PlaceA') Eng
           option(value='PlaceB') Fre
@@ -74,7 +74,7 @@ button#burger(onclick='toggleMenu()')
     img(src='images/BlackTriangle.png')
   br
   #donate
-    form#DonateForm
+    form#DonateForm(action='#' method='POST')
       .form-group
         label(for='ItemName') Item Name:
         input#ItemName(type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
@@ -97,6 +97,6 @@ button#burger(onclick='toggleMenu()')
     if !loggedIn
       p You must be logged in!
     else if accountType == 'user'
-      button#Submit Submit 
+      button#Submit(onclick='submitDonation()') Submit 
     else
       p You must sign in to a user account to donate!
