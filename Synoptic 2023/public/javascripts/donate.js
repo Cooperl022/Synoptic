@@ -7,8 +7,14 @@ DonateForm.addEventListener('submit', (e) => {
 
 	const itemName = document.getElementById('ItemName').value
 	const itemDesc = document.getElementById('ItemDesc').value
-    const expiryDate = document.getElementById('ExpiryDate').value
+    const inputDate = document.getElementById('ExpiryDate').value
     const quantity = document.getElementById('Quantity').value
+
+
+    var date = new Date(inputDate)
+    if (!isNaN(date.getTime())) {
+        expiryDate = (('0'+(date.getDate())).slice(-2)+ '/' + ('0'+(date.getMonth()+1)).slice(-2) + '/' + date.getFullYear().toString().substr(-2))
+    }
 
     //Add to table
     const row = document.createElement('div')

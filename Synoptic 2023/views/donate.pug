@@ -5,10 +5,10 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
   script(src='javascripts/donate.js' defer)
-button#burger(onclick='toggleMenu()')
-  img(src='images/BurgerMenuIcon.png' style='width:30px')
+button#burger(onclick='toggleMenu()' role='Reveal Menu')
+  img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
 #container
-  #topnav
+  #topnav(role='navigation')
     nav
       ul
         li
@@ -23,7 +23,7 @@ button#burger(onclick='toggleMenu()')
         if loggedIn && accountType == 'admin'
           li
             a(href='/admin') Admin
-  #LoginSection
+  #LoginSection(role='login')
     if ! loggedIn 
       form(action='/login' method='post')
         input#Username(type='text' name='username' placeholder='Username' required='')
@@ -32,12 +32,12 @@ button#burger(onclick='toggleMenu()')
         br
     if loggedIn
       a(href='/logout') Logout
-  button#settingsCog(onclick='toggleSettings()')
-    img(src='images/SettingCogImage.png' style='width:37px')
-#containerThree
+  button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
+    img(src='images/SettingCogImage.png' style='width:37px' alt='mechanical cog')
+#containerThree(role='Title of Page')
   | Donate
 #containerTwo
-  #settings
+  #settings(role='Settings')
     ul
       li
         | Dyslexic view
@@ -57,23 +57,23 @@ button#burger(onclick='toggleMenu()')
           option(value='PlaceC') Jam
           option(value='PlaceD') Spa
 #Main
-  select#foodDropDown(name='FoodBanks')
+  select#foodDropDown(name='FoodBanks' role='Choose foodbank')
     option(value="null") -
     for foodPlace in foodPlaces
       option(value=foodPlace.place_name) #{foodPlace.place_name}
   br
   | Map 
-  button.Dropdown(onclick='toggleMap()')
-    img(src='images/BlackTriangle.png')
+  button.Dropdown(onclick='toggleMap()' role='Reveal Map')
+    img(src='images/BlackTriangle.png' alt ='upside down black triangle')
   #map(style='display:block')
     img(src='images/map.png')
   .divider
     hr.solid
   | Donate 
-  button.Dropdown(onclick='toggleDonate()')
-    img(src='images/BlackTriangle.png')
+  button.Dropdown(onclick='toggleDonate()' role='Reveal Donate')
+    img(src='images/BlackTriangle.png' alt='upside down black triangle')
   br
-  #donate
+  #donate(role='Donate Items')
     form#DonateForm(action='#' method='POST')
       .form-group
         label(for='ItemName') Item Name:
@@ -88,7 +88,7 @@ button#burger(onclick='toggleMenu()')
         label(for='Quantity') Quantity:
         input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
       button#Add(type='submit') Add 
-    #stock
+    #stock(role='Stock being donated')
       #rowHeads
         .itemNameHead Item
         .expiryHead Expiry date

@@ -5,10 +5,10 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
   script(src='javascripts/business.js')
-button#burger(onclick='toggleMenu()')
-  img(src='images/BurgerMenuIcon.png' style='width:30px')
+button#burger(onclick='toggleMenu()' role='Reveal Menu')
+  img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
 #container
-  #topnav
+  #topnav(role='navigation')
     nav
       ul
         li
@@ -23,7 +23,7 @@ button#burger(onclick='toggleMenu()')
         if loggedIn && accountType == 'admin'
           li
             a(href='/admin') Admin
-  #LoginSection
+  #LoginSection(role='login')
     if ! loggedIn 
       form(action='/login' method='post')
         input#Username(type='text' name='username' placeholder='Username' required='')
@@ -32,12 +32,12 @@ button#burger(onclick='toggleMenu()')
         br
     if loggedIn
       a(href='/logout') Logout
-  button#settingsCog(onclick='toggleSettings()')
-    img(src='images/SettingCogImage.png' style='width:37px')
-#containerThree
+  button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
+    img(src='images/SettingCogImage.png' style='width:37px' alt='mechanical cog')
+#containerThree(role='Title of Page')
   | My Business
 #containerTwo
-  #settings
+  #settings(role='Settings')
     ul
       li
         | Dyslexic view
@@ -58,22 +58,22 @@ button#burger(onclick='toggleMenu()')
           option(value='PlaceD') Spa
 #Main
   div
-    p#myBusinessTitle #{placeInfo.place_name}
+    p#myBusinessTitle(role='Edit business title') #{placeInfo.place_name}
     button#cancelName(style='display:none; margin:15px; margin-bottom:25px')  Cancel
     button#saveName(style='display:none; margin:15px; margin-bottom:25px')  Save Change
     button#editName(style='margin:15px; margin-bottom:25px' onclick='enableEdit("myBusinessTitle", "cancelName", "saveName", this.id)') Edit
   br
   div
-    p#Information(style='margin:0px') #{placeInfo.place_description}
+    p#Information(style='margin:0px' role='Edit business info') #{placeInfo.place_description}
     button#cancelDesc(style='display:none; margin:15px; margin-bottom:50px') Cancel 
     button#saveDesc(style='display:none; margin:15px; margin-bottom:50px')  Save Change
     button#editDesc(style='margin:15px; margin-bottom:50px' onclick='enableEdit("Information", "cancelDesc", "saveDesc", this.id)') Edit
   | Add Stock 
-  button.Dropdown(onclick='toggleAddStock()')
-    img(src='images/BlackTriangle.png')
+  button.Dropdown(onclick='toggleAddStock()' role='Reveal Stock')
+    img(src='images/BlackTriangle.png' alt='upside down black triangle')
   br
   #AddStockContainer
-    #stock
+    #stock(role='shows stock available')
       #rowHeads
         .itemNameHead Item
         .expiryHead Expiry date
@@ -89,7 +89,7 @@ button#burger(onclick='toggleMenu()')
             .quantity #{item.quantity}
           button.Remove(onclick='removeStock(this.parentNode.id)') ✕
 
-    form#AddStock(action='#' method='post')
+    form#AddStock(action='#' method='post' role='Add stock to business')
       .form-group
         label(for='ItemName') Item Name:
         input#ItemName(name='ItemName' type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
@@ -102,4 +102,4 @@ button#burger(onclick='toggleMenu()')
       .form-group
         label(for='Quantity') Quantity:
         input#Quantity(name='Quantity' type='number' min='0' placeholder='0' max='999' required='')
-      button#Add(type='submit') Add 
+      button#Add(type='submit' role='Add item to stock') Add 

@@ -33,8 +33,12 @@ router.post('/', function (req, res, next) {
     
     const item_name = req.body.ItemName
     const item_description = req.body.ItemDesc
-    const expiry = req.body.ExpiryDate
+    const inputExpiry = req.body.ExpiryDate
     const quantity = req.body.Quantity
+    var date = new Date(inputExpiry)
+    if (!isNaN(date.getTime())) {
+        expiry = (('0'+(date.getDate())).slice(-2)+ '/' + ('0'+(date.getMonth()+1)).slice(-2) + '/' + date.getFullYear().toString().substr(-2))
+    }
 
     var sql = 'insert into stock (place_id, item_name, item_description, expiry, quantity) VALUES (?, ?, ?, ?, ?)';
     synopticModel.query(sql, [place_id, item_name, item_description, expiry, quantity], function (error, result) {

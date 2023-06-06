@@ -4,10 +4,10 @@ head
   link(rel='stylesheet' href='stylesheets/style.css')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
-button#burger(onclick='toggleMenu()')
-  img(src='images/BurgerMenuIcon.png' style='width:30px')
+button#burger(onclick='toggleMenu()' role='Reveal Menu')
+  img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
 #container
-  #topnav
+  #topnav(role='navigation')
     nav
       ul
         li
@@ -22,7 +22,7 @@ button#burger(onclick='toggleMenu()')
         if loggedIn && accountType == 'admin'
           li
             a(href='/admin') Admin
-  #LoginSection
+  #LoginSection(role='login')
     if ! loggedIn 
       form(action='/login' method='post')
         input#Username(type='text' name='username' placeholder='Username' required='')
@@ -31,12 +31,12 @@ button#burger(onclick='toggleMenu()')
         br
     if loggedIn
       a(href='/logout') Logout
-  button#settingsCog(onclick='toggleSettings()')
-    img(src='images/SettingCogImage.png' style='width:40px')
-#containerThree
+  button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
+    img(src='images/SettingCogImage.png' style='width:37px' alt='mechanical cog')
+#containerThree(role='Title of Page')
   | Register
 #containerTwo
-  #settings
+  #settings(role='Settings')
     ul
       li
         | Dyslexic view
