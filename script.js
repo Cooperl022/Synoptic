@@ -173,28 +173,6 @@ function toggleAdminBusinesses() {
       
       document.addEventListener('DOMContentLoaded', function() {
         
-        //Checkbox in SignUp
-        const isBusiness = document.getElementById('isBusiness');
-        const businessName = document.getElementById('businessName');
-        const postcode = document.getElementById('postcode');
-
-        isBusiness.addEventListener('change', function() {
-          if (this.checked) {
-            businessName.style.display = "inline-block";
-            postcode.style.display = "inline-block";
-          } else{
-            businessName.style.display = "none";
-            postcode.style.display = "none";
-          } 
-        })
-        
-
-
-
-
-
-
-
 
         //Checkboxes in settings
         const dyslexicCheckbox = document.getElementById('dyslexicView');
@@ -202,7 +180,7 @@ function toggleAdminBusinesses() {
         var lightD = "#FCFFC9";
         var darkD = "#FBFFB6";
       
-  
+  console.log("ah")
         dyslexicCheckbox.addEventListener('change', function() {
           if (this.checked) {
             highContrastCheckbox.checked = false; 
@@ -616,6 +594,39 @@ function toggleAdminBusinesses() {
             });
           }
         });
+
+        //Checkbox in SignUp
+        const isBusiness = document.getElementById('isBusiness');
+        const businessName = document.getElementById('businessName');
+        const postcode = document.getElementById('postcode');
+
+        isBusiness.addEventListener('change', function() {
+          if (this.checked) {
+            businessName.style.display = "inline-block";
+            postcode.style.display = "inline-block";
+          } else{
+            businessName.style.display = "none";
+            postcode.style.display = "none";
+          
+        }
+      });
+
+      const language = document.getElementById('languageDropdown');
+      const titleIndex = document.getElementById('titleIndex');
+      const information = document.getElementById('Information');     
+
+      language.addEventListener('change', function() {
+        if (this.value == "Fre") {
+          titleIndex.innerHTML = "Hub de Grub";
+          information.innerHTML = "Le info Le info Le info Le info Le info Le info Le info";
+        } else {
+          titleIndex.innerHTML = "GrubHub";
+          information.innerHTML = "Info Info Info Info `Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info InfoInfoInfoInfo Info Info Info Info Info Info Info";
+        }
+      });
+
+
+
       });
 
 
