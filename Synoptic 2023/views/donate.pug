@@ -51,11 +51,11 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
           span.slider.round
       li
         | Language 
-        select#dropdown(name='FoodBanks')
-          option(value='PlaceA') Eng
-          option(value='PlaceB') Fre
-          option(value='PlaceC') Jam
-          option(value='PlaceD') Spa
+        select#languageDropdown(name='Language')
+          option(value='Eng') Eng
+          option(value='Fre') Fre
+          option(value='Jam') Jam
+          option(value='Spa') Spa
 #Main
   select#foodDropDown(name='FoodBanks' role='Choose foodbank')
     option(value="null") -
