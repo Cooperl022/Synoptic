@@ -2,7 +2,7 @@ const DonateForm = document.getElementById('DonateForm');
 
 DonateForm.addEventListener('submit', (e) => {
     e.preventDefault();
-
+    
     const table = document.getElementById('stock')
 
 	const itemName = document.getElementById('ItemName').value

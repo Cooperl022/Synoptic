@@ -40,38 +40,37 @@ button#burger(onclick='toggleMenu()')
   #settings
     ul
       li
-        | Dyslexic view 
+        | Dyslexic view
         label.switch
-          input(type='checkbox')
+          input#dyslexicView(type='checkbox')
           span.slider.round
       li
-        | High contrast view 
+        | High contrast view
         label.switch
-          input(type='checkbox')
+          input#highContrastView(type='checkbox')
           span.slider.round
       li
-        | Language 
-        select#dropdown
+        | Language
+        select#dropdown(name='FoodBanks')
           option(value='PlaceA') Eng
           option(value='PlaceB') Fre
           option(value='PlaceC') Jam
           option(value='PlaceD') Spa
 #Main
-  // TODO get value from below.. https://stackoverflow.com/questions/3593626/get-the-text-content-from-a-contenteditable-div-through-javascript
-  #placeName.Title
-    p#placeNameText.Title #{placeInfo.place_name}
+  div
+    p#myBusinessTitle #{placeInfo.place_name}
     button#cancelName(style='display:none')  Cancel
     button#saveName(style='display:none')  Save Change
-    button#editName(onclick='enableEdit("placeNameText", "cancelName", "saveName", this.id)') Edit
+    button#editName(onclick='enableEdit("myBusinessTitle", "cancelName", "saveName", this.id)') Edit
   br
-  .Information
-    p#placeDescText.Information #{placeInfo.place_description}
+  div
+    p#Information #{placeInfo.place_description}
     button#cancelDesc(style='display:none') Cancel
     button#saveDesc(style='display:none')  Save Change
-    button#editDesc(onclick='enableEdit("placeDescText", "cancelDesc", "saveDesc", this.id)') Edit
+    button#editDesc(onclick='enableEdit("Information", "cancelDesc", "saveDesc", this.id)') Edit
   | Add Stock 
-  button.Dropdown
-    img(src='images/BlackTriangle.png' onclick='toggleAddStock()'  style='width:9px')
+  button.Dropdown(onclick='toggleAddStock()')
+    img(src='images/BlackTriangle.png')
   br
   #AddStockContainer
     #stock
