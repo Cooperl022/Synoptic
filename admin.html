@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="style.css">
+<meta name ="viewport" content="width=device-width, initial-scale=1.0">
+<script script src="script.js"></script>
+</head>
+<body>
+    <button id="burger" onclick="toggleMenu()" role ="Reveal menu">
+        <img src ="includes/images/BurgerMenuIcon.png" alt ="3 individual lines alignd vertically">
+      </button>
+    <div id ="container">
+    <div id="topnav" role = "navigation"> 
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="foodbanks.html">FoodBanks</a></li>
+                <li class="active"><a href="donate.html">Donate</a></li>
+                <!-- To add, only when logged in...
+                <li><a href="mybusiness.html">My Business</a></li-->
+            </ul>
+        </nav>
+    </div>
+    <div id ="LoginSection" role ="login"> 
+        <input id="Username" type="text" placeholder="Username"> <br />
+        <input id="Password" type="password" placeholder="Password"> <button id="login">Login</button> <br /> 
+</div>
+<button id="settingsCog" onclick="toggleSettings()" role ="reveal Settings">
+    <img src ="includes/images/SettingCogImage.png" alt ="mechanical cog">
+  </button>
+</div>
+
+<div id ="containerThree" role ="Title of Page">
+  Admin
+  </div>
+
+<div id ="containerTwo">
+  <div id="settings" role = "settings">
+    <ul>
+      <li>Dyslexic view
+        <label class="switch">
+          <input type="checkbox" id="dyslexicView">
+          <span class="slider round"></span>
+        </label>
+      </li>
+      <li>High contrast view
+        <label class="switch">
+          <input type="checkbox" id="highContrastView">
+          <span class="slider round"></span>
+        </label>
+      </li>
+      <li>Language
+        <select name="FoodBanks" id="dropdown">
+          <option value="PlaceA">Eng</option>
+          <option value="PlaceB">Fre</option>
+          <option value="PlaceC">Jam</option>
+          <option value="PlaceD">Spa</option>
+        </select>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div id ="Main">
+  <br />
+  Confirmations <button id="dropdownAdmin" onclick = "toggleConfirmations()" role ="reveal Donate"><img src="includes/images/BlackTriangle.png" alt ="upside down black triangle"></button>
+  <br />
+  <div id ="confirmations">
+    <div class="confirmGroup">
+      <div id="Title"> Title </div> <br />
+      <div id="EmailAdmin">Example@example.com</div> <br />
+      <div id="Information"> informationinformation informationinformationinformationinformation information information informationinformation information information  </div>
+      <button> Confirm</button> <button> Deny </button>
+    </div>
+    <div class="confirmGroup">
+      <div id="Title"> Title </div> <br />
+      <div id="EmailAdmin">Example@example.com</div> <br />
+      <div id="Information"> informationinformation informationinformationinformationinformation information information informationinformation information information  </div>
+      <button> Confirm</button> <button> Deny </button>
+    </div>
+    </div>
+    
+
+
+<div class="divider">
+    <hr class="solid">
+    </div>
+
+
+Businesses <button class="Dropdown" onclick = "toggleAdminBusinesses()" role ="reveal Donate"><img src="includes/images/BlackTriangle.png" alt ="upside down black triangle"></button>
+<br />
+
+<div id="adminBusinesses">
+
+<select name="FoodBanks" id="selectAdmin" role="Choose foodbank">
+  <option value="PlaceA">PlaceA</option>
+  <option value="PlaceB">PlaceB</option>
+  <option value="PlaceC">PlaceC</option>
+  <option value="PlaceD">PlaceD</option>
+</select>
+<br />
+
+
+<div id ="stock" role ="stock being donated">
+  <div id="rowHeads">
+    <div class="itemNameHead">Item</div>
+    
+    <div class="expiryHead">Expiry date</div>
+    <div class="quantityHead">Qty</div>
+    <div class="removeHead">Delete</div>
+    
+    </div>
+
+    <!-- copy and paste from here -->
+    <div class = "row">
+        <div class="nameAndDesc">
+        <div class="itemName">Hamburger</div>
+        <div class = "itemDescription">It's a hamburger from meeeeeeeeee askdjsakjdsd sadkdbshIt's a hamburger from meeeeeeeeee askdj</div>
+        </div>
+        <div class = "expiryAndQuant">
+        <div class = "expiry">20/03/23</div>
+        <div class = "quantity">2</div>
+        </div>
+    <button class="Remove">&#10005</button>
+    </div>
+    <!-- to here for unlimited rows -->
+    
+    <div class = "row">
+        <div class="nameAndDesc">
+        <div class="itemName">Hamburger</div>
+        <div class = "itemDescription">It's a hamburger from me</div>
+        </div>
+        <div class = "expiryAndQuant">
+        <div class = "expiry">20/03/23</div>
+        <div class = "quantity">2</div>
+        </div>
+        <button class="Remove">&#10005</button>
+    </div>
+    <br />
+</div>
+    <div id ="businessAdmin" role ="view stock">
+      <form>
+      <div class="form-group">
+          <label for="ItemName">Item Name:</label>
+          <input id="ItemName" type="text" placeholder="Name" minlength="2" maxlength="20" size="20" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="ItemDesc">Item Description:</label>
+          <textarea id="ItemDesc" type="text" placeholder="Description" size="50" maxlength="100" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="ExpiryDate">Expiry Date:</label>
+          <input id="ExpiryDate" type="date" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="Quantity">Quantity:</label>
+          <input id="Quantity" type="number" min="0" placeholder="0" max="999" required>
+        </div>
+      </form>
+      <button id ="Add"> Add </button>
+    
+    
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

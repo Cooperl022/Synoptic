@@ -293,7 +293,7 @@ input:checked + .slider:before {
     width: 100%;
     text-align: center;
 }
-#Main select{
+#Main select, #selectAdmin{
     padding: 10px;
     width: 40%;
     font-size: 20px;
@@ -302,6 +302,7 @@ input:checked + .slider:before {
     margin-top: 40px;
     cursor: pointer;
 }
+
 #containerTwo select{
   margin: auto;
   height:27px;
@@ -311,14 +312,14 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
-.Dropdown, #DropdownIndex{
+.Dropdown, #dropdownAdmin{
     margin-bottom: 20px;
     background-color:rgba(0, 0, 0, 0.0);
     padding: 5px;
     border: none;
     cursor: pointer;
 }
-.Dropdown img, #DropdownIndex img{
+.Dropdown img, #dropdownAdmin img{
   width:16px;
 }
 #map{
@@ -329,18 +330,21 @@ input:checked + .slider:before {
   width: 50%;
   margin-bottom: 40px;
 }
-#signUp{
-  margin-bottom: 30px;
+#signUp {
+  margin-bottom: 40px;
   display: block;
   animation-duration: 0.6s;
 }
+
+
+
 hr.solid {
     border-top: 3px solid #000000;
     width: 50%;
     margin: 40px auto;
     z-index: 1;
   }
-#Title, #myBusinessTitle{
+#Title, #myBusinessTitle, #titleIndex{
     font-size: 40px;
     font-weight: 600;
     padding-top: 40px;
@@ -348,20 +352,23 @@ hr.solid {
 #Information {
     font-size: 25px;
     margin-bottom: 40px;
+    padding: 0px 20px;
 }
 
-input, #isBusiness {
-    padding: 10px;
-    margin: 10px 0px;
-    font-size: 20px;
-    max-width: 80%; 
-}
+
 #isBusiness {
   margin: 10px 0px 30px 0px;
 }
-#businessName, #postcode{
+input, #isBusiness {
+  padding: 10px;
+  margin: 10px 0px;
+  font-size: 20px;
+  max-width: 80%;
+}
+#businessName, #postcode {
   display:none;
 }
+
 
 #stock {
     display:block;
@@ -503,10 +510,33 @@ input, #isBusiness {
     margin-bottom: 40px;
     border-radius: 7px;
   }
-
-  #DropdownIndex{
-    margin-top: 40px;
+  .confirmGroup{
+    margin-bottom: 60px;
+    width: fit-content;
+    padding-bottom: 30px;
+    border-style: solid;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   }
+  #confirmations {
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    animation-duration: 0.6s;  
+  }
+
+  #EmailAdmin{
+    font-style: oblique
+  }
+  #confirmations button{
+    margin: 0px 20px
+  }
+  #adminBusinesses{
+    animation-duration: 0.6s; 
+  }
+
+  
+  
 
 /*Phone CSS*/
 
@@ -530,6 +560,9 @@ input, #isBusiness {
     padding: 20px;
     box-sizing: border-box;
     width: 100%;
+}
+.confirmGroup #Information{
+  padding: 0px;
 }
 
   #container {
@@ -597,6 +630,10 @@ input, #isBusiness {
 }
 #Main select{
   margin-top: 100px;
+}
+
+#Main #selectAdmin{
+  margin-top: 20px;
 }
 
   #topnav {
@@ -708,6 +745,7 @@ input, #isBusiness {
   
   .nameAndDesc {
     margin-left: 10px;
+    padding: 10px 0px;
   }
   
   .itemDescription {
@@ -725,7 +763,7 @@ input, #isBusiness {
   .expiry,
   .quantity {
     flex: 1; 
-    padding: 80px 10px; 
+    padding: 90px 10px; 
   }
   
   .form-group label {
@@ -772,14 +810,19 @@ input, #isBusiness {
   .Dropdown img{
     width:17px;
   }
-  #DropdownIndex{
-    margin-top: 100px;
-  }
+  
   
   #isBusiness {
     transform: scale(2)
     translateX(5px);
   }
+  #titleIndex{
+    padding-top: 100px;
+  }
+  #dropdownAdmin{
+    padding-top: 100px;
+  }
+  
 
 }
   

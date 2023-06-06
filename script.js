@@ -135,6 +135,38 @@ function toggleSignUp() {
   }
 }
 
+function toggleConfirmations() {
+  var confirmations = document.getElementById("confirmations");
+  var confirmationsIsOpen = window.getComputedStyle(confirmations).display === "flex";
+
+  if (confirmationsIsOpen) {
+    confirmations.style.animationName = "slide-up";
+  
+    setTimeout(function() {
+      confirmations.style.display = "none";
+    }, 550);
+  } else {
+    confirmations.style.animationName = "slide-down";
+    confirmations.style.display = "flex";
+  }
+}
+
+function toggleAdminBusinesses() {
+  var adminBusinesses = document.getElementById("adminBusinesses");
+  var adminBusinessesIsOpen = window.getComputedStyle(adminBusinesses).display === "block";
+
+  if (adminBusinessesIsOpen) {
+    adminBusinesses.style.animationName = "slide-up";
+  
+    setTimeout(function() {
+      adminBusinesses.style.display = "none";
+    }, 550);
+  } else {
+    adminBusinesses.style.animationName = "slide-down";
+    adminBusinesses.style.display = "block";
+  }
+}
+
 
 
 
