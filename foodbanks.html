@@ -7,11 +7,11 @@
 <script script src="script.js"></script>
 </head>
 <body>
-    <button id="burger" onclick="toggleMenu()">
-        <img src ="includes/images/BurgerMenuIcon.png">
+    <button id="burger" onclick="toggleMenu()" role ="reveal menu">
+        <img src ="includes/images/BurgerMenuIcon.png" alt ="3 individual lines aligned vertically">
       </button>
     <div id ="container">
-    <div id="topnav"> 
+    <div id="topnav" role=”navigation”> 
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -22,21 +22,21 @@
             </ul>
         </nav>
     </div>
-    <div id ="LoginSection"> 
+    <div id ="LoginSection" role="login”> 
         <input id="Username" type="text" placeholder="Username"> <br />
         <input id="Password" type="password" placeholder="Password"> <button id="login">Login</button> <br /> 
 </div>
-<button id="settingsCog" onclick="toggleSettings()">
-    <img src ="includes/images/SettingCogImage.png">
+<button id="settingsCog" onclick="toggleSettings()" role="open settings">
+    <img src ="includes/images/SettingCogImage.png" alt ="Mechanical cog">
   </button>
 </div>
 
-<div id ="containerThree">
+<div id ="containerThree" role ="Title of Page">
     FoodBanks
     </div>
 
 <div id ="containerTwo">
-    <div id="settings">
+    <div id="settings" role ="settings">
         <ul>
           <li>Dyslexic view
             <label class="switch">
@@ -72,7 +72,7 @@
           </select>
           <br />
     
-Map <button class="Dropdown" onclick="toggleMap()"><img src="includes/images/BlackTriangle.png"></button>
+Map <button class="Dropdown" onclick="toggleMap()" role ="reveal Map"><img src="includes/images/BlackTriangle.png" alt ="upside down black triangle"></button>
 <div id ="map">
     
     <img src ="includes/images/map.png" style = "height:auto;width:50%">
@@ -83,12 +83,12 @@ Map <button class="Dropdown" onclick="toggleMap()"><img src="includes/images/Bla
     <hr class="solid">
     </div>
 
-    <div id="Title">
+    <div id="Title" role ="Foodbank name">
     
       PlaceA 
       
   </div><br />
-  <div id ="Information">
+  <div id ="Information" role ="Foodbank information">
     Info Info Info Info Info Info Info 
     Info Info Info Info Info Info Info 
     Info Info Info Info Info Info Info 
@@ -98,8 +98,8 @@ Map <button class="Dropdown" onclick="toggleMap()"><img src="includes/images/Bla
   </div>
 
   
-Stock <button class="Dropdown" onclick="toggleStock()"><img src="includes/images/BlackTriangle.png"></button>
-<div id ="stock">
+Stock <button class="Dropdown" onclick="toggleStock()" role ="reveal Stock"><img src="includes/images/BlackTriangle.png" alt ="upside down black triangle"></button>
+<div id ="stock" role ="Show available stock">
     <div id="rowHeads">
         <div class="itemNameHead">Item</div>
         
