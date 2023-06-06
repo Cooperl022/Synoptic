@@ -119,12 +119,52 @@ function toggleStock() {
   }
 }
 
+function toggleSignUp() {
+  var signUp = document.getElementById("signUp");
+  var signUpIsOpen = window.getComputedStyle(signUp).display === "block";
+
+  if (signUpIsOpen) {
+    signUp.style.animationName = "slide-up";
+  
+    setTimeout(function() {
+      signUp.style.display = "none";
+    }, 550);
+  } else {
+    signUp.style.animationName = "slide-down";
+    signUp.style.display = "block";
+  }
+}
 
 
 
-      //Checkboxes in settings
+
+      
       document.addEventListener('DOMContentLoaded', function() {
         
+        //Checkbox in SignUp
+        const isBusiness = document.getElementById('isBusiness');
+        const businessName = document.getElementById('businessName');
+        const postcode = document.getElementById('postcode');
+
+        isBusiness.addEventListener('change', function() {
+          if (this.checked) {
+            businessName.style.display = "inline-block";
+            postcode.style.display = "inline-block";
+          } else{
+            businessName.style.display = "none";
+            postcode.style.display = "none";
+          } 
+        })
+        
+
+
+
+
+
+
+
+
+        //Checkboxes in settings
         const dyslexicCheckbox = document.getElementById('dyslexicView');
         const highContrastCheckbox = document.getElementById('highContrastView');
         var lightD = "#FCFFC9";

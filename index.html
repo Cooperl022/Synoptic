@@ -65,13 +65,41 @@
 
 <div id ="Main">
 
-    <input id="UsernameSignUp" type="text" placeholder="Username"> <br />
-        <input id="PasswordSignUp" type="password" placeholder="Password">  <br /><br /><br />
-        <button id="signUpDefault">Signup as default</button> <br />
-        <button id="signUpBusiness">Signup as Business</button> <br />
-        <button id="signUpAdmin">Signup as admin</button> <br /> 
+
+  Map <button id="DropdownIndex" onclick = "toggleMap()" role ="Reveal map"><img src="includes/images/BlackTriangle.png" alt ="upside down black triangle"></button>
+  <div id ="map">
+          
+      <img src ="includes/images/map.png">
+  
+  </div>
+  
+  <div class="divider">
+      <hr class="solid">
+      </div>
+  
+  
+  SignUp <button class="Dropdown" onclick = "toggleSignUp()" role ="reveal Sign Up"><img src="includes/images/BlackTriangle.png" alt ="upside down black triangle"></button>
+  <br />
+<div id = "signUp">
+
+
+  <label>Are you a business?
+    <input type="checkbox" id="isBusiness">
+  </label> <br />
+  <input id="firstName" type="text" placeholder="firstName" size="100"> <br />
+  <input id="secondName" type="text" placeholder="secondName" size="100"> <br />
+  <input id="email" type="text" placeholder="Email" size="100"> <br />
+  <input id="usernameSignUp" type="text" placeholder="Username" size="100"> <br />
+  <input id="passwordSignUp" type="password" placeholder="Password" size="100">  <br /><br /><br />
+  <input id="businessName" type="text" placeholder="businessName" size="100"> <br />
+  <input id="postcode" type="text" placeholder="postcode" size="100"> <br />
+
         
-    I am __, with password __ and I have __ permissions
+        
+        
+  
+  <button id="signUpBtn">Signup</button> <br />     
+</div>
 </div>
 </body>
 </html>

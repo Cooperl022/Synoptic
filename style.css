@@ -311,14 +311,14 @@ input:checked + .slider:before {
   cursor: pointer;
 }
 
-.Dropdown{
+.Dropdown, #DropdownIndex{
     margin-bottom: 20px;
     background-color:rgba(0, 0, 0, 0.0);
     padding: 5px;
     border: none;
     cursor: pointer;
 }
-.Dropdown img{
+.Dropdown img, #DropdownIndex img{
   width:16px;
 }
 #map{
@@ -328,6 +328,11 @@ input:checked + .slider:before {
 #map img{
   width: 50%;
   margin-bottom: 40px;
+}
+#signUp{
+  margin-bottom: 30px;
+  display: block;
+  animation-duration: 0.6s;
 }
 hr.solid {
     border-top: 3px solid #000000;
@@ -343,6 +348,19 @@ hr.solid {
 #Information {
     font-size: 25px;
     margin-bottom: 40px;
+}
+
+input, #isBusiness {
+    padding: 10px;
+    margin: 10px 0px;
+    font-size: 20px;
+    max-width: 80%; 
+}
+#isBusiness {
+  margin: 10px 0px 30px 0px;
+}
+#businessName, #postcode{
+  display:none;
 }
 
 #stock {
@@ -477,12 +495,18 @@ hr.solid {
     border-radius: 7px;
     cursor: pointer;
   }
+  #signUpBtn{
+    margin-top: 0px;
+  }
 
   #Add {
     margin-bottom: 40px;
     border-radius: 7px;
   }
 
+  #DropdownIndex{
+    margin-top: 40px;
+  }
 
 /*Phone CSS*/
 
@@ -747,6 +771,14 @@ hr.solid {
 
   .Dropdown img{
     width:17px;
+  }
+  #DropdownIndex{
+    margin-top: 100px;
+  }
+  
+  #isBusiness {
+    transform: scale(2)
+    translateX(5px);
   }
 
 }
