@@ -50,22 +50,52 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
           span.slider.round
       li
         | Language 
-        select#dropdown(name='FoodBanks')
-          option(value='PlaceA') Eng
-          option(value='PlaceB') Fre
-          option(value='PlaceC') Jam
-          option(value='PlaceD') Spa
+        select#languageDropdown(name='Language')
+          option(value='Eng') Eng
+          option(value='Fre') Fre
+          option(value='Jam') Jam
+          option(value='Spa') Spa
 #Main
-  input#UsernameSignUp(type='text' placeholder='Username')
+  #titleIndex(role='Our comany name')
+    | Grubhub
   br
-  input#PasswordSignUp(type='password' placeholder='Password')
+  #Information(role='Company information')
+    | Info Info Info Info Info Info Info
+    | Info Info Info Info Info Info Info
+    | Info Info Info Info Info Info Info
+    | Info Info Info InfoInfoInfoInfo
+    | Info Info Info Info Info Info Info
+  |   Map 
+  button.Dropdown(onclick='toggleMap()' role='Reveal map')
+    img(src='images/BlackTriangle.png' alt='upside down black triangle')
+  #map
+    img(src='images/map.png')
+  .divider
+    hr.solid
+  |   SignUp 
+  button.Dropdown(onclick='toggleSignUp()' role='reveal Sign Up')
+    img(src='images/BlackTriangle.png' alt='upside down black triangle')
   br
-  br
-  br
-  button#signUpDefault Signup as default
-  br
-  button#signUpBusiness Signup as Business
-  br
-  button#signUpAdmin Signup as admin
-  br
-  |     I am __, with password __ and I have __ permissions
+  #signUp
+    label
+      | Are you a business?
+      input#isBusiness(type='checkbox')
+    br
+    input#firstName(type='text' placeholder='firstName' size='100')
+    br
+    input#secondName(type='text' placeholder='secondName' size='100')
+    br
+    input#email(type='text' placeholder='Email' size='100')
+    br
+    input#usernameSignUp(type='text' placeholder='Username' size='100')
+    br
+    input#passwordSignUp(type='password' placeholder='Password' size='100')
+    br
+    br
+    br
+    input#businessName(type='text' placeholder='businessName' size='100')
+    br
+    input#postcode(type='text' placeholder='postcode' size='100')
+    br
+    button#signUpBtn Signup
+    br

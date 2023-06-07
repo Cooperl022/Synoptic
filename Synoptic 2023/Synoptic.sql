@@ -22,7 +22,6 @@ INSERT INTO users (username, userpassword, account_type) VALUES("admin", "827ccb
 INSERT INTO users (username, userpassword, email, account_type) VALUES("business123", "827ccb0eea8a706c4c34a16891f84e7b", "business@business.com", "business");
 INSERT INTO users VALUES("user", "name", "username123", "827ccb0eea8a706c4c34a16891f84e7b", "user@user.com", "user");
 
-
 create table stock (
 id INT NOT NULL	AUTO_INCREMENT,
 place_id VARCHAR (100),
@@ -30,10 +29,12 @@ item_name VARCHAR(90),
 item_description VARCHAR(1000),
 quantity INT,
 expiry VARCHAR(50),
+religion_filter VARCHAR(100),
 PRIMARY KEY(id)
 );
 
 select * from stock;
+
 INSERT INTO stock VALUES(1, "Some random cafe", "Apple", "apple fruit", 100, "30/05/2023");
 
 create table foodPlaces (

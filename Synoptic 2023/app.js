@@ -12,7 +12,7 @@ var register = require('./routes/register');
 var food = require('./routes/food');
 var donate = require('./routes/donate');
 var business = require('./routes/myBusiness');
-
+var admin = require('./routes/admin');
 
 var app = express();
 
@@ -42,6 +42,7 @@ app.use('/register', register);
 app.use('/food', food);
 app.use('/donate', donate);
 app.use('/myBusiness', business);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

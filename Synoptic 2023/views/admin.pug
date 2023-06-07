@@ -1,0 +1,136 @@
+doctype html
+head
+  title Admin
+  link(rel='stylesheet' href='stylesheets/style.css')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  script(src='javascripts/menu.js')
+button#burger(onclick='toggleMenu()' role='Reveal Menu')
+  img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
+#container
+  #topnav(role='navigation')
+    nav
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/food') Food
+        li
+          a(href='/donate') Donate
+        if loggedIn && accountType == 'business'
+          li
+            a(href='/mybusiness') My Business
+        if loggedIn && accountType == 'admin'
+          li.active
+            a(href='/admin') Admin
+  #LoginSection(role='login')
+    if ! loggedIn 
+      form(action='/login' method='post')
+        input#Username(type='text' name='username' placeholder='Username' required='')
+        input#Password(type='password' name = 'password' placeholder='Password' required='')
+        button#login(type='submit') Login
+        br
+    if loggedIn
+      a(href='/logout') Logout
+  button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
+    img(src='images/SettingCogImage.png' style='width:37px' alt='mechanical cog')
+#containerThree(role='Title of Page')
+  | Admin
+#containerTwo
+  #settings(role='Settings')
+    ul
+      li
+        | Dyslexic view
+        label.switch
+          input#dyslexicView(type='checkbox')
+          span.slider.round
+      li
+        | High contrast view
+        label.switch
+          input#highContrastView(type='checkbox')
+          span.slider.round
+      li
+        | Language 
+        select#languageDropdown(name='Language')
+          option(value='Eng') Eng
+          option(value='Fre') Fre
+          option(value='Jam') Jam
+          option(value='Spa') Spa
+#Main
+  br
+  |   Confirmations 
+  button#dropdownAdmin(onclick='toggleConfirmations()' role='reveal Donate')
+    img(src='images/BlackTriangle.png' alt='upside down black triangle')
+  br
+  #confirmations
+    .confirmGroup
+      #Title  Title 
+      br
+      #EmailAdmin Example@example.com
+      br
+      #Information
+        | informationinformation informationinformationinformationinformation information information informationinformation information information
+      button  Confirm
+      button  Deny 
+    .confirmGroup
+      #Title  Title 
+      br
+      #EmailAdmin Example@example.com
+      br
+      #Information
+        | informationinformation informationinformationinformationinformation information information informationinformation information information
+      button  Confirm
+      button  Deny 
+  .divider
+    hr.solid
+  | Businesses 
+  button.Dropdown(onclick='toggleAdminBusinesses()' role='reveal Donate')
+    img(src='images/BlackTriangle.png' alt='upside down black triangle')
+  br
+  #adminBusinesses
+    select#selectAdmin(name='FoodBanks' role='Choose foodbank')
+      option(value='PlaceA') PlaceA
+      option(value='PlaceB') PlaceB
+      option(value='PlaceC') PlaceC
+      option(value='PlaceD') PlaceD
+    br
+    #stock(role='stock being donated')
+      #rowHeads
+        .itemNameHead Item
+        .expiryHead Expiry date
+        .quantityHead Qty
+        .removeHead Delete
+      // copy and paste from here
+      .row
+        .nameAndDesc
+          .itemName Hamburger
+          .itemDescription
+            | It&apos;s a hamburger from meeeeeeeeee askdjsakjdsd sadkdbshIt&apos;s a hamburger from meeeeeeeeee askdj
+        .expiryAndQuant
+          .expiry 20/03/23
+          .quantity 2
+        button.Remove ✕
+      // to here for unlimited rows
+      .row
+        .nameAndDesc
+          .itemName Hamburger
+          .itemDescription It&apos;s a hamburger from me
+        .expiryAndQuant
+          .expiry 20/03/23
+          .quantity 2
+        button.Remove ✕
+      br
+    #businessAdmin(role='view stock')
+      form
+        .form-group
+          label(for='ItemName') Item Name:
+          input#ItemName(type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
+        .form-group
+          label(for='ItemDesc') Item Description:
+          textarea#ItemDesc(type='text' placeholder='Description' size='50' maxlength='100' required='')
+        .form-group
+          label(for='ExpiryDate') Expiry Date:
+          input#ExpiryDate(type='date' required='')
+        .form-group
+          label(for='Quantity') Quantity:
+          input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
+      button#Add  Add 
