@@ -118,27 +118,38 @@ img#phoneLogo(src='images/Logo.png')
         input#Quantity(name='Quantity' type='number' min='0' placeholder='0' max='999' required='')
       button#Add(type='submit' role='Add item to stock') Add 
 
-
-  for donation in donations
-    div(id=(donation.id + "-" + "table"))
-      #stock(role='shows donation')
-        button.Remove(onclick='removeDonation(this.parentNode.parentNode.id)') ✕
-        #rowHeads
-          .itemNameHead Item
-          .expiryHead Expiry date
-          .quantityHead Qty
-          .removeHead Delete
-        for item in donationItems
-          if item.donation_id == donation.id
-            //Row ID = Donation-ID - Donation-Item ID
-            .row(id=(donation.id + "-" + item.id))
-              .nameAndDesc
-                .itemName  #{item.item_name}
-                .itemDescription #{item.item_description}
-              .expiryAndQuant
-                .expiry #{item.expiry}
-                .quantity #{item.quantity}
-              button.Remove(onclick='removeDonationItem(this.parentNode.id)') ✕
+  | Expected Donations 
+  button.Dropdown(onclick='toggleExpectedDonations()' role='Reveal Expected Donations')
+    img(src='images/BlackTriangle.png' alt='upside down black triangle')
+  br
+  #ExpectedDonationsContainer
+    for donation in donations
+      div(id=(donation.id + "-" + "table"))
+        #stock(role='shows donation')
+          for donor in donors
+            if donor.username = donation.donor_username
+            p.donorNameHead 
+              | #{donor.first_name} 
+              | #{donor.last_name} - 
+              | #{donor.email}
+              button.Remove(onclick='removeDonation(this.parentNode.parentNode.parentNode.id)') ✕
+          br 
+          #rowHeads
+            .itemNameHead Item
+            .expiryHead Expiry date
+            .quantityHead Qty
+            .removeHead Delete
+          for item in donationItems
+            if item.donation_id == donation.id
+              //Row ID = Donation-ID - Donation-Item ID
+              .row(id=(donation.id + "-" + item.id))
+                .nameAndDesc
+                  .itemName  #{item.item_name}
+                  .itemDescription #{item.item_description}
+                .expiryAndQuant
+                  .expiry #{item.expiry}
+                  .quantity #{item.quantity}
+                button.Remove(onclick='removeDonationItem(this.parentNode.id)') ✕
 #Footer
   | &copy; Company
   #footerImgs

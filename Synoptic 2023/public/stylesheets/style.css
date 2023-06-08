@@ -92,8 +92,16 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-weight:400;
 }
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 body {
     background-color: #fffcf4;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 #burger{
   display: none;
@@ -295,6 +303,7 @@ input:checked + .slider:before {
     font-size: 25px;
     width: 100%;
     text-align: center;
+    flex: 1;
 }
 #Main select, #selectAdmin{
     padding: 10px;
@@ -412,6 +421,13 @@ input, #isBusiness {
     flex-grow: 1;
     text-align: left;
   }
+
+  .donorNameHead {
+    font-weight: 600;
+    margin-left: 40px;
+    flex-grow: 1;
+    text-align: left;
+  }
   
   .itemDescription {
     margin-top: 10px;
@@ -478,7 +494,6 @@ input, #isBusiness {
   }
   
   .form-group label {
-    flex-shrink: 0;
     text-align: right;
     margin-right: 10px;
     width: 150px; 
@@ -494,6 +509,12 @@ input, #isBusiness {
   }
   
   #AddStockContainer{
+    display: block;
+    margin:0px;
+    animation-duration: 0.6s;
+  }
+
+  #ExpectedDonationsContainer{
     display: block;
     margin:0px;
     animation-duration: 0.6s;
@@ -548,6 +569,8 @@ input, #isBusiness {
     background-color: #fcf1c8;
     border-top: solid;
     padding: 20px 0px;
+    flex-shrink: 0;
+    margin-top: auto;
   }
   #footerImgs{
     display: flex;
@@ -864,6 +887,13 @@ input, #isBusiness {
   }
 
   .itemNameHead {
+    margin-left: 20px;
+    flex-grow: 1;
+    text-align: left;
+  }
+
+  .donorNameHead {
+    font-weight: 600;
     margin-left: 20px;
     flex-grow: 1;
     text-align: left;

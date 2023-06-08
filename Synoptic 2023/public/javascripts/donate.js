@@ -103,7 +103,9 @@ function submitDonation(e) {
 }
 
 function resetDonationTable(rows) {
-    for (i = 0; i < rows.length; i++) {
+    var i = rows.length
+    while (i != 0) {
+        i--
         rows[i].remove()
     }
 }

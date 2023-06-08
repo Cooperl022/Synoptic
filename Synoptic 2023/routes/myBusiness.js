@@ -23,18 +23,27 @@ router.get('/', function(req, res, next) {
         if (error) throw error;
     
     var donationIds = []
+    var donorUsernames = []
     for (i = 0; i < donations.length; i++) {
       donationIds.push(donations[i].id)
+      donorUsernames.push(donations[i].donor_username)
     }
 
     if (donationIds.length == 0) { 
         donationItems = []
-        res.render('myBusiness', { placeInfo: infoResult[0], stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType, donations: donations, donationItems: donationItems });    
+        donors = []
+        res.render('myBusiness', { placeInfo: infoResult[0], stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType, donations: donations, donationItems: donationItems, donors: donors });    
     } else {
+      sql = 'select first_name, last_name, email from users where username in (?)'
+      synopticModel.query(sql, [donorUsernames], function (error, donors) {
+        if (error) throw error;
+        console.log(donors)   
+
       sql = 'select * from donation_items where donation_id in (?)'
       synopticModel.query(sql, [donationIds], function (error, donationItems) {
         if (error) throw error;   
-        res.render('myBusiness', { placeInfo: infoResult[0], stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType, donations: donations, donationItems: donationItems });    
+        res.render('myBusiness', { placeInfo: infoResult[0], stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType, donations: donations, donationItems: donationItems, donors: donors });    
+    })
     })
   }
     })

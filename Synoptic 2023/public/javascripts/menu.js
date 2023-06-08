@@ -103,6 +103,23 @@ function toggleAddStock() {
   }
 }
       
+function toggleExpectedDonations() {
+  var expected = document.getElementById("ExpectedDonationsContainer");
+  var expectedIsOpen = window.getComputedStyle(expected).display === "block";
+
+  if (expectedIsOpen) {
+    expected.style.animationName = "slide-up";
+  
+    setTimeout(function() {
+      expected.style.display = "none";
+    }, 550);
+  } else {
+    expected.style.animationName = "slide-down";
+    expected.style.display = "block";
+  }
+}
+
+
 function toggleStock() {
   var stock = document.getElementById("stock");
   var stockIsOpen = window.getComputedStyle(stock).display === "block";
