@@ -35,13 +35,25 @@ router.post('/', function (req, res, next) {
     const item_description = req.body.ItemDesc
     const inputExpiry = req.body.ExpiryDate
     const quantity = req.body.Quantity
+    var filter = "";
+    if (req.body.Halal) {
+      filter += req.body.Halal + ' '
+    } 
+    if (req.body.Kosher) {
+      filter += req.body.Kosher + ' '
+    } 
+    if (req.body.Vegetarian) {
+      filter += req.body.Vegetarian
+    } 
+    filter.trim()
+
     var date = new Date(inputExpiry)
     if (!isNaN(date.getTime())) {
         expiry = (('0'+(date.getDate())).slice(-2)+ '/' + ('0'+(date.getMonth()+1)).slice(-2) + '/' + date.getFullYear().toString().substr(-2))
     }
 
-    var sql = 'insert into stock (place_id, item_name, item_description, expiry, quantity) VALUES (?, ?, ?, ?, ?)';
-    synopticModel.query(sql, [place_id, item_name, item_description, expiry, quantity], function (error, result) {
+    var sql = 'insert into stock (place_id, item_name, item_description, expiry, quantity, filter) VALUES (?, ?, ?, ?, ?, ?)';
+    synopticModel.query(sql, [place_id, item_name, item_description, expiry, quantity, filter], function (error, result) {
       if (error) throw error;
       res.redirect('back')
     }); 

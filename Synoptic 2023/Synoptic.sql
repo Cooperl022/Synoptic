@@ -29,7 +29,7 @@ item_name VARCHAR(90),
 item_description VARCHAR(1000),
 quantity INT,
 expiry VARCHAR(50),
-religion_filter VARCHAR(100),
+filter VARCHAR(100),
 PRIMARY KEY(id)
 );
 

@@ -22,12 +22,11 @@ function toggleMenu() {
 
 function toggleSettings() {
   var container2 = document.getElementById("containerTwo");
-  var container2IsOpen = window.getComputedStyle(container2).display === "flex";
+  var container2IsOpen = window.getComputedStyle(container2).display === "flex" || window.getComputedStyle(container2).display === "block";
   var x = window.matchMedia("(min-width: 920px)")
   
   //Work out whether phone or pc version for animation in
   if(x.matches){
-    console.log("PC Version")
     if (container2IsOpen) {
       container2.style.animationName = "slide-up-out";
       setTimeout(function() {
@@ -38,15 +37,16 @@ function toggleSettings() {
       container2.style.display = "flex";
     }
   } else{
-    console.log("Phone")
     if (container2IsOpen) {
-      container2.style.animationName = "slide-right";
+      console.log("Fading out")
+      container2.style.animationName = "fade-out";
       setTimeout(function() {
         container2.style.display = "none";
       }, 550);
     } else {
+      console.log("Fading in")
       container2.style.animationName = "fade-in";
-      container2.style.display = "flex";
+      container2.style.display = "block";
     } 
   }
 }
@@ -180,7 +180,9 @@ function toggleAdminBusinesses() {
         var lightD = "#FCFFC9";
         var darkD = "#FBFFB6";
       
-  console.log("ah")
+        function applyStyles(){
+
+        }
         dyslexicCheckbox.addEventListener('change', function() {
           if (this.checked) {
             highContrastCheckbox.checked = false; 

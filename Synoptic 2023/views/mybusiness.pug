@@ -31,7 +31,8 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
         button#login(type='submit') Login
         br
     if loggedIn
-      a(href='/logout') Logout
+      button 
+        a(href='/logout', style='all:unset') Logout
   button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
     img(src='images/SettingCogImage.png' style='width:37px' alt='mechanical cog')
 #containerThree(role='Title of Page')
@@ -56,6 +57,8 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
           option(value='Fre') Fre
           option(value='Jam') Jam
           option(value='Spa') Spa
+  button#settingsCogSecond(onclick='toggleSettings()' role='open settings')
+    img(src='images/SettingCogImage.png' alt='mechanical cog')
 #Main
   div
     p#myBusinessTitle(role='Edit business title') #{placeInfo.place_name}
@@ -84,12 +87,20 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
           .nameAndDesc
             .itemName  #{item.item_name}
             .itemDescription #{item.item_description}
+              br
+              | #{item.filter}
           .expiryAndQuant
             .expiry #{item.expiry}
             .quantity #{item.quantity}
           button.Remove(onclick='removeStock(this.parentNode.id)') ✕
 
     form#AddStock(action='#' method='post' role='Add stock to business')
+      label(for='Halal') Halal 
+      input(type='checkbox' name='Halal' value='Halal')
+      label(for='Kosher') Kosher 
+      input(type='checkbox' name='Kosher' value='Kosher')
+      label(for='Vegetarian') Vegetarian 
+      input(type='checkbox' name='Vegetarian' value='Vegetarian')
       .form-group
         label(for='ItemName') Item Name:
         input#ItemName(name='ItemName' type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')

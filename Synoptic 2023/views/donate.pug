@@ -31,7 +31,8 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
         button#login(type='submit') Login
         br
     if loggedIn
-      a(href='/logout') Logout
+      button 
+        a(href='/logout', style='all:unset') Logout
   button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
     img(src='images/SettingCogImage.png' style='width:37px' alt='mechanical cog')
 #containerThree(role='Title of Page')
@@ -56,6 +57,8 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
           option(value='Fre') Fre
           option(value='Jam') Jam
           option(value='Spa') Spa
+  button#settingsCogSecond(onclick='toggleSettings()' role='open settings')
+    img(src='images/SettingCogImage.png' alt='mechanical cog')
 #Main
   select#foodDropDown(name='FoodBanks' role='Choose foodbank')
     option(value="null") -
