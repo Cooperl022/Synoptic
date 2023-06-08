@@ -46,10 +46,12 @@ place_description VARCHAR(1000),
 PRIMARY KEY(id)
 );
 
+select * from foodPlaces;
+
 create table donations (
 id INT NOT NULL	AUTO_INCREMENT,
 donor_username VARCHAR(45),
-place_name VARCHAR (100),
+place_id VARCHAR (100),
 PRIMARY KEY(id)
 );
 

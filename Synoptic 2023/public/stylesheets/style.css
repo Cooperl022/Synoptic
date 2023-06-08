@@ -279,7 +279,6 @@ input:checked + .slider:before {
   outline-width: 2px;
   /*Using CSS box shadow generator*/
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  
   animation-duration: 0.6s;
 }
 #containerThree{
@@ -429,7 +428,8 @@ input, #isBusiness {
   .expiryHead, .quantityHead {
     display: flex;
     flex: 0 0 auto;
-    margin-left: 13px;
+    margin-left: 0;
+    margin-right: 14px;
   }
   
   .expiry,
@@ -445,11 +445,12 @@ input, #isBusiness {
     background-color:rgba(0, 0, 0, 0.0);
     padding: 5px;
     border: none;
-    margin:auto 5px auto 10px;
+    margin: auto 16px;
     cursor: pointer;
   }
   .removeHead {
-    margin:auto 7px auto 4px;
+    margin: auto 7px auto -7px;
+
   }
 
   #rowHeads{
@@ -539,7 +540,35 @@ input, #isBusiness {
   #adminBusinesses{
     animation-duration: 0.6s; 
   }
-
+  #Footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fcf1c8;
+    border-top: solid;
+    padding: 20px 0px;
+  }
+  #footerImgs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  #Footer img{
+    width:40px;
+    height: auto;
+    margin: 0px 30px;
+  }
+  #phoneLogo {
+    display:none;
+  }
+  #desktopLogo{
+    display:initial;
+    width:40px; 
+    height:auto; 
+    margin-left: 20px;
+  }
   
   
 
@@ -611,6 +640,20 @@ input, #isBusiness {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
   }
+  #phoneLogo{
+    display:block;
+    position: fixed;
+    z-index: 3;
+    margin: 10px;
+    top: 0px;
+    left: 0;
+    width: 40px;
+    height: auto;
+  }
+  #desktopLogo {
+    display:none;
+  }
+
   #containerTwo select{
     margin-top: 10px;
     height:40px;
@@ -770,8 +813,10 @@ input, #isBusiness {
   }
   
   .Remove {
-    padding:0px 20px 0px 20px;
+    padding:0px 15px 0px 15px;
   }
+
+  
 
   .form-group {
    font-size: 15px;
@@ -800,7 +845,7 @@ input, #isBusiness {
   }
 
   .removeHead {
-    margin:auto 10px auto 10px;
+    margin:auto 15px auto 10px;
   }
 
   #rowHeads{
@@ -828,7 +873,11 @@ input, #isBusiness {
     width:17px;
   }
   
-  
+  .confirmGroup {
+    border-left: none;
+    border-right: none;
+  }
+
   #isBusiness {
     transform: scale(2)
     translateX(5px);

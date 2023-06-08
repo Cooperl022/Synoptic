@@ -18,10 +18,29 @@ router.get('/', function(req, res, next) {
     synopticModel.query(sql, [place_id], function (error, stockResult) {
         if (error) throw error;
 
-    res.render('myBusiness', { placeInfo: infoResult[0], stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType });
-    });  
-    });  
+    sql = 'select * from donations where place_id = ?'
+    synopticModel.query(sql, [place_id], function (error, donations) {
+        if (error) throw error;
+    
+    var donationIds = []
+    for (i = 0; i < donations.length; i++) {
+      donationIds.push(donations[i].id)
     }
+
+    if (donationIds.length == 0) { 
+        donationItems = []
+        res.render('myBusiness', { placeInfo: infoResult[0], stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType, donations: donations, donationItems: donationItems });    
+    } else {
+      sql = 'select * from donation_items where donation_id in (?)'
+      synopticModel.query(sql, [donationIds], function (error, donationItems) {
+        if (error) throw error;   
+        res.render('myBusiness', { placeInfo: infoResult[0], stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType, donations: donations, donationItems: donationItems });    
+    })
+  }
+    })
+    });
+    });  
+  }
 });
 
 /* Add stock */
@@ -86,6 +105,36 @@ router.post('/updateInfo', function (req, res, next) {
   }
   synopticModel.query(sql, [newText, req.session.username], function (error, result) {
     if (error) throw error;
+  }); 
+});
+
+/* Delete donation item */
+router.post('/deleteDonationItem', function (req, res, next) {
+  const rowID = req.body.rowID
+  const itemID = rowID.split("-")[1]
+
+  var sql = 'delete from donation_items where id = ?';
+  synopticModel.query(sql, [itemID], function (error, result) {
+    if (error) throw error;
+    res.redirect('/myBusiness')
+  }); 
+});
+
+/* Delete entire donation */
+router.post('/deleteDonation', function (req, res, next) {
+  const tableID = req.body.tableID
+  const donationID = tableID.split("-")[0]
+
+  var sql = 'delete from donations where id = ?';
+  synopticModel.query(sql, [donationID], function (error, result) {
+    if (error) throw error;
+
+  //Delete all items in donation
+  var sql = 'delete from donation_items where donation_id = ?';
+  synopticModel.query(sql, [donationID], function (error, result) {
+    if (error) throw error;
+    res.redirect('/myBusiness')
+  }); 
   }); 
 });
 

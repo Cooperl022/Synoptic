@@ -8,6 +8,7 @@ head
 button#burger(onclick='toggleMenu()' role='Reveal Menu')
   img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
 #container
+  img#desktopLogo(src='images/Logo.png')
   #topnav(role='navigation')
     nav
       ul
@@ -35,6 +36,7 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
         a(href='/logout', style='all:unset') Logout
   button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
     img(src='images/SettingCogImage.png' style='width:37px' alt='mechanical cog')
+img#phoneLogo(src='images/Logo.png')
 #containerThree(role='Title of Page')
   | Food
 #containerTwo
@@ -84,11 +86,12 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
   
   br
   label(for='Halal') Halal 
-  input#Halal(type='checkbox' name='Halal' value='Halal' onclick='updateStockTable()')
+  input#Halal(style='margin-right: 30px' type='checkbox' name='Halal' value='Halal' onclick='updateStockTable()')
   label(for='Kosher') Kosher 
-  input#Kosher(type='checkbox' name='Kosher' value='Kosher' onclick='updateStockTable()')
+  input#Kosher(style='margin-right: 30px' type='checkbox' name='Kosher' value='Kosher' onclick='updateStockTable()')
   label(for='Vegetarian') Vegetarian 
   input#Vegetarian(type='checkbox' name='Vegetarian' value='Vegetarian' onclick='updateStockTable()')
+  br
   br
 
   #stock(role='Show available stock')
@@ -108,3 +111,10 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
         .expiryAndQuant
           .expiry #{item.expiry}
           .quantity #{item.quantity}
+#Footer
+  | &copy; Company
+  #footerImgs
+    img(src='images/Facebook_icon.png')
+    img(src='images/Instagram_icon.png')
+    img(src='images/Email_icon.png')
+
