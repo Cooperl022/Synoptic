@@ -8,6 +8,7 @@ head
 button#burger(onclick='toggleMenu()' role='Reveal Menu')
   img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
 #container
+  img#desktopLogo(src='images/Logo.png')
   #topnav(role='navigation')
     nav
       ul
@@ -35,6 +36,7 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
         a(href='/logout', style='all:unset') Logout
   button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
     img(src='images/SettingCogImage.png' style='width:37px' alt='mechanical cog')
+img#phoneLogo(src='images/Logo.png')
 #containerThree(role='Title of Page')
   | My Business
 #containerTwo
@@ -88,6 +90,7 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
             .itemName  #{item.item_name}
             .itemDescription #{item.item_description}
               br
+              br
               | #{item.filter}
           .expiryAndQuant
             .expiry #{item.expiry}
@@ -96,9 +99,9 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
 
     form#AddStock(action='#' method='post' role='Add stock to business')
       label(for='Halal') Halal 
-      input(type='checkbox' name='Halal' value='Halal')
+      input(style='margin-right: 30px' type='checkbox' name='Halal' value='Halal')
       label(for='Kosher') Kosher 
-      input(type='checkbox' name='Kosher' value='Kosher')
+      input(style='margin-right: 30px' type='checkbox' name='Kosher' value='Kosher')
       label(for='Vegetarian') Vegetarian 
       input(type='checkbox' name='Vegetarian' value='Vegetarian')
       .form-group
@@ -114,3 +117,31 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
         label(for='Quantity') Quantity:
         input#Quantity(name='Quantity' type='number' min='0' placeholder='0' max='999' required='')
       button#Add(type='submit' role='Add item to stock') Add 
+
+
+  for donation in donations
+    div(id=(donation.id + "-" + "table"))
+      #stock(role='shows donation')
+        button.Remove(onclick='removeDonation(this.parentNode.parentNode.id)') ✕
+        #rowHeads
+          .itemNameHead Item
+          .expiryHead Expiry date
+          .quantityHead Qty
+          .removeHead Delete
+        for item in donationItems
+          if item.donation_id == donation.id
+            //Row ID = Donation-ID - Donation-Item ID
+            .row(id=(donation.id + "-" + item.id))
+              .nameAndDesc
+                .itemName  #{item.item_name}
+                .itemDescription #{item.item_description}
+              .expiryAndQuant
+                .expiry #{item.expiry}
+                .quantity #{item.quantity}
+              button.Remove(onclick='removeDonationItem(this.parentNode.id)') ✕
+#Footer
+  | &copy; Company
+  #footerImgs
+    img(src='images/Facebook_icon.png')
+    img(src='images/Instagram_icon.png')
+    img(src='images/Email_icon.png')

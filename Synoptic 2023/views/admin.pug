@@ -7,6 +7,7 @@ head
 button#burger(onclick='toggleMenu()' role='Reveal Menu')
   img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
 #container
+  img#desktopLogo(src='images/Logo.png')
   #topnav(role='navigation')
     nav
       ul
@@ -34,6 +35,7 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
         a(href='/logout', style='all:unset') Logout
   button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
     img(src='images/SettingCogImage.png' style='width:37px' alt='mechanical cog')
+img#phoneLogo(src='images/Logo.png')
 #containerThree(role='Title of Page')
   | Admin
 #containerTwo
@@ -135,3 +137,9 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
           label(for='Quantity') Quantity:
           input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
       button#Add  Add 
+#Footer
+  | &copy; Company
+  #footerImgs
+    img(src='images/Facebook_icon.png')
+    img(src='images/Instagram_icon.png')
+    img(src='images/Email_icon.png')
