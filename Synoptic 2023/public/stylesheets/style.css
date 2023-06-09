@@ -93,7 +93,7 @@
     font-weight:400;
 }
 html, body{
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
@@ -360,6 +360,9 @@ hr.solid {
     font-size: 40px;
     font-weight: 600;
     padding-top: 40px;
+}
+#titleIndex{
+  text-decoration: underline;
 }
 #Information {
     font-size: 25px;
@@ -643,7 +646,7 @@ input, #isBusiness {
     box-shadow: none;
     position: fixed;
     display: none;
-    height: 500px;
+    height: auto;
     right: 0px;
     animation-duration: 0.6s;
   }
@@ -709,7 +712,7 @@ input, #isBusiness {
   display:none;
 }
 #map img{
-  width: 80%;
+  width: 95%;
 }
 #Main select{
   margin-top: 100px;

@@ -18,9 +18,9 @@ PRIMARY KEY(username)
 
 select * from users;
 /* Test users - passwrod = '12345' */
-INSERT INTO users (username, userpassword, account_type) VALUES("admin", "827ccb0eea8a706c4c34a16891f84e7b", "admin");
-INSERT INTO users (username, userpassword, email, account_type) VALUES("business123", "827ccb0eea8a706c4c34a16891f84e7b", "business@business.com", "business");
-INSERT INTO users VALUES("user", "name", "username123", "827ccb0eea8a706c4c34a16891f84e7b", "user@user.com", "user");
+INSERT INTO users VALUES("Will", "Jones", "will123", "827ccb0eea8a706c4c34a16891f84e7b", "admin@admin.com", "admin");
+INSERT INTO users VALUES("John", "Smith", "john123", "827ccb0eea8a706c4c34a16891f84e7b", "business@business.com", "business");
+INSERT INTO users VALUES("Ben", "Evans", "ben123", "827ccb0eea8a706c4c34a16891f84e7b", "user@user.com", "user");
 
 create table stock (
 id INT NOT NULL	AUTO_INCREMENT,
@@ -69,7 +69,7 @@ PRIMARY KEY(id)
 
 select * from donation_items;
 
-INSERT INTO foodPlaces VALUES(1, "Some random cafe", "business123", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
+INSERT INTO foodPlaces VALUES(1, "Some random cafe", "john123", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
 INSERT INTO foodPlaces VALUES(2, "A food bank", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
 INSERT INTO foodPlaces VALUES(3, "Another cafe", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
 

@@ -161,7 +161,7 @@ function toggleConfirmations() {
   
     setTimeout(function() {
       confirmations.style.display = "none";
-    }, 550);
+    }, 600);
   } else {
     confirmations.style.animationName = "slide-down";
     confirmations.style.display = "flex";
@@ -177,7 +177,7 @@ function toggleAdminBusinesses() {
   
     setTimeout(function() {
       adminBusinesses.style.display = "none";
-    }, 550);
+    }, 600);
   } else {
     adminBusinesses.style.animationName = "slide-down";
     adminBusinesses.style.display = "block";
@@ -197,9 +197,7 @@ function toggleAdminBusinesses() {
         var lightD = "#FCFFC9";
         var darkD = "#FBFFB6";
       
-        function applyStyles(){
-
-        }
+  
         dyslexicCheckbox.addEventListener('change', function() {
           if (this.checked) {
             highContrastCheckbox.checked = false; 
@@ -302,6 +300,12 @@ function toggleAdminBusinesses() {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
 
+            //#Footer
+            var Footer = document.querySelectorAll("#Footer");
+            Footer.forEach(function(input) {
+                input.style.backgroundColor = darkD;
+            });
+
           } else {
             //Body 
             document.body.style.backgroundColor = "#fffcf4";
@@ -400,6 +404,12 @@ function toggleAdminBusinesses() {
             var burger = document.querySelectorAll("#burger");
             burger.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
+            });
+
+            //#Footer
+            var Footer = document.querySelectorAll("#Footer");
+            Footer.forEach(function(input) {
+                input.style.backgroundColor = "#fcf1c8";
             });
           }
         });
@@ -512,6 +522,12 @@ function toggleAdminBusinesses() {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
 
+            //#Footer
+            var Footer = document.querySelectorAll("#Footer");
+            Footer.forEach(function(input) {
+                input.style.backgroundColor = lightD;
+            });
+
           } else {
             //Body 
             document.body.style.backgroundColor = "#fffcf4";
@@ -611,6 +627,11 @@ function toggleAdminBusinesses() {
             burger.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
+            //#Footer
+            var Footer = document.querySelectorAll("#Footer");
+            Footer.forEach(function(input) {
+                input.style.backgroundColor = "#fcf1c8";
+            });
           }
         });
 
@@ -636,11 +657,11 @@ function toggleAdminBusinesses() {
 
       language.addEventListener('change', function() {
         if (this.value == "Fre") {
-          titleIndex.innerHTML = "Hub de Grub";
-          information.innerHTML = "Le info Le info Le info Le info Le info Le info Le info";
+          titleIndex.innerHTML = "Partager-une-Assiette!";
+          information.innerHTML = "Autonomiser les communautés, un repas à la fois";
         } else {
-          titleIndex.innerHTML = "GrubHub";
-          information.innerHTML = "Info Info Info Info `Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info InfoInfoInfoInfo Info Info Info Info Info Info Info";
+          titleIndex.innerHTML = "Share-a-Plate!";
+          information.innerHTML = "Empowering Communities, One Meal at a Time";
         }
       });
 

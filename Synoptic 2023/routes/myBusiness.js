@@ -36,8 +36,7 @@ router.get('/', function(req, res, next) {
     } else {
       sql = 'select first_name, last_name, email from users where username in (?)'
       synopticModel.query(sql, [donorUsernames], function (error, donors) {
-        if (error) throw error;
-        console.log(donors)   
+        if (error) throw error; 
 
       sql = 'select * from donation_items where donation_id in (?)'
       synopticModel.query(sql, [donationIds], function (error, donationItems) {

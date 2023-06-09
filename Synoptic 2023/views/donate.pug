@@ -101,11 +101,8 @@ img#phoneLogo(src='images/Logo.png')
         .removeHead Delete
     if !loggedIn
       p You must be logged in!
-    else if accountType == 'user'
-      button#Submit(onclick='submitDonation()') Submit 
     else
-      p You must sign in to a user account to donate!
-      br
+      button#Submit(onclick='submitDonation()') Submit 
 #Footer
   | &copy; Company
   #footerImgs
