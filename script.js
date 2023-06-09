@@ -620,10 +620,10 @@ function toggleAdminBusinesses() {
       language.addEventListener('change', function() {
         if (this.value == "Fre") {
           titleIndex.innerHTML = "Hub de Grub";
-          information.innerHTML = "Le info Le info Le info Le info Le info Le info Le info";
+          information.innerHTML = "Autonomiser les communautés, un repas à la fois";
         } else {
           titleIndex.innerHTML = "GrubHub";
-          information.innerHTML = "Info Info Info Info `Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info Info InfoInfoInfoInfo Info Info Info Info Info Info Info";
+          information.innerHTML = "Empowering Communities, One Meal at a Time";
         }
       });
 
