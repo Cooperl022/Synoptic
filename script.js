@@ -144,7 +144,7 @@ function toggleConfirmations() {
   
     setTimeout(function() {
       confirmations.style.display = "none";
-    }, 550);
+    }, 600);
   } else {
     confirmations.style.animationName = "slide-down";
     confirmations.style.display = "flex";
@@ -160,7 +160,7 @@ function toggleAdminBusinesses() {
   
     setTimeout(function() {
       adminBusinesses.style.display = "none";
-    }, 550);
+    }, 600);
   } else {
     adminBusinesses.style.animationName = "slide-down";
     adminBusinesses.style.display = "block";
@@ -180,9 +180,7 @@ function toggleAdminBusinesses() {
         var lightD = "#FCFFC9";
         var darkD = "#FBFFB6";
       
-        function applyStyles(){
-
-        }
+        
         dyslexicCheckbox.addEventListener('change', function() {
           if (this.checked) {
             highContrastCheckbox.checked = false; 
@@ -642,10 +640,10 @@ function toggleAdminBusinesses() {
 
       language.addEventListener('change', function() {
         if (this.value == "Fre") {
-          titleIndex.innerHTML = "Hub de Grub";
+          titleIndex.innerHTML = "Partager-une-Assiette!";
           information.innerHTML = "Autonomiser les communautés, un repas à la fois";
         } else {
-          titleIndex.innerHTML = "GrubHub";
+          titleIndex.innerHTML = "Share-a-Plate!";
           information.innerHTML = "Empowering Communities, One Meal at a Time";
         }
       });
