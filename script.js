@@ -285,6 +285,12 @@ function toggleAdminBusinesses() {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
 
+            //#Footer
+            var Footer = document.querySelectorAll("#Footer");
+            Footer.forEach(function(input) {
+                input.style.backgroundColor = darkD;
+            });
+
           } else {
             //Body 
             document.body.style.backgroundColor = "#fffcf4";
@@ -383,6 +389,12 @@ function toggleAdminBusinesses() {
             var burger = document.querySelectorAll("#burger");
             burger.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
+            });
+
+            //#Footer
+            var Footer = document.querySelectorAll("#Footer");
+            Footer.forEach(function(input) {
+                input.style.backgroundColor = "#fcf1c8";
             });
           }
         });
@@ -495,6 +507,12 @@ function toggleAdminBusinesses() {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
             });
 
+            //#Footer
+            var Footer = document.querySelectorAll("#Footer");
+            Footer.forEach(function(input) {
+                input.style.backgroundColor = lightD;
+            });
+
           } else {
             //Body 
             document.body.style.backgroundColor = "#fffcf4";
@@ -593,6 +611,11 @@ function toggleAdminBusinesses() {
             var burger = document.querySelectorAll("#burger");
             burger.forEach(function(input) {
                 input.style.backgroundColor = "rgba(0,0,0,0)";
+            });
+            //#Footer
+            var Footer = document.querySelectorAll("#Footer");
+            Footer.forEach(function(input) {
+                input.style.backgroundColor = "#fcf1c8";
             });
           }
         });
