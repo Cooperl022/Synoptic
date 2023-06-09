@@ -586,6 +586,28 @@ input, #isBusiness {
   }
   
   
+  @media (max-width:1050px){
+    #LoginSection {
+      display: flex;
+      align-items: flex-start;
+    }
+  
+    #inputContainer {
+      display: flex;
+      flex-direction: column;
+      margin-right: -29px;
+    }
+  
+    input {
+      margin: 2px 0px;
+    }
+
+    #login {
+      align-self: flex-end;
+    }
+    
+    
+  }
 
 /*Phone CSS*/
 
@@ -635,7 +657,7 @@ input, #isBusiness {
     box-shadow: none;
     position: fixed;
     display: none;
-    height: auto;
+    height: 500px;
     right: 0px;
     animation-duration: 0.6s;
   }
@@ -727,7 +749,7 @@ input, #isBusiness {
 
   #LoginSection {
     font-size: 10px;
-    margin: 10px auto;
+    margin: -33px auto;
     display: block;
     right:auto;
     left: auto;
@@ -735,19 +757,25 @@ input, #isBusiness {
 
   }
 
+  #inputContainer{
+    margin: 0;
+    width: 100%;
+  }
+
   #LoginSection input {
     font-size: 15px;
     display: block;
     padding: 10px;
-    margin: 0px auto;
+    margin: 10px auto;
     text-align: center;
-    max-width: 200px;
+    width: 100%;
+    min-width: 134px;
   }
 
   #LoginSection button {
     font-size: 15px;
     display: block;
-    padding: 5px;
+    padding: 8px;
     margin: 5px auto;
     text-align: center;
   }
