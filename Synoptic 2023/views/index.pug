@@ -23,14 +23,15 @@ button#burger(onclick='toggleMenu()' role='Reveal Menu')
         if loggedIn && accountType == 'admin'
           li
             a(href='/admin') Admin
-  #LoginSection(role='login')
-    if ! loggedIn 
-      form(action='/login' method='post')
+  if ! loggedIn 
+    form(action='/login' method='post' id='LoginSection' role='login')
+      #inputContainer
         input#Username(type='text' name='username' placeholder='Username' required='')
         input#Password(type='password' name = 'password' placeholder='Password' required='')
-        button#login(type='submit') Login
-        br
-    if loggedIn
+      button#login(type='submit') Login
+      br
+  if loggedIn
+    #LoginSection(role='logout')
       button 
         a(href='/logout', style='all:unset') Logout
   button#settingsCog(onclick='toggleSettings()' role='Reveal Settings')
