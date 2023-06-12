@@ -638,14 +638,17 @@ function toggleAdminBusinesses() {
         //Checkbox in SignUp
         const isBusiness = document.getElementById('isBusiness');
         const businessName = document.getElementById('businessName');
+        const businessInfo= document.getElementById('businessInfo');
         const postcode = document.getElementById('postcode');
 
         isBusiness.addEventListener('change', function() {
           if (this.checked) {
             businessName.style.display = "inline-block";
+            businessInfo.style.display = "inline-block"
             postcode.style.display = "inline-block";
           } else{
             businessName.style.display = "none";
+            businessInfo.style.display = "none"
             postcode.style.display = "none";
           
         }

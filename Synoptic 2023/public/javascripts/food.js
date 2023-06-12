@@ -1,13 +1,14 @@
 function updateStockTable() {
 	const input = document.getElementById('foodDropDown')
 	const rows = document.getElementsByClassName('row')
-    const placeName = document.getElementById('Title')
-    
-    const Halal = document.getElementById('Halal')
-    const Kosher = document.getElementById('Kosher')
-    const Vegetarian = document.getElementById('Vegetarian')
+  const placeName = document.getElementById('Title')
+  const infoDivs = document.getElementsByClassName('info')
 
-    var toFilter = ""
+  const Halal = document.getElementById('Halal')
+  const Kosher = document.getElementById('Kosher')
+  const Vegetarian = document.getElementById('Vegetarian')
+
+  var toFilter = ""
     if (Halal.checked) {
         toFilter += Halal.value + ' '
       } 
@@ -21,7 +22,16 @@ function updateStockTable() {
       console.log(toFilter)
 
     placeName.innerHTML = input.value
-    
+
+    for (i = 0; i < infoDivs.length; i++) {
+      if (infoDivs[i].id == (input.selectedIndex +  '_desc')) {
+        infoDivs[i].style.display = "inline"
+      }
+      else {
+        infoDivs[i].style.display = "none"
+      }
+    }
+
     for (i = 0; i < rows.length; i++) {
         var filter = rows[i].getElementsByClassName('nameAndDesc')[0].getElementsByClassName('filterText')[0].textContent
         

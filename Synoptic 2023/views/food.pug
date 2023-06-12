@@ -78,9 +78,12 @@ img#phoneLogo(src='images/Logo.png')
     hr.solid
   #Title(role='Foodbank name')
   br
-  #Information(role='Foodbank information')
-    //TO DO - Load description of selected place
-  
+
+  for foodPlace in foodPlaces
+    div(id=foodPlace.id + '_desc' class='info' style='display: none')
+      #Information(role='Foodbank information')
+        | #{foodPlace.place_description }
+    
   | Stock 
   button.Dropdown(onclick='toggleStock()' role='Reveal Stock')
     img(src='images/BlackTriangle.png' alt='upside down black triangle')
@@ -108,7 +111,7 @@ img#phoneLogo(src='images/Logo.png')
         .nameAndDesc
           .itemName #{item.item_name}
           .itemDescription #{item.item_description}
-          .filterText #{item.filter}
+          .filterText(style='display:none') #{item.filter}
         .expiryAndQuant
           .expiry #{item.expiry}
           .quantity #{item.quantity}
