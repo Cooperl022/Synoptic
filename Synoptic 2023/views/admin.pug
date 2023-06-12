@@ -67,24 +67,22 @@ img#phoneLogo(src='images/Logo.png')
   br
   #confirmations
     .confirmGroup
-      #Title  Title 
-      br
-      #EmailAdmin Example@example.com
-      br
-      #Information
-        | informationinformation informationinformationinformationinformation information information informationinformation information information
-      button  Confirm
-      button  Deny 
-    .confirmGroup
-      #Title  Title 
-      br
-      #EmailAdmin Example@example.com
-      br
-      #Information
-        | informationinformation informationinformationinformationinformation information information informationinformation information information
-      button  Confirm
-      button  Deny 
-  .divider
+      for request in pending
+        .row
+          .nameAndDesc
+            .itemName(name='bName') #{request.business_name}
+            .itemDescription #{request.email}
+          .expiryAndQuant
+            .expiry #{request.postcode}
+            .quantity #{request.address}
+            // Use the `checked` property if you want one of the options to be preselected
+          form(action='/admin' method='post')
+            input#nameReq(type='radio' value=request.business_name name='bName' style='display: none' checked='')
+            input#acceptReq(type='radio' value='yes' name='isAccepted')
+            |         Accept
+            input#denyReq(type='radio' value='no' name='isAccepted')
+            |         Deny
+            button#confirmBtn(type='submit') Confirm?
     hr.solid
   | Businesses 
   button.Dropdown(onclick='toggleAdminBusinesses()' role='reveal Donate')

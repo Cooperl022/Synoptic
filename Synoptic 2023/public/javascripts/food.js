@@ -1,8 +1,9 @@
 function updateStockTable() {
-	const input = document.getElementById('foodDropDown')
+	const input = document.getElementById('geocoder')
 	const rows = document.getElementsByClassName('row')
   const placeName = document.getElementById('Title')
   const infoDivs = document.getElementsByClassName('info')
+  const placeID = []
 
   const Halal = document.getElementById('Halal')
   const Kosher = document.getElementById('Kosher')
@@ -21,7 +22,12 @@ function updateStockTable() {
       toFilter.trim()
       console.log(toFilter)
 
-    placeName.innerHTML = input.value
+    for (i = 0; i < input.length; i++) {
+      placeID.push(input[i].getAttribute('placeID'));
+      if (i == input.selectedIndex){
+          placeName.innerHTML = placeID[i];
+      }
+    }
 
     for (i = 0; i < infoDivs.length; i++) {
       if (infoDivs[i].id == (input.selectedIndex +  '_desc')) {

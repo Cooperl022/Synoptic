@@ -68,7 +68,7 @@ function removeRow(e) {
 }
 
 function submitDonation(e) {
-    const place_name = document.getElementById('foodDropDown')
+    const place_name = document.getElementById('geocoder')
     const rows = document.getElementsByClassName('row')
     if (place_name.selectedIndex == "") {
         alert("You must select a place to donate to")

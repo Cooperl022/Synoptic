@@ -8,7 +8,7 @@ last_name VARCHAR(90),
 username VARCHAR(45),
 userpassword VARCHAR(128),
 email VARCHAR(128),
-account_type VARCHAR(50) DEFAULT 'user', 
+account_type VARCHAR(50) DEFAULT 'user',
 PRIMARY KEY(username)
 );
 
@@ -21,6 +21,16 @@ select * from users;
 INSERT INTO users VALUES("Will", "Jones", "will123", "827ccb0eea8a706c4c34a16891f84e7b", "admin@admin.com", "admin");
 INSERT INTO users VALUES("John", "Smith", "john123", "827ccb0eea8a706c4c34a16891f84e7b", "business@business.com", "business");
 INSERT INTO users VALUES("Ben", "Evans", "ben123", "827ccb0eea8a706c4c34a16891f84e7b", "user@user.com", "user");
+
+create table pending (
+username VARCHAR(128),
+email VARCHAR(128),
+address VARCHAR(128),
+business_name VARCHAR(90),
+postcode VARCHAR(100),
+account_type VARCHAR(50) DEFAULT 'business',
+PRIMARY KEY(username)
+);
 
 create table stock (
 id INT NOT NULL	AUTO_INCREMENT,
@@ -40,9 +50,10 @@ INSERT INTO stock VALUES(1, "Some random cafe", "Apple", "apple fruit", 100, "30
 create table foodPlaces (
 id INT NOT NULL	AUTO_INCREMENT,
 place_name VARCHAR(100) NOT NULL,
-place_username VARCHAR(100) NOT NULL,
+place_username VARCHAR (100),
+place_email VARCHAR(100),
 place_address VARCHAR(500),
-place_description VARCHAR(1000),
+place_postcode VARCHAR(100),
 PRIMARY KEY(id)
 );
 

@@ -4,6 +4,9 @@ head
   link(rel='stylesheet' href='stylesheets/style.css')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
+  script(src='javascripts/geocode.js')
+  link(rel='stylesheet' href='https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css' type='text/css')
+  script(src='https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js')
 button#burger(onclick='toggleMenu()' role='Reveal Menu')
   img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
 #container
@@ -67,11 +70,63 @@ img#phoneLogo(src='images/Logo.png')
   br
   #Information(role='Company information')
     | Empowering Communities, One Meal at a Time
+  br
+  select#geocoder(onChange='simpleGeocoding(this)')
+    option(value="") -
+      for foodPlace in foodPlaces
+        option(value=foodPlace.place_address title=foodPlace.place_postcode) #{foodPlace.place_name}
+  br
   |   Map 
   button.Dropdown(onclick='toggleMap()' role='Reveal map')
     img(src='images/BlackTriangle.png' alt='upside down black triangle')
-  #map
-    img(src='images/map.png')
+  #map.olMap(style='height: 100%; width: 50%; display: block; margin-left: auto; margin-right: auto;')
+  script(type='text/javascript').
+    window.onload(initMap());
+
+    function initMap(){
+      map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-4.3129328021312725, 55.861298921351555]),
+          minZoom: 14,
+          maxZoom: 20,
+          zoom: 14
+        }),
+      });
+
+      map.on('wheel', function (event) {
+        if (ol.events.condition.shiftKeyOnly(event) !== true)
+          event.browserEvent.preventDefault();
+      });
+    }
+
+    function addMarker(coord){
+
+      var layer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+          features: [
+            new ol.Feature({
+
+              geometry: new ol.geom.Point(ol.proj.fromLonLat(coord))
+            })
+          ]
+        }),
+        style: new ol.style.Style({
+          image: new ol.style.Icon({
+            anchor: [0.5, 1],
+            crossOrigin: 'anonymous',
+            src: 'https://docs.maptiler.com/openlayers/default-marker/marker-icon.png',
+          })
+        })
+      });
+      map.addLayer(layer);
+    }
+  script(src="https://cdn.jsdelivr.net/npm/elm-pep@1.0.6/dist/elm-pep.js")
   .divider
     hr.solid
   if ! loggedIn
@@ -82,25 +137,27 @@ img#phoneLogo(src='images/Logo.png')
     #signUp
       label
         | Are you a business? 
-        input#isBusiness(type='checkbox')
+    form(action='/register' method='post')
+      input#isBusiness(type='checkbox' value='yes' name='isBusiness')
       br
-      input#firstName(type='text' placeholder='firstName' size='100')
+      input#firstName(type='text' name='fName' placeholder='firstName' size='100' required='')
       br
-      input#secondName(type='text' placeholder='secondName' size='100')
+      input#secondName(type='text' name='lName' placeholder='secondName' size='100' required='')
       br
-      input#email(type='text' placeholder='Email' size='100')
+      input#email(type='text' name='email' placeholder='Email' size='100' required='')
       br
-      input#usernameSignUp(type='text' placeholder='Username' size='100')
+      input#usernameSignUp(type='text' name='username' placeholder='Username' size='100' required='')
       br
-      input#passwordSignUp(type='password' placeholder='Password' size='100')
+      input#passwordSignUp(type='password' name='password' placeholder='Password' size='100' required='')
       br
-      input#businessName(type='text' placeholder='businessName' size='100')
       br
-      input#businessInfo(type='text' placeholder='businessInfo' size='100')
+      input#businessName(type='text' name='bName' placeholder='businessName' size='100')
       br
-      input#postcode(type='text' placeholder='postcode' size='100')
+      input#postcode(type='text' name='postcode' placeholder='postcode' size='100')
       br
-      button#signUpBtn Signup
+      input#bAddress(type='text' name='bAddress' placeholder='address' size='100')
+      br
+      button#signUpBtn(type='submit') Signup
       br
 #Footer
   | &copy; Company

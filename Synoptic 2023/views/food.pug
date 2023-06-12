@@ -5,6 +5,9 @@ head
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
   script(src='javascripts/food.js')
+  script(src='javascripts/geocode.js')
+  link(rel='stylesheet' href='https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css' type='text/css')
+  script(src='https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js')
 button#burger(onclick='toggleMenu()' role='Reveal Menu')
   img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
 #container
@@ -63,17 +66,63 @@ img#phoneLogo(src='images/Logo.png')
   button#settingsCogSecond(onclick='toggleSettings()' role='open settings')
     img(src='images/SettingCogImage.png' alt='mechanical cog')
 #Main
-  select#foodDropDown(name='FoodBanks' OnChange='updateStockTable()')
+  select#geocoder(name='FoodBanks' OnChange='updateStockTable(); simpleGeocoding(this);')
     option(value="") -
     for foodPlace in foodPlaces
-      option(value=foodPlace.place_id) #{foodPlace.place_name}
+      option(value=foodPlace.place_address title=foodPlace.place_postcode placeID=foodPlace.place_name) #{foodPlace.place_name}
 
   br
   | Map 
   button.Dropdown(onclick='toggleMap()' role='Reveal Map')
     img(src='images/BlackTriangle.png' alt ='upside down black triangle')
-  #map
-    img(src='images/map.png' style='height:auto;width:50%')
+  #map.olMap(style='height: 100%; width: 50%; display: block; margin-left: auto; margin-right: auto;')
+  script(type='text/javascript').
+    window.onload(initMap());
+
+    function initMap(){
+        map = new ol.Map({
+          target: 'map',
+        layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-4.3129328021312725, 55.861298921351555]),
+          minZoom: 14,
+          maxZoom: 20,
+          zoom: 14
+          }),
+        });
+
+        map.on('wheel', function (event) {
+        if (ol.events.condition.shiftKeyOnly(event) !== true)
+          event.browserEvent.preventDefault();
+        });
+    }
+
+    function addMarker(coord) {
+
+      var layer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+          features: [
+            new ol.Feature({
+
+              geometry: new ol.geom.Point(ol.proj.fromLonLat(coord))
+            })
+          ]
+        }),
+        style: new ol.style.Style({
+          image: new ol.style.Icon({
+            anchor: [0.5, 1],
+            crossOrigin: 'anonymous',
+            src: 'https://docs.maptiler.com/openlayers/default-marker/marker-icon.png',
+          })
+        })
+      });
+      map.addLayer(layer);
+    }
+  script(src="https://cdn.jsdelivr.net/npm/elm-pep@1.0.6/dist/elm-pep.js")
   .divider
     hr.solid
   #Title(role='Foodbank name')
