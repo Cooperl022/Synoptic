@@ -34,7 +34,7 @@ router.get('/', function(req, res, next) {
         donors = []
         res.render('myBusiness', { placeInfo: infoResult[0], stock: stockResult, loggedIn: req.session.loggedIn, accountType: req.session.accountType, donations: donations, donationItems: donationItems, donors: donors });    
     } else {
-      sql = 'select first_name, last_name, email from users where username in (?)'
+      sql = 'select username, first_name, last_name, email from users where username in (?)'
       synopticModel.query(sql, [donorUsernames], function (error, donors) {
         if (error) throw error; 
 

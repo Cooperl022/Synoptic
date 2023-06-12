@@ -125,12 +125,12 @@ img#phoneLogo(src='images/Logo.png')
       div(id=(donation.id + "-" + "table"))
         #stock(role='shows donation')
           for donor in donors
-            if donor.username = donation.donor_username
-            p.donorNameHead 
-              | #{donor.first_name} 
-              | #{donor.last_name} - 
-              | #{donor.email}
-              button.Remove(onclick='removeDonation(this.parentNode.parentNode.parentNode.id)') ✕
+            if donor.username == donation.donor_username
+              p.donorNameHead 
+                | #{donor.first_name} 
+                | #{donor.last_name} - 
+                | #{donor.email}
+                button.Remove(onclick='removeDonation(this.parentNode.parentNode.parentNode.id)') ✕
           br 
           #rowHeads
             .itemNameHead Item
