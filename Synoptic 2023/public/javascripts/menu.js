@@ -86,7 +86,6 @@ function toggleDonate(){
       
       
 
-
 function toggleAddStock() {
   var stock = document.getElementById("AddStockContainer");
   var stockIsOpen = window.getComputedStyle(stock).display === "block";
@@ -638,19 +637,22 @@ function toggleAdminBusinesses() {
         //Checkbox in SignUp
         const isBusiness = document.getElementById('isBusiness');
         const businessName = document.getElementById('businessName');
-        const businessInfo= document.getElementById('businessInfo');
         const postcode = document.getElementById('postcode');
+        const bAddress = document.getElementById('bAddress');
+        const businessInfo= document.getElementById('businessInfo');
+
 
         isBusiness.addEventListener('change', function() {
           if (this.checked) {
             businessName.style.display = "inline-block";
-            businessInfo.style.display = "inline-block"
             postcode.style.display = "inline-block";
+            bAddress.style.display = "inline-block";
+            businessInfo.style.display = "inline-block";
           } else{
             businessName.style.display = "none";
-            businessInfo.style.display = "none"
             postcode.style.display = "none";
-          
+            bAddress.style.display = "none";
+            businessInfo.style.display = "none";
         }
       });
 

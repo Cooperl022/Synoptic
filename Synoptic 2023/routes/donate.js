@@ -1,6 +1,14 @@
 const synopticModel = require('../models/synoptic');
 var express = require('express');
 var router = express.Router();
+var nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'signupbackendtestuser@gmail.com',
+    pass: 'sxnltfhekpjeqspt'
+  },
+});
 
 /* GET donate page. */
 router.get('/', function(req, res, next) {
@@ -14,14 +22,49 @@ router.get('/', function(req, res, next) {
 /* Add Donation */
 router.post('/addDonation', function (req, res, next) {
   const donor = req.session.username
-  const place_name = req.body.place_name
+  const place_address = req.body.place_name;
+
+  var sql = 'select place_email from foodPlaces where place_address = ?';
+  synopticModel.query(sql, [place_address], function(error, result) {
+
+    if (error) throw error
+
+    const place_email = result[0].place_email;
+    console.log(place_email);
+
+    var sql = 'select email from users where username = ?';
+    synopticModel.query(sql, [donor], function(error, result) {
+
+      if (error) throw error
+
+      const donor_email = result[0].email;
+      console.log(donor_email);
+
+
+      var mailOptions = {
+        from: 'signupbackendtestuser@gmail.com',
+        to: [donor_email, place_email],
+        subject: 'Donation Confirmation',
+        text: 'Items will be sent'
+      };
+
+      transporter.sendMail(mailOptions, (error, info)=>{
+        if (error) {
+          console.log(error);
+        }
+        else {
+          console.log('Email sent: ' + info.response);
+        }
+      })
+    });
+  });
 
   var sql = 'select id from foodPlaces where place_name = ?';
   synopticModel.query(sql, [place_name], function (error, place_id) {
       if (error) throw error;
 
   var sql = 'insert into donations (donor_username, place_id) VALUES (?, ?)';
-  synopticModel.query(sql, [donor, place_id[0].id], function (error, donationID) {
+  synopticModel.query(sql, [donor, place_id[0]], function (error, donationID) {
       if (error) throw error;
   
   var sql = 'select LAST_INSERT_ID() AS last';
