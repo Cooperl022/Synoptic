@@ -11,11 +11,23 @@ router.get('/', function(req, res, next) {
     synopticModel.query(sql, function (error, pendingResult) {
       if (error) throw error;
 
+  var sql = 'select * from foodPlaces'
+  synopticModel.query(sql, function (error, placesResult) {
+    if (error) throw error;
+
+  var sql = 'select * from stock'
+  synopticModel.query(sql, function (error, stockResult) {
+    if (error) throw error;
+
       res.render('admin', {
         pending: pendingResult,
         loggedIn: req.session.loggedIn,
-        accountType: req.session.accountType
+        accountType: req.session.accountType,
+        foodPlaces: placesResult,
+        stock: stockResult
       });
+    });
+    });
     });
   }
 });
@@ -59,5 +71,29 @@ router.post('/', function (req, res, next) {
   };
 });
 
+router.post('/addStock', function (req, res, next) {
+  const place_id = req.body.place_id
+  const itemName = req.body.itemName
+  const itemDesc = req.body.description
+  const expiry = req.body.expiryDate
+  const quantity = req.body.quantity
+  const filter = req.body.filter
+
+  var sql = 'insert into stock (place_id, item_name, item_description, expiry, quantity, filter) VALUES (?, ?, ?, ?, ?, ?)';
+  synopticModel.query(sql, [place_id, itemName, itemDesc, expiry, quantity, filter], function (error, result) {
+    if (error) throw error;
+    res.redirect('back')
+  }); 
+});
+
+router.post('/deleteStock', function (req, res, next) {
+  const stockID = req.body.stockID
+
+  var sql = 'delete from stock where id = ?';
+  synopticModel.query(sql, [stockID], function (error, result) {
+    if (error) throw error;
+    res.redirect('back')
+  }); 
+});
 
 module.exports = router;

@@ -97,11 +97,11 @@ img#phoneLogo(src='images/Logo.png')
 
     form#AddStock(action='#' method='post' role='Add stock to business')
       label(for='Halal') Halal 
-      input(style='margin-right: 30px' type='checkbox' name='Halal' value='Halal')
+      input#Halal(style='margin-right: 30px' type='checkbox' name='Halal' value='Halal')
       label(for='Kosher') Kosher 
-      input(style='margin-right: 30px' type='checkbox' name='Kosher' value='Kosher')
+      input#Kosher(style='margin-right: 30px' type='checkbox' name='Kosher' value='Kosher')
       label(for='Vegetarian') Vegetarian 
-      input(type='checkbox' name='Vegetarian' value='Vegetarian')
+      input#Vegetarian(type='checkbox' name='Vegetarian' value='Vegetarian')
       .form-group
         label(for='ItemName') Item Name:
         input#ItemName(name='ItemName' type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')

@@ -4,6 +4,7 @@ head
   link(rel='stylesheet' href='stylesheets/style.css')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   script(src='javascripts/menu.js')
+  script(src='javascripts/admin.js')
 button#burger(onclick='toggleMenu()' role='Reveal Menu')
   img(src='images/BurgerMenuIcon.png' style='width:30px' alt ='3 individual lines alignd vertically')
 #container
@@ -96,40 +97,34 @@ img#phoneLogo(src='images/Logo.png')
     img(src='images/BlackTriangle.png' alt='upside down black triangle')
   br
   #adminBusinesses
-    select#selectAdmin(name='FoodBanks' role='Choose foodbank')
-      option(value='PlaceA') PlaceA
-      option(value='PlaceB') PlaceB
-      option(value='PlaceC') PlaceC
-      option(value='PlaceD') PlaceD
+    select#foodDropDown(name='FoodBanks' OnChange='updateStockTable()')
+      option(value="") -
+      for foodPlace in foodPlaces
+        option(value=foodPlace.place_id) #{foodPlace.place_name}
     br
-    #stock(role='stock being donated')
+    #stock(role='shows stock available')
       #rowHeads
         .itemNameHead Item
         .expiryHead Expiry date
         .quantityHead Qty
         .removeHead Delete
-      // copy and paste from here
-      .row
-        .nameAndDesc
-          .itemName Hamburger
-          .itemDescription
-            | It&apos;s a hamburger from meeeeeeeeee askdjsakjdsd sadkdbshIt&apos;s a hamburger from meeeeeeeeee askdj
-        .expiryAndQuant
-          .expiry 20/03/23
-          .quantity 2
-        button.Remove ✕
-      // to here for unlimited rows
-      .row
-        .nameAndDesc
-          .itemName Hamburger
-          .itemDescription It&apos;s a hamburger from me
-        .expiryAndQuant
-          .expiry 20/03/23
-          .quantity 2
-        button.Remove ✕
-      br
+      for item in stock
+        .row(id=item.place_id style='display: none' stockID=item.id )
+          .nameAndDesc
+            .itemName  #{item.item_name}
+            .itemDescription #{item.item_description}
+          .expiryAndQuant
+            .expiry #{item.expiry}
+            .quantity #{item.quantity}
+          button.Remove(onclick='removeStock(this.parentNode)') ✕
     #businessAdmin(role='view stock')
-      form
+      form#AddStockForm
+        label(for='Halal') Halal 
+        input#Halal(style='margin-right: 30px' type='checkbox' name='Halal' value='Halal')
+        label(for='Kosher') Kosher 
+        input#Kosher(style='margin-right: 30px' type='checkbox' name='Kosher' value='Kosher')
+        label(for='Vegetarian') Vegetarian 
+        input#Vegetarian(type='checkbox' name='Vegetarian' value='Vegetarian')
         .form-group
           label(for='ItemName') Item Name:
           input#ItemName(type='text' placeholder='Name' minlength='2' maxlength='20' size='20' required='')
@@ -142,7 +137,7 @@ img#phoneLogo(src='images/Logo.png')
         .form-group
           label(for='Quantity') Quantity:
           input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
-      button#Add  Add 
+      button#Add(onclick='addStock()') Add 
 #Footer
   | &copy; Company
   #footerImgs
