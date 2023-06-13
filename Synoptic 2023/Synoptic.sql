@@ -20,8 +20,6 @@ PRIMARY KEY(username)
 select * from users;
 /* Test users - passwrod = '12345' */
 INSERT INTO users VALUES("Will", "Jones", "will123", "827ccb0eea8a706c4c34a16891f84e7b", "mathhew.chinnery@gmail.com", "admin");
-INSERT INTO users VALUES("John", "Smith", "john123", "827ccb0eea8a706c4c34a16891f84e7b", "mathhew.chinnery@gmail.com", "business");
-INSERT INTO users VALUES("Ben", "Evans", "ben123", "827ccb0eea8a706c4c34a16891f84e7b", "mathhew.chinnery@gmail.com", "user");
 
 create table pending (
 username VARCHAR(128),
@@ -91,3 +89,9 @@ INSERT INTO foodPlaces VALUES(3, "Another cafe", "owner name", "mathhew.chinnery
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; flush privileges;
 
+drop table users;
+drop table pending;
+drop table foodPlaces;
+drop table donations;
+drop table donation_items;
+drop table stock
