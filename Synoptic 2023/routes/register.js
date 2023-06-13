@@ -24,6 +24,7 @@ router.post('/', function (req, res, next) {
     const email = req.body.email;
     const isBusiness = req.body.isBusiness;
     const bName = req.body.bName;
+    const bInfo = req.body.bInfo;
     const bAddress = req.body.bAddress;
     const postcode = req.body.postcode;
 
@@ -38,14 +39,21 @@ router.post('/', function (req, res, next) {
       else if (password.length < 3) {
           res.redirect('/');}
       else if (isBusiness == 'yes'){
-          sql = 'insert into pending (username, email, address, business_name, postcode) VALUES (?, ?, ?, ?, ?)';
-          synopticModel.query(sql, [username, email, bAddress, bName, postcode]);
-          sql = 'insert into users (first_name, last_name, username, userpassword, email) VALUES (?, ?, ?, ?, ?)';
-          synopticModel.query(sql, [fName, lName, username, hash, email]);
-          res.redirect('/');
-      }
-      //else if (password != confirmPassword) {
-        //res.render('index', { status: "Password does not match"}) }
+        sql = 'select * from foodPlaces where place_name = ?';
+        synopticModel.query(sql, [bName], function (error, result) {
+          if (error) throw error;
+          if (result.length > 0) {
+          //Business name takem
+            res.redirect('/');}
+          else {
+            sql = 'insert into pending (username, email, address, business_name, business_info, postcode) VALUES (?, ?, ?, ?, ?, ?)';
+            synopticModel.query(sql, [username, email, bAddress, bName, bInfo, postcode]);
+            sql = 'insert into users (first_name, last_name, username, userpassword, email) VALUES (?, ?, ?, ?, ?)';
+            synopticModel.query(sql, [fName, lName, username, hash, email]);
+            res.redirect('/');
+          }
+        });
+        }
       else {
         //Username not taken
         sql = 'insert into users (first_name, last_name, username, userpassword, email) VALUES (?, ?, ?, ?, ?)';

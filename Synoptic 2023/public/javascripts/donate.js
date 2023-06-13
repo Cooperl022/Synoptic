@@ -68,9 +68,19 @@ function removeRow(e) {
 }
 
 function submitDonation(e) {
-    const place_name = document.getElementById('geocoder')
+    const place_info = document.getElementById('geocoder')
     const rows = document.getElementsByClassName('row')
-    if (place_name.selectedIndex == "") {
+    const placeID = []
+
+
+    for (i = 0; i < place_info.length; i++) {
+        placeID.push(place_info[i].getAttribute('placeID'));
+        if (i == place_info.selectedIndex){
+            var place_name = placeID[i];
+        }
+      }
+
+    if (place_info.selectedIndex == "") {
         alert("You must select a place to donate to")
     }
     else if (rows.length == 0) {
@@ -88,7 +98,7 @@ function submitDonation(e) {
             quants.push(rows[i].getElementsByClassName('expiryAndQuant')[0].getElementsByClassName('quantity')[0].textContent)
         }
 
-        let message = { place_name: place_name.value,  itemNames: itemNames, descriptions: descriptions, expiryDates: expiryDates, quants: quants }
+        let message = { place_address: place_info.value,  place_name: place_name, itemNames: itemNames, descriptions: descriptions, expiryDates: expiryDates, quants: quants }
         const serializedMessage = JSON.stringify(message)
 
         fetch('/donate/addDonation', {method: 'POST',

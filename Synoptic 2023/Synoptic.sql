@@ -2,6 +2,7 @@ create database synoptic;
 
 use synoptic;
 
+
 create table users (
 first_name VARCHAR (90),
 last_name VARCHAR(90),
@@ -18,19 +19,22 @@ PRIMARY KEY(username)
 
 select * from users;
 /* Test users - passwrod = '12345' */
-INSERT INTO users VALUES("Will", "Jones", "will123", "827ccb0eea8a706c4c34a16891f84e7b", "admin@admin.com", "admin");
-INSERT INTO users VALUES("John", "Smith", "john123", "827ccb0eea8a706c4c34a16891f84e7b", "business@business.com", "business");
-INSERT INTO users VALUES("Ben", "Evans", "ben123", "827ccb0eea8a706c4c34a16891f84e7b", "user@user.com", "user");
+INSERT INTO users VALUES("Will", "Jones", "will123", "827ccb0eea8a706c4c34a16891f84e7b", "mathhew.chinnery@gmail.com", "admin");
+INSERT INTO users VALUES("John", "Smith", "john123", "827ccb0eea8a706c4c34a16891f84e7b", "mathhew.chinnery@gmail.com", "business");
+INSERT INTO users VALUES("Ben", "Evans", "ben123", "827ccb0eea8a706c4c34a16891f84e7b", "mathhew.chinnery@gmail.com", "user");
 
 create table pending (
 username VARCHAR(128),
 email VARCHAR(128),
 address VARCHAR(128),
 business_name VARCHAR(90),
+business_info VARCHAR(250),
 postcode VARCHAR(100),
 account_type VARCHAR(50) DEFAULT 'business',
 PRIMARY KEY(username)
 );
+
+select * from pending;
 
 create table stock (
 id INT NOT NULL	AUTO_INCREMENT,
@@ -54,9 +58,10 @@ place_username VARCHAR (100),
 place_email VARCHAR(100),
 place_address VARCHAR(500),
 place_postcode VARCHAR(100),
+place_description VARCHAR(250),
 PRIMARY KEY(id)
 );
-
+	
 select * from foodPlaces;
 
 create table donations (
@@ -80,9 +85,9 @@ PRIMARY KEY(id)
 
 select * from donation_items;
 
-INSERT INTO foodPlaces VALUES(1, "Some random cafe", "john123", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
-INSERT INTO foodPlaces VALUES(2, "A food bank", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
-INSERT INTO foodPlaces VALUES(3, "Another cafe", "owner name", "business address", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
+INSERT INTO foodPlaces VALUES(1, "Some random cafe", "john123", "mathhew.chinnery@gmail.com", "business address", "Gs1", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
+INSERT INTO foodPlaces VALUES(2, "A food bank", "owner name", "mathhew.chinnery@gmail.com", "business address", "GS1", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
+INSERT INTO foodPlaces VALUES(3, "Another cafe", "owner name", "mathhew.chinnery@gmail.com", "business address", "Gs1", "infoinfoinfoinfoinfoinfoinfoinfoinfo");
 
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; flush privileges;
 

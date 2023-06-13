@@ -22,7 +22,10 @@ router.get('/', function(req, res, next) {
 /* Add Donation */
 router.post('/addDonation', function (req, res, next) {
   const donor = req.session.username
-  const place_address = req.body.place_name;
+  const place_address = req.body.place_address;
+  const place_name = req.body.place_name;
+  console.log(place_address);
+  console.log(place_name);
 
   var sql = 'select place_email from foodPlaces where place_address = ?';
   synopticModel.query(sql, [place_address], function(error, result) {
@@ -56,15 +59,13 @@ router.post('/addDonation', function (req, res, next) {
           console.log('Email sent: ' + info.response);
         }
       })
-    });
-  });
 
   var sql = 'select id from foodPlaces where place_name = ?';
   synopticModel.query(sql, [place_name], function (error, place_id) {
       if (error) throw error;
 
   var sql = 'insert into donations (donor_username, place_id) VALUES (?, ?)';
-  synopticModel.query(sql, [donor, place_id[0]], function (error, donationID) {
+  synopticModel.query(sql, [donor, place_id[0].id], function (error, donationID) {
       if (error) throw error;
   
   var sql = 'select LAST_INSERT_ID() AS last';
@@ -82,6 +83,8 @@ router.post('/addDonation', function (req, res, next) {
       if (error) throw error;
     }); 
   } 
+  });
+  });
   });
   }); 
   });

@@ -135,30 +135,31 @@ img#phoneLogo(src='images/Logo.png')
       img(src='images/BlackTriangle.png' alt='upside down black triangle')
     br
     #signUp
-      label
-        | Are you a business? 
-    form(action='/register' method='post')
-      input#isBusiness(type='checkbox' value='yes' name='isBusiness')
-      br
-      input#firstName(type='text' name='fName' placeholder='firstName' size='100' required='')
-      br
-      input#secondName(type='text' name='lName' placeholder='secondName' size='100' required='')
-      br
-      input#email(type='text' name='email' placeholder='Email' size='100' required='')
-      br
-      input#usernameSignUp(type='text' name='username' placeholder='Username' size='100' required='')
-      br
-      input#passwordSignUp(type='password' name='password' placeholder='Password' size='100' required='')
-      br
-      br
-      input#businessName(type='text' name='bName' placeholder='businessName' size='100')
-      br
-      input#postcode(type='text' name='postcode' placeholder='postcode' size='100')
-      br
-      input#bAddress(type='text' name='bAddress' placeholder='address' size='100')
-      br
-      button#signUpBtn(type='submit') Signup
-      br
+      form(action='/register' method='post')
+        label
+          | Are you a business? 
+        input#isBusiness(type='checkbox' value='yes' name='isBusiness')
+        br
+        input#firstName(type='text' name='fName' placeholder='firstName' size='100' required='')
+        br
+        input#secondName(type='text' name='lName' placeholder='secondName' size='100' required='')
+        br
+        input#email(type='text' name='email' placeholder='Email' size='100' required='')
+        br
+        input#usernameSignUp(type='text' name='username' placeholder='Username' size='100' required='')
+        br
+        input#passwordSignUp(type='password' name='password' placeholder='Password' size='100' required='')
+        br
+        input#businessName(type='text' name='bName' placeholder='businessName' size='100')
+        br
+        input#businessInfo(type='text' name='bInfo' placeholder='businessInfo' size='200')
+        br
+        input#postcode(type='text' name='postcode' placeholder='postcode' size='100')
+        br
+        input#bAddress(type='text' name='bAddress' placeholder='address' size='100')
+        br
+        button#signUpBtn(type='submit') Signup
+        br
 #Footer
   | &copy; Company
   #footerImgs

@@ -66,23 +66,30 @@ img#phoneLogo(src='images/Logo.png')
     img(src='images/BlackTriangle.png' alt='upside down black triangle')
   br
   #confirmations
-    .confirmGroup
-      for request in pending
-        .row
-          .nameAndDesc
-            .itemName(name='bName') #{request.business_name}
-            .itemDescription #{request.email}
-          .expiryAndQuant
-            .expiry #{request.postcode}
-            .quantity #{request.address}
-            // Use the `checked` property if you want one of the options to be preselected
-          form(action='/admin' method='post')
-            input#nameReq(type='radio' value=request.business_name name='bName' style='display: none' checked='')
-            input#acceptReq(type='radio' value='yes' name='isAccepted')
-            |         Accept
-            input#denyReq(type='radio' value='no' name='isAccepted')
-            |         Deny
-            button#confirmBtn(type='submit') Confirm?
+    for request in pending
+      .confirmGroup
+        #Title  #{request.business_name} 
+        br
+        #EmailAdmin #{request.email}
+        br
+        #Information
+          | #{request.business_info}
+        | #{request.address}
+        br
+        br
+        | #{request.postcode}
+        br
+        br
+        form(action='/admin' method='post')
+          input#nameReq(type='radio' value=request.business_name name='bName' style='display: none' checked='')
+          input#acceptReq(style='padding: 5px'  type='radio' value='yes' name='isAccepted')
+          label(style='margin: 10px'  for='acceptReq') Accept 
+          input#denyReq(style='padding:5px' type='radio' value='no' name='isAccepted')
+          label(style='margin:10px' for='denyReq') Deny 
+          br
+          button#confirmBtn(type='submit') Confirm?
+          
+  .divider
     hr.solid
   | Businesses 
   button.Dropdown(onclick='toggleAdminBusinesses()' role='reveal Donate')

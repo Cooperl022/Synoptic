@@ -34,12 +34,13 @@ router.post('/', function (req, res, next) {
 
       const pUsername = result[0].username;
       const pName = result[0].business_name;
+      const pInfo = result[0].business_info;
       const pAddress = result[0].address;
       const pEmail = result[0].email;
       const pPostcode = result[0].postcode;
 
-      var sql = 'insert into foodPlaces (place_name, place_username, place_address, place_email, place_postcode) VALUES (?, ?, ?, ?, ?)';
-      synopticModel.query(sql, [pName, pUsername, pAddress, pEmail, pPostcode]);
+      var sql = 'insert into foodPlaces (place_name, place_description, place_username, place_address, place_email, place_postcode) VALUES (?, ?, ?, ?, ?, ?)';
+      synopticModel.query(sql, [pName, pInfo, pUsername, pAddress, pEmail, pPostcode]);
 
       var sql = 'update users set account_type = "business" where username = ?';
       synopticModel.query(sql, [pUsername]);

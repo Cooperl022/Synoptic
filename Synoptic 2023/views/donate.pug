@@ -69,7 +69,7 @@ img#phoneLogo(src='images/Logo.png')
   select#geocoder(name='FoodBanks' role='Choose foodbank' onchange='simpleGeocoding(this)')
     option(value="") -
     for foodPlace in foodPlaces
-      option(value=foodPlace.place_address title=foodPlace.place_postcode) #{foodPlace.place_name}
+      option(value=foodPlace.place_address title=foodPlace.place_postcode placeID=foodPlace.place_name) #{foodPlace.place_name}
   br
   | Map 
   button.Dropdown(onclick='toggleMap()' role='Reveal Map')
@@ -142,6 +142,7 @@ img#phoneLogo(src='images/Logo.png')
       .form-group
         label(for='Quantity') Quantity:
         input#Quantity(type='number' min='0' placeholder='0' max='999' required='')
+      .form-group
         button#Add(type='submit') Add
     #stock(role='Stock being donated')
       #rowHeads

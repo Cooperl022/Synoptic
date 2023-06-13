@@ -541,7 +541,7 @@ input, #isBusiness {
   }
   .confirmGroup{
     margin-bottom: 60px;
-    width: fit-content;
+    width: 90%;
     padding-bottom: 30px;
     border-style: solid;
     /*Using CSS box shadow generator*/
