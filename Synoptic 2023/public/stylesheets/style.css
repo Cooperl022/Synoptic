@@ -336,9 +336,6 @@ input:checked + .slider:before {
 }
 #map{
   animation-duration: 0.6s;
-  
-}
-#map img{
   width: 50%;
   margin-bottom: 40px;
 }
@@ -733,7 +730,7 @@ input, #isBusiness {
 #settingsCogSecond {
   display:none;
 }
-#map img{
+#map{
   width: 95%;
 }
 #Main select{
